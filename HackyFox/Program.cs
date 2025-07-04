@@ -9,8 +9,7 @@ namespace HackyFox
         static void Main()
         {
             // To customize application configuration such as set high DPI settings or default font,
-            // see https://aka.ms/applicationconfiguration.
-            ApplicationConfiguration.Initialize();
+            // see https://aka.m.Initialize();
             Application.Run(new Leccion());
         }
     }
