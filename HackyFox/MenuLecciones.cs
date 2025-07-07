@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,10 +13,11 @@ namespace HackyFox
 {
     public partial class MenuLecciones : Form
     {
+
         public MenuLecciones()
         {
             InitializeComponent();
-        }
+        } 
 
         //Redimensionar imagen de botones
         private void MenuLecciones_Load(object sender, EventArgs e)
@@ -93,6 +95,13 @@ namespace HackyFox
         private void btnSalir_Click(object sender, EventArgs e)
         {
             MenuLecciones menuLecciones = new MenuLecciones();
+            this.Close();
+        }
+
+        private void btnInfo_Click(object sender, EventArgs e)
+        {
+            Leccion leccion = new Leccion();
+            leccion.ShowDialog();
             this.Close();
         }
     }

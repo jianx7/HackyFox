@@ -249,7 +249,7 @@
             btnDinamic.Padding = new Padding(10, 0, 0, 0);
             btnDinamic.Size = new Size(627, 83);
             btnDinamic.TabIndex = 2;
-            btnDinamic.Text = "button1";
+            btnDinamic.Text = "¡Cuidado!";
             btnDinamic.TextAlign = ContentAlignment.MiddleLeft;
             btnDinamic.UseVisualStyleBackColor = true;
             // 
@@ -285,9 +285,10 @@
             btnInfo.Padding = new Padding(10, 0, 0, 0);
             btnInfo.Size = new Size(627, 83);
             btnInfo.TabIndex = 0;
-            btnInfo.Text = "button1";
+            btnInfo.Text = "¿Qué es la ciberseguridad?";
             btnInfo.TextAlign = ContentAlignment.MiddleLeft;
             btnInfo.UseVisualStyleBackColor = true;
+            btnInfo.Click += btnInfo_Click;
             // 
             // lbTema
             // 

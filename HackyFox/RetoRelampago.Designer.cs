@@ -69,7 +69,7 @@
             // 
             // PicRetoRelampagoT
             // 
-            PicRetoRelampagoT.Image = Properties.Resources.Pantallas_HackyFox__2_;
+            PicRetoRelampagoT.Image = Properties.Resources.Pantallas_HackyFox_2;
             PicRetoRelampagoT.Location = new Point(275, 68);
             PicRetoRelampagoT.Name = "PicRetoRelampagoT";
             PicRetoRelampagoT.Size = new Size(678, 99);
@@ -79,7 +79,7 @@
             // 
             // PicRetoFondo
             // 
-            PicRetoFondo.Image = Properties.Resources.Pantallas_HackyFox__3_;
+            PicRetoFondo.Image = Properties.Resources.Pantallas_HackyFox_3;
             PicRetoFondo.Location = new Point(92, 100);
             PicRetoFondo.Name = "PicRetoFondo";
             PicRetoFondo.Size = new Size(979, 561);
