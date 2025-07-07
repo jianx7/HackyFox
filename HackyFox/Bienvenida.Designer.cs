@@ -34,6 +34,7 @@
             lbBienvenida = new Label();
             btnIniciarSesion = new Btn_personalizado();
             btnRegistrarse = new Btn_personalizado();
+            btnBienvenidaCerrar = new Btn_personalizado();
             ((System.ComponentModel.ISupportInitialize)pbLogoBienvenida).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pbFondoBienvenida).BeginInit();
             SuspendLayout();
@@ -42,7 +43,7 @@
             // 
             pbLogoBienvenida.BackColor = Color.FromArgb(242, 242, 242);
             pbLogoBienvenida.Image = (Image)resources.GetObject("pbLogoBienvenida.Image");
-            pbLogoBienvenida.Location = new Point(319, 144);
+            pbLogoBienvenida.Location = new Point(335, 141);
             pbLogoBienvenida.Name = "pbLogoBienvenida";
             pbLogoBienvenida.Size = new Size(487, 135);
             pbLogoBienvenida.SizeMode = PictureBoxSizeMode.Zoom;
@@ -53,24 +54,24 @@
             // pbFondoBienvenida
             // 
             pbFondoBienvenida.Image = (Image)resources.GetObject("pbFondoBienvenida.Image");
-            pbFondoBienvenida.Location = new Point(108, 94);
+            pbFondoBienvenida.Location = new Point(85, 69);
             pbFondoBienvenida.Name = "pbFondoBienvenida";
-            pbFondoBienvenida.Size = new Size(901, 552);
-            pbFondoBienvenida.SizeMode = PictureBoxSizeMode.StretchImage;
+            pbFondoBienvenida.Size = new Size(949, 599);
+            pbFondoBienvenida.SizeMode = PictureBoxSizeMode.Zoom;
             pbFondoBienvenida.TabIndex = 1;
             pbFondoBienvenida.TabStop = false;
             pbFondoBienvenida.Click += pbFondoBienvenida_Click;
             // 
             // lbBienvenida
             // 
-            lbBienvenida.AutoSize = true;
             lbBienvenida.BackColor = Color.FromArgb(242, 242, 242);
-            lbBienvenida.Font = new Font("Clear Sans", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lbBienvenida.Location = new Point(469, 309);
+            lbBienvenida.Font = new Font("Clear Sans", 15F, FontStyle.Bold);
+            lbBienvenida.Location = new Point(469, 311);
             lbBienvenida.Name = "lbBienvenida";
             lbBienvenida.Size = new Size(180, 39);
             lbBienvenida.TabIndex = 2;
             lbBienvenida.Text = "¡Bienvenido!";
+            lbBienvenida.TextAlign = ContentAlignment.MiddleCenter;
             lbBienvenida.Click += lbBienvenida_Click;
             // 
             // btnIniciarSesion
@@ -80,7 +81,7 @@
             btnIniciarSesion.FlatStyle = FlatStyle.Flat;
             btnIniciarSesion.Font = new Font("Comfortaa", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnIniciarSesion.ForeColor = Color.FromArgb(97, 54, 37);
-            btnIniciarSesion.Location = new Point(469, 393);
+            btnIniciarSesion.Location = new Point(469, 373);
             btnIniciarSesion.Name = "btnIniciarSesion";
             btnIniciarSesion.Size = new Size(195, 63);
             btnIniciarSesion.TabIndex = 3;
@@ -95,7 +96,7 @@
             btnRegistrarse.FlatStyle = FlatStyle.Flat;
             btnRegistrarse.Font = new Font("Comfortaa", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnRegistrarse.ForeColor = Color.FromArgb(97, 54, 37);
-            btnRegistrarse.Location = new Point(469, 508);
+            btnRegistrarse.Location = new Point(469, 465);
             btnRegistrarse.Name = "btnRegistrarse";
             btnRegistrarse.Size = new Size(195, 63);
             btnRegistrarse.TabIndex = 4;
@@ -103,12 +104,28 @@
             btnRegistrarse.UseVisualStyleBackColor = false;
             btnRegistrarse.Click += btnRegistrarse_Click;
             // 
+            // btnBienvenidaCerrar
+            // 
+            btnBienvenidaCerrar.BackColor = Color.FromArgb(174, 225, 235);
+            btnBienvenidaCerrar.FlatAppearance.BorderSize = 0;
+            btnBienvenidaCerrar.FlatStyle = FlatStyle.Flat;
+            btnBienvenidaCerrar.Font = new Font("Comfortaa", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnBienvenidaCerrar.ForeColor = Color.FromArgb(97, 54, 37);
+            btnBienvenidaCerrar.Location = new Point(469, 555);
+            btnBienvenidaCerrar.Name = "btnBienvenidaCerrar";
+            btnBienvenidaCerrar.Size = new Size(195, 63);
+            btnBienvenidaCerrar.TabIndex = 5;
+            btnBienvenidaCerrar.Text = "Cerrar";
+            btnBienvenidaCerrar.UseVisualStyleBackColor = false;
+            btnBienvenidaCerrar.Click += btnBienvenidaCerrar_Click;
+            // 
             // PantallaBienvenida
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(255, 241, 62);
             ClientSize = new Size(1108, 726);
+            Controls.Add(btnBienvenidaCerrar);
             Controls.Add(btnRegistrarse);
             Controls.Add(btnIniciarSesion);
             Controls.Add(lbBienvenida);
@@ -123,7 +140,6 @@
             ((System.ComponentModel.ISupportInitialize)pbLogoBienvenida).EndInit();
             ((System.ComponentModel.ISupportInitialize)pbFondoBienvenida).EndInit();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
@@ -133,5 +149,6 @@
         private Label lbBienvenida;
         private Btn_personalizado btnIniciarSesion;
         private Btn_personalizado btnRegistrarse;
+        private Btn_personalizado btnBienvenidaCerrar;
     }
 }

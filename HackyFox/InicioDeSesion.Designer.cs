@@ -36,6 +36,7 @@
             tbAliasInicioDeSesion = new TextBox();
             pbMascotaInicioDeSesion = new PictureBox();
             btnCorroborarAlias = new Btn_personalizado();
+            btnIniciarSesionRegresar = new Btn_personalizado();
             ((System.ComponentModel.ISupportInitialize)pbFondoInicioDeSesion).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pbLogoInicioDeSesion).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pbMascotaInicioDeSesion).BeginInit();
@@ -66,7 +67,7 @@
             lbInicioDeSesion.BackColor = Color.FromArgb(242, 242, 242);
             lbInicioDeSesion.Font = new Font("Comfortaa", 18F, FontStyle.Bold);
             lbInicioDeSesion.ForeColor = Color.FromArgb(0, 151, 178);
-            lbInicioDeSesion.Location = new Point(360, 257);
+            lbInicioDeSesion.Location = new Point(358, 237);
             lbInicioDeSesion.Name = "lbInicioDeSesion";
             lbInicioDeSesion.Size = new Size(409, 116);
             lbInicioDeSesion.TabIndex = 3;
@@ -79,7 +80,7 @@
             lbAliasInicioDeSesion.BackColor = Color.FromArgb(242, 242, 242);
             lbAliasInicioDeSesion.Font = new Font("Comfortaa", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lbAliasInicioDeSesion.ForeColor = Color.FromArgb(97, 54, 37);
-            lbAliasInicioDeSesion.Location = new Point(393, 411);
+            lbAliasInicioDeSesion.Location = new Point(382, 376);
             lbAliasInicioDeSesion.Name = "lbAliasInicioDeSesion";
             lbAliasInicioDeSesion.Size = new Size(333, 28);
             lbAliasInicioDeSesion.TabIndex = 4;
@@ -88,10 +89,12 @@
             // tbAliasInicioDeSesion
             // 
             tbAliasInicioDeSesion.BackColor = Color.FromArgb(196, 211, 217);
-            tbAliasInicioDeSesion.Location = new Point(403, 502);
+            tbAliasInicioDeSesion.Font = new Font("Comfortaa", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            tbAliasInicioDeSesion.ForeColor = Color.FromArgb(97, 54, 37);
+            tbAliasInicioDeSesion.Location = new Point(382, 447);
             tbAliasInicioDeSesion.Multiline = true;
             tbAliasInicioDeSesion.Name = "tbAliasInicioDeSesion";
-            tbAliasInicioDeSesion.Size = new Size(312, 40);
+            tbAliasInicioDeSesion.Size = new Size(312, 49);
             tbAliasInicioDeSesion.TabIndex = 5;
             tbAliasInicioDeSesion.TextAlign = HorizontalAlignment.Center;
             tbAliasInicioDeSesion.TextChanged += tbAliasInicioDeSesion_TextChanged;
@@ -100,7 +103,7 @@
             // 
             pbMascotaInicioDeSesion.BackColor = Color.FromArgb(242, 242, 242);
             pbMascotaInicioDeSesion.Image = (Image)resources.GetObject("pbMascotaInicioDeSesion.Image");
-            pbMascotaInicioDeSesion.Location = new Point(745, 464);
+            pbMascotaInicioDeSesion.Location = new Point(713, 433);
             pbMascotaInicioDeSesion.Name = "pbMascotaInicioDeSesion";
             pbMascotaInicioDeSesion.Size = new Size(82, 87);
             pbMascotaInicioDeSesion.SizeMode = PictureBoxSizeMode.Zoom;
@@ -114,13 +117,28 @@
             btnCorroborarAlias.FlatStyle = FlatStyle.Flat;
             btnCorroborarAlias.Font = new Font("Comfortaa", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnCorroborarAlias.ForeColor = Color.FromArgb(97, 54, 37);
-            btnCorroborarAlias.Location = new Point(418, 591);
+            btnCorroborarAlias.Location = new Point(415, 525);
             btnCorroborarAlias.Name = "btnCorroborarAlias";
-            btnCorroborarAlias.Size = new Size(266, 89);
+            btnCorroborarAlias.Size = new Size(247, 87);
             btnCorroborarAlias.TabIndex = 9;
             btnCorroborarAlias.Text = "¡Justo como lo recordaba!";
             btnCorroborarAlias.UseVisualStyleBackColor = false;
             btnCorroborarAlias.Click += btnCorroborarAlias_Click;
+            // 
+            // btnIniciarSesionRegresar
+            // 
+            btnIniciarSesionRegresar.BackColor = Color.FromArgb(174, 225, 235);
+            btnIniciarSesionRegresar.FlatAppearance.BorderSize = 0;
+            btnIniciarSesionRegresar.FlatStyle = FlatStyle.Flat;
+            btnIniciarSesionRegresar.Font = new Font("Comfortaa", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnIniciarSesionRegresar.ForeColor = Color.FromArgb(97, 54, 37);
+            btnIniciarSesionRegresar.Location = new Point(451, 633);
+            btnIniciarSesionRegresar.Name = "btnIniciarSesionRegresar";
+            btnIniciarSesionRegresar.Size = new Size(175, 60);
+            btnIniciarSesionRegresar.TabIndex = 10;
+            btnIniciarSesionRegresar.Text = "Regresar";
+            btnIniciarSesionRegresar.UseVisualStyleBackColor = false;
+            btnIniciarSesionRegresar.Click += btnIniciarSesionRegresar_Click;
             // 
             // PantallaInicioDeSesion
             // 
@@ -128,6 +146,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(255, 241, 62);
             ClientSize = new Size(1108, 726);
+            Controls.Add(btnIniciarSesionRegresar);
             Controls.Add(btnCorroborarAlias);
             Controls.Add(pbMascotaInicioDeSesion);
             Controls.Add(tbAliasInicioDeSesion);
@@ -139,6 +158,7 @@
             MinimumSize = new Size(950, 600);
             Name = "PantallaInicioDeSesion";
             Text = "HackyFox-Inicio de sesión";
+            Load += PantallaInicioDeSesion_Load;
             ((System.ComponentModel.ISupportInitialize)pbFondoInicioDeSesion).EndInit();
             ((System.ComponentModel.ISupportInitialize)pbLogoInicioDeSesion).EndInit();
             ((System.ComponentModel.ISupportInitialize)pbMascotaInicioDeSesion).EndInit();
@@ -155,5 +175,6 @@
         private TextBox tbAliasInicioDeSesion;
         private PictureBox pbMascotaInicioDeSesion;
         private Btn_personalizado btnCorroborarAlias;
+        private Btn_personalizado btnIniciarSesionRegresar;
     }
 }
