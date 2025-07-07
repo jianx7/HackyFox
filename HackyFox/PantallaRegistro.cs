@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-ï»¿using System;
-=======
 using System;
->>>>>>> 8ac104b44fbdefeaf883d9d608715bdeb8b367bd
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -17,12 +13,6 @@ namespace HackyFox
 {
     public partial class PantallaRegistro : Form
     {
-<<<<<<< HEAD
-         string cadenaConexion = "server = localhost; username = root; password = rubi2006; database = hackyfox";
-        public PantallaRegistro()
-        {
-            InitializeComponent();
-=======
         string cadenaConexion = "server=localhost;username=root;password=rubi2006;database=hackyfox";
 
         Dictionary<Control, Rectangle> controlesOriginales = new Dictionary<Control, Rectangle>();
@@ -32,23 +22,10 @@ namespace HackyFox
         {
             InitializeComponent();
             this.Resize += PantallaRegistro_Resize;
->>>>>>> 8ac104b44fbdefeaf883d9d608715bdeb8b367bd
         }
 
         private void PantallaRegistro_Load(object sender, EventArgs e)
         {
-<<<<<<< HEAD
-          
-        }
-
-        private void btnRegistroAlias_Click(object sender, EventArgs e)
-        {
-            if (string.IsNullOrWhiteSpace(tbNacimiento.Text) || string.IsNullOrWhiteSpace(tbAliasRegistro.Text))
-            {
-                MessageBox.Show("Por favor, llena todos los campos.");
-                return;
-               }
-=======
             tamañoFormularioOriginal = this.ClientSize;
 
             // Fuente base (puedes usar cualquier label como referencia)
@@ -64,6 +41,7 @@ namespace HackyFox
             controlesOriginales[tbAliasRegistro] = tbAliasRegistro.Bounds;
             controlesOriginales[btnRegistroAlias] = btnRegistroAlias.Bounds;
             controlesOriginales[pbFondoRegistro] = pbFondoRegistro.Bounds;
+            controlesOriginales[btnRegistroRegresar] = btnRegistroRegresar.Bounds;
 
         }
 
@@ -89,19 +67,18 @@ namespace HackyFox
                 }
             }
         }
-        
+
 
         private void btnRegistroAlias_Click(object sender, EventArgs e)
         {
 
             if (string.IsNullOrWhiteSpace(dTPNacimiento.Text) || string.IsNullOrWhiteSpace(tbAliasRegistro.Text))
             {
-                MessageBox.Show("Por favor, llena todos los campos.");
+                MessageBox.Show("¡Oops! Aún hay casillas vacías. ¿Puedes completarlas?");
                 return;
             }
 
             string aliasIngresado = tbAliasRegistro.Text.Trim();
->>>>>>> 8ac104b44fbdefeaf883d9d608715bdeb8b367bd
 
             try
             {
@@ -109,15 +86,6 @@ namespace HackyFox
                 {
                     conexion.Open();
 
-<<<<<<< HEAD
-
-                    string query = "INSERT INTO alias (fecha_nacimiento, alias) " +
-                       "VALUES (@fecha_nacimiento, @alias)";
-                    MySqlCommand comando = new MySqlCommand(query, conexion);
-
-                    comando.Parameters.AddWithValue("@fecha_nacimiento", tbAliasRegistro.Text);
-                    comando.Parameters.AddWithValue("@alias", tbNacimiento.Text);
-=======
                     // 1. Verificar si el alias ya existe
                     string verificarAlias = "SELECT COUNT(*) FROM alias WHERE LOWER(alias) = LOWER(@alias)";
                     MySqlCommand verificarCmd = new MySqlCommand(verificarAlias, conexion);
@@ -127,7 +95,7 @@ namespace HackyFox
 
                     if (existe > 0)
                     {
-                        MessageBox.Show("Ese alias ya está registrado. Elige otro diferente.");
+                        MessageBox.Show("¡Ups! Ese nombre ya está ocupado. Elige uno único para ti.");
                         return;
                     }
 
@@ -145,28 +113,27 @@ namespace HackyFox
 
                     insertCmd.ExecuteNonQuery();
 
-                    MessageBox.Show("¡Muy bien hecho, acabas de terminar tu registro!");
->>>>>>> 8ac104b44fbdefeaf883d9d608715bdeb8b367bd
+                    MessageBox.Show("¡Buen trabajo! ¡Tu nombre quedó registrado con éxito!");
                 }
             }
             catch (Exception ex)
             {
-<<<<<<< HEAD
-                MessageBox.Show("Error al guardar: " +Â ex.Message);
-            }
-           
-        }
-    }
-}
-=======
-                MessageBox.Show("Error al guardar: " + ex.Message);
+                MessageBox.Show("¡Uy! Algo salió mal al guardar. Inténtalo otra vez." + ex.Message);
             }
         }
 
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
-           
+
+        }
+
+        private void btnRegistroRegresar_Click(object sender, EventArgs e)
+        {
+            PantallaBienvenida volver = new PantallaBienvenida();
+            volver.StartPosition = FormStartPosition.Manual;
+            volver.Location = this.Location;
+            volver.Show();
+            this.Close(); // Cierra PantallaRegistro
         }
     }
 }
->>>>>>> 8ac104b44fbdefeaf883d9d608715bdeb8b367bd
