@@ -23,32 +23,13 @@ namespace HackyFox
         private void MenuLecciones_Load(object sender, EventArgs e)
         {
             //Panel de menú
-
+            foreach (Button menuButton in panelMenu.Controls.OfType<Button>())
+            {
+                menuButton.Image = new Bitmap(menuButton.Image, new Size(52, 52));
+            }
             //Menu
             btnMenu.Image = Properties.Resources.menu;
             btnMenu.Image = new Bitmap(Properties.Resources.menu, new Size(52, 52));
-            //Usuario
-            btnUser.Image = Properties.Resources.user;
-            btnUser.Image = new Bitmap(Properties.Resources.user, new Size(52, 52));
-            //Lecciones
-            btnLecciones.Image = Properties.Resources.book;
-            btnLecciones.Image = new Bitmap(Properties.Resources.book, new Size(52, 52));
-            //Mascota
-            btnMascota.Image = Properties.Resources.mascota;
-            btnMascota.Image = new Bitmap(Properties.Resources.mascota, new Size(52, 52));
-
-            //Botones de lecciones
-
-            //Info
-            btnInfo.Image = Properties.Resources.flecha;
-            btnInfo.Image = new Bitmap(Properties.Resources.flecha, new Size(52, 52));
-            //Reto
-            btnReto.Image = Properties.Resources._lock;
-            btnReto.Image = new Bitmap(Properties.Resources._lock, new Size(52, 52));
-            //Dinamica
-            btnDinamic.Image = Properties.Resources._lock;
-            btnDinamic.Image = new Bitmap(Properties.Resources._lock, new Size(52, 52));
-
         }
 
         private void btnMenu_Click(object sender, EventArgs e)
@@ -100,9 +81,18 @@ namespace HackyFox
 
         private void btnInfo_Click(object sender, EventArgs e)
         {
-            Leccion leccion = new Leccion();
-            leccion.ShowDialog();
-            this.Close();
+            DialogResult resultado = MessageBox.Show
+           (
+             "¿Estás seguro que quieres salir del juego?",
+             "Salir",
+             MessageBoxButtons.YesNo,
+             MessageBoxIcon.Question
+           );
+
+            if (resultado == DialogResult.Yes)
+            {
+                Application.Exit(); // Cierra toda la aplicación
+            }
         }
     }
 }
