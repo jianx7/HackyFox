@@ -8,12 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+using static HackyFox.PantallaInicioDeSesion;
 
 namespace HackyFox
 {
     public partial class PantallaRegistro : Form
     {
-        string cadenaConexion = "server=localhost;username=root;password=rubi2006;database=hackyfox";
+        string cadenaConexion = "server=localhost;username=root;password=rute;database=hackyfox";
 
         Dictionary<Control, Rectangle> controlesOriginales = new Dictionary<Control, Rectangle>();
         Size tamañoFormularioOriginal;
@@ -23,6 +24,8 @@ namespace HackyFox
             InitializeComponent();
             this.Resize += PantallaRegistro_Resize;
         }
+
+
 
         private void PantallaRegistro_Load(object sender, EventArgs e)
         {
@@ -114,6 +117,31 @@ namespace HackyFox
                     insertCmd.ExecuteNonQuery();
 
                     MessageBox.Show("¡Buen trabajo! ¡Tu nombre quedó registrado con éxito!");
+
+
+
+                    // Obtener el ID del alias recién registrado
+                    string idQuery = "SELECT id_alias FROM alias WHERE alias = @alias LIMIT 1;";
+                    MySqlCommand idCmd = new MySqlCommand(idQuery, conexion);
+                    idCmd.Parameters.AddWithValue("@alias", aliasIngresado);
+                    int idAlias = Convert.ToInt32(idCmd.ExecuteScalar());
+
+                    // Insertar registro en progreso_general
+                    string progresoQuery = @"INSERT INTO progreso_general 
+                   (id_alias, total_lecciones, lecciones_completadas, porcentaje_global, fecha_creacion, fecha_actualizacion)
+                    VALUES (@idAlias, 0, 0, 0.00, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);";
+                    MySqlCommand progresoCmd = new MySqlCommand(progresoQuery, conexion);
+                    progresoCmd.Parameters.AddWithValue("@idAlias", idAlias);
+                    progresoCmd.ExecuteNonQuery();
+
+                   
+
+                    // Redirigir al formulario principal
+                    MenuLecciones menu = new MenuLecciones();
+                    menu.StartPosition = FormStartPosition.Manual;
+                    menu.Location = this.Location;
+                    menu.Show();
+                    this.Close(); // Cierra PantallaRegistro
                 }
             }
             catch (Exception ex)
