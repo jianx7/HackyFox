@@ -12,9 +12,15 @@ namespace HackyFox
 {
     public partial class RetoRelampago : Form
     {
-        public RetoRelampago()
+        private int idLeccionActual;
+
+        // Constructor que acepta un argumento
+        public RetoRelampago(int idLeccionActual)
         {
+            this.idLeccionActual = idLeccionActual;
             InitializeComponent();
+      
         }
+
     }
 }

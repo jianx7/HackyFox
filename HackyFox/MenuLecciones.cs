@@ -75,24 +75,26 @@ namespace HackyFox
 
         private void btnSalir_Click(object sender, EventArgs e)
         {
-            MenuLecciones menuLecciones = new MenuLecciones();
-            this.Close();
-        }
-
-        private void btnInfo_Click(object sender, EventArgs e)
-        {
             DialogResult resultado = MessageBox.Show
-           (
-             "¿Estás seguro que quieres salir del juego?",
-             "Salir",
-             MessageBoxButtons.YesNo,
-             MessageBoxIcon.Question
-           );
+          (
+            "¿Estás seguro que quieres salir del juego?",
+            "Salir",
+            MessageBoxButtons.YesNo,
+            MessageBoxIcon.Question
+          );
 
             if (resultado == DialogResult.Yes)
             {
                 Application.Exit(); // Cierra toda la aplicación
             }
+        }
+
+        private void btnInfo_Click(object sender, EventArgs e)
+        {
+            Leccion lecciones = new Leccion();
+            lecciones.Show();    // Usamos Show normal, no ShowDialog
+            this.Close();        // Cerramos el menú original
+
         }
     }
 }

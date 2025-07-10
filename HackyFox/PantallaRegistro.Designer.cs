@@ -47,9 +47,10 @@
             // pbFondoRegistro
             // 
             pbFondoRegistro.Image = (Image)resources.GetObject("pbFondoRegistro.Image");
-            pbFondoRegistro.Location = new Point(186, 170);
+            pbFondoRegistro.Location = new Point(163, 128);
+            pbFondoRegistro.Margin = new Padding(3, 2, 3, 2);
             pbFondoRegistro.Name = "pbFondoRegistro";
-            pbFondoRegistro.Size = new Size(736, 636);
+            pbFondoRegistro.Size = new Size(644, 477);
             pbFondoRegistro.SizeMode = PictureBoxSizeMode.StretchImage;
             pbFondoRegistro.TabIndex = 0;
             pbFondoRegistro.TabStop = false;
@@ -57,9 +58,10 @@
             // pbLogoRegistro
             // 
             pbLogoRegistro.Image = (Image)resources.GetObject("pbLogoRegistro.Image");
-            pbLogoRegistro.Location = new Point(313, 25);
+            pbLogoRegistro.Location = new Point(274, 19);
+            pbLogoRegistro.Margin = new Padding(3, 2, 3, 2);
             pbLogoRegistro.Name = "pbLogoRegistro";
-            pbLogoRegistro.Size = new Size(479, 129);
+            pbLogoRegistro.Size = new Size(419, 97);
             pbLogoRegistro.SizeMode = PictureBoxSizeMode.Zoom;
             pbLogoRegistro.TabIndex = 1;
             pbLogoRegistro.TabStop = false;
@@ -69,9 +71,9 @@
             lbNacimiento.BackColor = Color.FromArgb(242, 242, 242);
             lbNacimiento.Font = new Font("Comfortaa", 16F, FontStyle.Bold);
             lbNacimiento.ForeColor = Color.FromArgb(0, 151, 178);
-            lbNacimiento.Location = new Point(400, 196);
+            lbNacimiento.Location = new Point(350, 147);
             lbNacimiento.Name = "lbNacimiento";
-            lbNacimiento.Size = new Size(292, 49);
+            lbNacimiento.Size = new Size(256, 37);
             lbNacimiento.TabIndex = 2;
             lbNacimiento.Text = "¿Cuándo naciste?";
             // 
@@ -80,9 +82,9 @@
             lbAliasRegistro.BackColor = Color.FromArgb(242, 242, 242);
             lbAliasRegistro.Font = new Font("Comfortaa", 16F, FontStyle.Bold);
             lbAliasRegistro.ForeColor = Color.FromArgb(0, 151, 178);
-            lbAliasRegistro.Location = new Point(347, 312);
+            lbAliasRegistro.Location = new Point(304, 234);
             lbAliasRegistro.Name = "lbAliasRegistro";
-            lbAliasRegistro.Size = new Size(411, 98);
+            lbAliasRegistro.Size = new Size(360, 74);
             lbAliasRegistro.TabIndex = 4;
             lbAliasRegistro.Text = "¡Elige un alias a tu compañero!";
             lbAliasRegistro.TextAlign = ContentAlignment.MiddleCenter;
@@ -93,9 +95,9 @@
             lbAdvertenciaRegistro.BackColor = Color.FromArgb(242, 242, 242);
             lbAdvertenciaRegistro.Font = new Font("Comfortaa", 11F, FontStyle.Bold);
             lbAdvertenciaRegistro.ForeColor = Color.FromArgb(97, 54, 37);
-            lbAdvertenciaRegistro.Location = new Point(411, 425);
+            lbAdvertenciaRegistro.Location = new Point(360, 319);
             lbAdvertenciaRegistro.Name = "lbAdvertenciaRegistro";
-            lbAdvertenciaRegistro.Size = new Size(281, 29);
+            lbAdvertenciaRegistro.Size = new Size(196, 23);
             lbAdvertenciaRegistro.TabIndex = 5;
             lbAdvertenciaRegistro.Text = "(No uses tu nombre real)";
             // 
@@ -104,10 +106,11 @@
             tbAliasRegistro.BackColor = Color.FromArgb(196, 211, 217);
             tbAliasRegistro.Font = new Font("Comfortaa", 8.999999F, FontStyle.Bold, GraphicsUnit.Point, 0);
             tbAliasRegistro.ForeColor = Color.FromArgb(97, 54, 37);
-            tbAliasRegistro.Location = new Point(400, 476);
+            tbAliasRegistro.Location = new Point(350, 357);
+            tbAliasRegistro.Margin = new Padding(3, 2, 3, 2);
             tbAliasRegistro.Multiline = true;
             tbAliasRegistro.Name = "tbAliasRegistro";
-            tbAliasRegistro.Size = new Size(312, 40);
+            tbAliasRegistro.Size = new Size(274, 31);
             tbAliasRegistro.TabIndex = 6;
             tbAliasRegistro.TextAlign = HorizontalAlignment.Center;
             // 
@@ -118,9 +121,10 @@
             btnRegistroAlias.FlatStyle = FlatStyle.Flat;
             btnRegistroAlias.Font = new Font("Comfortaa", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnRegistroAlias.ForeColor = Color.FromArgb(97, 54, 37);
-            btnRegistroAlias.Location = new Point(431, 539);
+            btnRegistroAlias.Location = new Point(377, 404);
+            btnRegistroAlias.Margin = new Padding(3, 2, 3, 2);
             btnRegistroAlias.Name = "btnRegistroAlias";
-            btnRegistroAlias.Size = new Size(239, 91);
+            btnRegistroAlias.Size = new Size(209, 68);
             btnRegistroAlias.TabIndex = 7;
             btnRegistroAlias.Text = "¡﻿ Me gusta ese nombre ! ";
             btnRegistroAlias.UseVisualStyleBackColor = false;
@@ -130,9 +134,10 @@
             // 
             pbPastelRegistro.BackColor = Color.FromArgb(242, 242, 242);
             pbPastelRegistro.Image = (Image)resources.GetObject("pbPastelRegistro.Image");
-            pbPastelRegistro.Location = new Point(668, 236);
+            pbPastelRegistro.Location = new Point(584, 177);
+            pbPastelRegistro.Margin = new Padding(3, 2, 3, 2);
             pbPastelRegistro.Name = "pbPastelRegistro";
-            pbPastelRegistro.Size = new Size(55, 58);
+            pbPastelRegistro.Size = new Size(48, 44);
             pbPastelRegistro.SizeMode = PictureBoxSizeMode.Zoom;
             pbPastelRegistro.TabIndex = 8;
             pbPastelRegistro.TabStop = false;
@@ -141,9 +146,10 @@
             // 
             dTPNacimiento.CalendarForeColor = Color.FromArgb(97, 54, 37);
             dTPNacimiento.Font = new Font("Comfortaa", 8.999999F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dTPNacimiento.Location = new Point(400, 270);
+            dTPNacimiento.Location = new Point(350, 202);
+            dTPNacimiento.Margin = new Padding(3, 2, 3, 2);
             dTPNacimiento.Name = "dTPNacimiento";
-            dTPNacimiento.Size = new Size(250, 24);
+            dTPNacimiento.Size = new Size(219, 21);
             dTPNacimiento.TabIndex = 9;
             dTPNacimiento.ValueChanged += dateTimePicker1_ValueChanged;
             // 
@@ -154,9 +160,10 @@
             btnRegistroRegresar.FlatStyle = FlatStyle.Flat;
             btnRegistroRegresar.Font = new Font("Comfortaa", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnRegistroRegresar.ForeColor = Color.FromArgb(97, 54, 37);
-            btnRegistroRegresar.Location = new Point(450, 649);
+            btnRegistroRegresar.Location = new Point(394, 487);
+            btnRegistroRegresar.Margin = new Padding(3, 2, 3, 2);
             btnRegistroRegresar.Name = "btnRegistroRegresar";
-            btnRegistroRegresar.Size = new Size(186, 47);
+            btnRegistroRegresar.Size = new Size(163, 35);
             btnRegistroRegresar.TabIndex = 10;
             btnRegistroRegresar.Text = "Regresar";
             btnRegistroRegresar.UseVisualStyleBackColor = false;
@@ -164,10 +171,10 @@
             // 
             // PantallaRegistro
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(255, 241, 62);
-            ClientSize = new Size(1108, 726);
+            ClientSize = new Size(970, 544);
             Controls.Add(btnRegistroRegresar);
             Controls.Add(dTPNacimiento);
             Controls.Add(pbPastelRegistro);
@@ -179,9 +186,11 @@
             Controls.Add(pbLogoRegistro);
             Controls.Add(pbFondoRegistro);
             Icon = (Icon)resources.GetObject("$this.Icon");
-            MinimumSize = new Size(950, 600);
+            Margin = new Padding(3, 2, 3, 2);
+            MinimumSize = new Size(833, 460);
             Name = "PantallaRegistro";
             Text = " ";
+            WindowState = FormWindowState.Maximized;
             Load += PantallaRegistro_Load;
             ((System.ComponentModel.ISupportInitialize)pbFondoRegistro).EndInit();
             ((System.ComponentModel.ISupportInitialize)pbLogoRegistro).EndInit();

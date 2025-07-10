@@ -342,6 +342,7 @@
             MinimumSize = new Size(833, 460);
             Name = "MenuLecciones";
             Text = " HackyFox";
+            WindowState = FormWindowState.Maximized;
             Load += MenuLecciones_Load;
             panelMenu.ResumeLayout(false);
             panelLogo.ResumeLayout(false);
