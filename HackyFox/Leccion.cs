@@ -27,7 +27,7 @@ namespace HackyFox
         {
             try
             {
-                using (MySqlConnection conexion = new MySqlConnection("server=localhost;username=root;password=rute;database=hackyfox"))
+                using (MySqlConnection conexion = new MySqlConnection("server=localhost;username=root;password=rubi2006;database=hackyfox"))
                 {
                     conexion.Open();
 
@@ -180,7 +180,7 @@ namespace HackyFox
         {
             try
             {
-                using (MySqlConnection conexion = new MySqlConnection("server=localhost;username=root;password=rute;database=hackyfox"))
+                using (MySqlConnection conexion = new MySqlConnection("server=localhost;username=root;password=rubi2006;database=hackyfox"))
                 {
                     conexion.Open();
 
@@ -282,7 +282,7 @@ namespace HackyFox
 
         private void ActualizarPorcentajeGlobal()
         {
-            using (MySqlConnection conexion = new MySqlConnection("server=localhost;username=root;password=rute;database=hackyfox"))
+            using (MySqlConnection conexion = new MySqlConnection("server=localhost;username=root;password=rubi2006;database=hackyfox"))
             {
                 conexion.Open();
 
@@ -308,6 +308,10 @@ namespace HackyFox
             }
         }
 
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
 
