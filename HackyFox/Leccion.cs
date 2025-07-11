@@ -184,18 +184,17 @@ namespace HackyFox
                 {
                     conexion.Open();
 
+                    int idAlias = 1; // ← ID fijo para alias en pruebas
                     int idProgresoGeneral = 0;
                     int idLeccionActual = 1;
 
-                    // 1. Obtener el progreso general del usuario
-                    string queryProgreso = @"SELECT id_progreso_general, lecciones_completadas 
-                                     FROM progreso_general 
-                                     WHERE id_alias = @idAlias";
+                    // 1. Buscar progreso_general para alias 1
+                    string queryBuscarProgreso = @"SELECT id_progreso_general, lecciones_completadas 
+                                           FROM progreso_general WHERE id_alias = @idAlias";
+                    MySqlCommand cmdBuscar = new MySqlCommand(queryBuscarProgreso, conexion);
+                    cmdBuscar.Parameters.AddWithValue("@idAlias", idAlias);
 
-                    MySqlCommand cmdProgreso = new MySqlCommand(queryProgreso, conexion);
-                    cmdProgreso.Parameters.AddWithValue("@idAlias", 1);
-
-                    using (MySqlDataReader reader = cmdProgreso.ExecuteReader())
+                    using (MySqlDataReader reader = cmdBuscar.ExecuteReader())
                     {
                         if (reader.Read())
                         {
@@ -204,52 +203,69 @@ namespace HackyFox
                         }
                     }
 
-                    // 2. Si no existe progreso, crearlo
+                    // 2. Si no hay progreso aún, crearlo
                     if (idProgresoGeneral == 0)
                     {
-                        string insertProgreso = @"INSERT INTO progreso_general 
-                                          (id_alias, lecciones_completadas, fecha_actualizacion) 
-                                          VALUES (@idAlias, 0, CURRENT_TIMESTAMP)";
+                        string insertarProgreso = @"INSERT INTO progreso_general 
+                                            (id_alias, lecciones_completadas, fecha_actualizacion) 
+                                            VALUES (@idAlias, 0, CURRENT_TIMESTAMP)";
+                        MySqlCommand cmdInsertar = new MySqlCommand(insertarProgreso, conexion);
+                        cmdInsertar.Parameters.AddWithValue("@idAlias", idAlias);
+                        cmdInsertar.ExecuteNonQuery();
 
-
-                        MySqlCommand cmdInsert = new MySqlCommand(insertProgreso, conexion);
-                        cmdInsert.Parameters.AddWithValue("@idAlias", 1);
-                        //System.Windows.MessageBox.Show(LoginData.idUsuarioActual.ToString());
-                        cmdInsert.ExecuteNonQuery();
-
-                        // Obtener el ID recién creado
-                        string obtenerId = @"SELECT id_progreso_general 
-                                     FROM progreso_general 
-                                     WHERE id_alias = @idAlias";
-                        MySqlCommand cmdGetId = new MySqlCommand(obtenerId, conexion);
-                        cmdGetId.Parameters.AddWithValue("@idAlias", LoginData.idUsuarioActual);
-                        idProgresoGeneral = Convert.ToInt32(cmdGetId.ExecuteScalar());
-
-                        idLeccionActual = 1; // Primera lección
+                        idProgresoGeneral = (int)cmdInsertar.LastInsertedId;
+                        idLeccionActual = 1;
                     }
 
-                    // 3. Insertar componente 'leccion' si no se ha registrado aún
-                    string queryDetalle = @"SELECT COUNT(*) FROM detalle_progreso 
-                                    WHERE id_progreso_general = @idProg AND id_leccion = @idLeccion AND componente = 'leccion'";
-
-                    MySqlCommand cmdCheckDetalle = new MySqlCommand(queryDetalle, conexion);
-                    cmdCheckDetalle.Parameters.AddWithValue("@idProg", idProgresoGeneral);
-                    cmdCheckDetalle.Parameters.AddWithValue("@idLeccion", idLeccionActual);
-
-                    int existe = Convert.ToInt32(cmdCheckDetalle.ExecuteScalar());
+                    // 3. Insertar componente 'leccion' si no existe
+                    string verificarComponente = @"SELECT COUNT(*) FROM detalle_progreso 
+                                           WHERE id_progreso_general = @idProg 
+                                           AND id_leccion = @idLeccion 
+                                           AND componente = 'leccion'";
+                    MySqlCommand cmdVerificar = new MySqlCommand(verificarComponente, conexion);
+                    cmdVerificar.Parameters.AddWithValue("@idProg", idProgresoGeneral);
+                    cmdVerificar.Parameters.AddWithValue("@idLeccion", idLeccionActual);
+                    int existe = Convert.ToInt32(cmdVerificar.ExecuteScalar());
 
                     if (existe == 0)
                     {
+                        double porcentajeComponente = 100.0 / 18; // 5.55%
+
                         string insertarDetalle = @"INSERT INTO detalle_progreso 
                                            (id_progreso_general, id_leccion, componente, completado, porcentaje, fecha) 
-                                           VALUES (@idProg, @idLeccion, 'leccion', 1, 33.33, CURRENT_TIMESTAMP)";
-                        MySqlCommand cmdInsertDetalle = new MySqlCommand(insertarDetalle, conexion);
-                        cmdInsertDetalle.Parameters.AddWithValue("@idProg", idProgresoGeneral);
-                        cmdInsertDetalle.Parameters.AddWithValue("@idLeccion", idLeccionActual);
-                        cmdInsertDetalle.ExecuteNonQuery();
+                                           VALUES (@idProg, @idLeccion, 'leccion', 1, @porcentaje, CURRENT_TIMESTAMP)";
+                        MySqlCommand cmdInsertarDetalle = new MySqlCommand(insertarDetalle, conexion);
+                        cmdInsertarDetalle.Parameters.AddWithValue("@idProg", idProgresoGeneral);
+                        cmdInsertarDetalle.Parameters.AddWithValue("@idLeccion", idLeccionActual);
+                        cmdInsertarDetalle.Parameters.AddWithValue("@porcentaje", porcentajeComponente);
+
+                        cmdInsertarDetalle.ExecuteNonQuery();
                     }
 
-                    // 4. Lanzar ventana de reto con lección actual
+                    // 4. Calcular progreso global parcial
+                    string totalLeccionesSql = "SELECT COUNT(*) FROM lecciones";
+                    MySqlCommand cmdTotal = new MySqlCommand(totalLeccionesSql, conexion);
+                    int totalLecciones = Convert.ToInt32(cmdTotal.ExecuteScalar());
+
+                    string contarComponentesSql = @"SELECT COUNT(*) FROM detalle_progreso 
+                                            WHERE id_progreso_general = @idProg AND completado = 1";
+                    MySqlCommand cmdContar = new MySqlCommand(contarComponentesSql, conexion);
+                    cmdContar.Parameters.AddWithValue("@idProg", idProgresoGeneral);
+                    int componentesCompletados = Convert.ToInt32(cmdContar.ExecuteScalar());
+
+                    int totalComponentes = totalLecciones * 18;
+                    double porcentajeGlobal = ((double)componentesCompletados / totalComponentes) * 100;
+
+                    string actualizarGlobalSql = @"UPDATE progreso_general 
+                                           SET porcentaje_global = ROUND(@porcentaje, 2), 
+                                               fecha_actualizacion = CURRENT_TIMESTAMP 
+                                           WHERE id_progreso_general = @idProg";
+                    MySqlCommand cmdActualizar = new MySqlCommand(actualizarGlobalSql, conexion);
+                    cmdActualizar.Parameters.AddWithValue("@porcentaje", porcentajeGlobal);
+                    cmdActualizar.Parameters.AddWithValue("@idProg", idProgresoGeneral);
+                    cmdActualizar.ExecuteNonQuery();
+
+                    // 5. Lanzar el reto
                     RetoRelampago reto = new RetoRelampago(idLeccionActual);
                     reto.StartPosition = FormStartPosition.Manual;
                     reto.Location = this.Location;
@@ -262,6 +278,36 @@ namespace HackyFox
                 MessageBox.Show("Error al avanzar al reto: " + ex.Message);
             }
         }
+
+
+        private void ActualizarPorcentajeGlobal()
+        {
+            using (MySqlConnection conexion = new MySqlConnection("server=localhost;username=root;password=rute;database=hackyfox"))
+            {
+                conexion.Open();
+
+                string queryLecciones = "SELECT COUNT(*) FROM lecciones";
+                MySqlCommand cmdLecciones = new MySqlCommand(queryLecciones, conexion);
+                int totalLecciones = Convert.ToInt32(cmdLecciones.ExecuteScalar());
+
+                string queryComponentes = @"SELECT COUNT(*) FROM detalle_progreso 
+                                            WHERE id_progreso_general = 1 AND completado = 1";
+                MySqlCommand cmdComp = new MySqlCommand(queryComponentes, conexion);
+                int componentesCompletados = Convert.ToInt32(cmdComp.ExecuteScalar());
+
+                int totalComponentes = totalLecciones * 18;
+                double porcentaje = ((double)componentesCompletados / totalComponentes) * 100;
+
+                string queryUpdate = @"UPDATE progreso_general 
+                                       SET porcentaje_global = ROUND(@porcentaje, 2),
+                                           fecha_actualizacion = CURRENT_TIMESTAMP
+                                       WHERE id_alias = 1";
+                MySqlCommand cmdUpdate = new MySqlCommand(queryUpdate, conexion);
+                cmdUpdate.Parameters.AddWithValue("@porcentaje", porcentaje);
+                cmdUpdate.ExecuteNonQuery();
+            }
+        }
+
     }
 }
 
