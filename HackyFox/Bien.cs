@@ -16,5 +16,14 @@ namespace HackyFox
         {
             InitializeComponent();
         }
+
+        private void btnRetoADinamica_Click(object sender, EventArgs e)
+        {
+            Dinamica1 siguienteVentana = new Dinamica1();
+            siguienteVentana.StartPosition = FormStartPosition.Manual;
+            siguienteVentana.Location = this.Location;
+            siguienteVentana.Show();
+            this.Close();
+        }
     }
 }
