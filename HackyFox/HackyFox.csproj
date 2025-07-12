@@ -9,6 +9,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Include="C:\Users\rubit\Downloads\Dinamica2.cs" Link="Dinamica2.cs" />
+    <Compile Include="C:\Users\rubit\Downloads\Dinamica4.cs" Link="Dinamica4.cs" />
+    <Compile Include="C:\Users\rubit\Downloads\Dinamica5.cs" Link="Dinamica5.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="FontAwesome.Sharp" Version="6.6.0" />
     <PackageReference Include="MySql.Data" Version="9.3.0" />
   </ItemGroup>
