@@ -16,5 +16,10 @@ namespace HackyFox
         {
             InitializeComponent();
         }
+
+        private void Dinamica2_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

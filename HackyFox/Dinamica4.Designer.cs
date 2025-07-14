@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Dinamica4));
             pMenuD4 = new Panel();
             pNombreD4 = new Panel();
+            lbNombreD4 = new Label();
             lbTtuloD4 = new Label();
             lbInstruccionesD4 = new Label();
             btnD4R1 = new Button();
@@ -40,7 +41,6 @@
             btnD4R5 = new Button();
             btnD4R6 = new Button();
             pBMascotaD4 = new PictureBox();
-            lbNombreD4 = new Label();
             pNombreD4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pBMascotaD4).BeginInit();
             SuspendLayout();
@@ -63,6 +63,16 @@
             pNombreD4.Name = "pNombreD4";
             pNombreD4.Size = new Size(1008, 70);
             pNombreD4.TabIndex = 1;
+            // 
+            // lbNombreD4
+            // 
+            lbNombreD4.AutoSize = true;
+            lbNombreD4.Font = new Font("Clear Sans", 15F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lbNombreD4.Location = new Point(6, 19);
+            lbNombreD4.Name = "lbNombreD4";
+            lbNombreD4.Size = new Size(346, 35);
+            lbNombreD4.TabIndex = 0;
+            lbNombreD4.Text = "Lección 4. Protege tu Correo";
             // 
             // lbTtuloD4
             // 
@@ -149,16 +159,6 @@
             pBMascotaD4.SizeMode = PictureBoxSizeMode.Zoom;
             pBMascotaD4.TabIndex = 10;
             pBMascotaD4.TabStop = false;
-            // 
-            // lbNombreD4
-            // 
-            lbNombreD4.AutoSize = true;
-            lbNombreD4.Font = new Font("Clear Sans", 15F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lbNombreD4.Location = new Point(6, 19);
-            lbNombreD4.Name = "lbNombreD4";
-            lbNombreD4.Size = new Size(346, 35);
-            lbNombreD4.TabIndex = 0;
-            lbNombreD4.Text = "Lección 4. Protege tu Correo";
             // 
             // Dinamica4
             // 

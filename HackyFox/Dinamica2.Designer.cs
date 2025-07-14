@@ -31,12 +31,12 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Dinamica2));
             pMenuD2 = new Panel();
             pNombreD2 = new Panel();
+            lbNombreD2 = new Label();
             lbTituloD2 = new Label();
             lbIntruccionesD2 = new Label();
             btnD2R1 = new Button();
             btnD2R2 = new Button();
             btnD2R3 = new Button();
-            lbNombreD2 = new Label();
             pNombreD2.SuspendLayout();
             SuspendLayout();
             // 
@@ -57,6 +57,17 @@
             pNombreD2.Name = "pNombreD2";
             pNombreD2.Size = new Size(1008, 70);
             pNombreD2.TabIndex = 1;
+            // 
+            // lbNombreD2
+            // 
+            lbNombreD2.AutoSize = true;
+            lbNombreD2.Font = new Font("Clear Sans", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lbNombreD2.ForeColor = Color.White;
+            lbNombreD2.Location = new Point(6, 18);
+            lbNombreD2.Name = "lbNombreD2";
+            lbNombreD2.Size = new Size(314, 39);
+            lbNombreD2.TabIndex = 0;
+            lbNombreD2.Text = "Lección 2. Mi Yo Digital";
             // 
             // lbTituloD2
             // 
@@ -107,17 +118,6 @@
             btnD2R3.TabIndex = 6;
             btnD2R3.UseVisualStyleBackColor = true;
             // 
-            // lbNombreD2
-            // 
-            lbNombreD2.AutoSize = true;
-            lbNombreD2.Font = new Font("Clear Sans", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lbNombreD2.ForeColor = Color.White;
-            lbNombreD2.Location = new Point(6, 18);
-            lbNombreD2.Name = "lbNombreD2";
-            lbNombreD2.Size = new Size(314, 39);
-            lbNombreD2.TabIndex = 0;
-            lbNombreD2.Text = "Lección 2. Mi Yo Digital";
-            // 
             // Dinamica2
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -134,6 +134,7 @@
             MinimumSize = new Size(950, 600);
             Name = "Dinamica2";
             Text = "Dinamica2";
+            Load += Dinamica2_Load;
             pNombreD2.ResumeLayout(false);
             pNombreD2.PerformLayout();
             ResumeLayout(false);
