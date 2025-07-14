@@ -27,7 +27,7 @@ namespace HackyFox
         {
             try
             {
-                using (MySqlConnection conexion = new MySqlConnection("server=localhost;username=root;password=rubi2006;database=hackyfox"))
+                using (MySqlConnection conexion = new MySqlConnection("server=localhost;username=root;password=rute;database=hackyfox"))
                 {
                     conexion.Open();
 
@@ -180,7 +180,7 @@ namespace HackyFox
         {
             try
             {
-                using (MySqlConnection conexion = new MySqlConnection("server=localhost;username=root;password=rubi2006;database=hackyfox"))
+                using (MySqlConnection conexion = new MySqlConnection("server=localhost;username=root;password=rute;database=hackyfox"))
                 {
                     conexion.Open();
 

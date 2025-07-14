@@ -46,7 +46,7 @@ namespace HackyFox
 
             try
             {
-                using (MySqlConnection conexion = new MySqlConnection("server=localhost;username=root;password=rubi2006;database=hackyfox"))
+                using (MySqlConnection conexion = new MySqlConnection("server=localhost;username=root;password=rute;database=hackyfox"))
                 {
                     conexion.Open();
 
@@ -70,7 +70,7 @@ namespace HackyFox
                         LoginData.idUsuarioActual = idAlias;
 
                         // Verificar si ya existe progreso_general
-                        using (MySqlConnection connProgreso = new MySqlConnection("server=localhost;username=root;password=rubi2006;database=hackyfox"))
+                        using (MySqlConnection connProgreso = new MySqlConnection("server=localhost;username=root;password=rute;database=hackyfox"))
                         {
                             connProgreso.Open();
 
@@ -92,7 +92,7 @@ namespace HackyFox
 
 
 
-                                using (MySqlConnection connIdProgreso = new MySqlConnection("server=localhost;username=root;password=rubi2006;database=hackyfox"))
+                                using (MySqlConnection connIdProgreso = new MySqlConnection("server=localhost;username=root;password=rute;database=hackyfox"))
                                 {
                                     connIdProgreso.Open();
 
@@ -113,7 +113,7 @@ namespace HackyFox
 
                            
 
-                            using (MySqlConnection connIdProgreso = new MySqlConnection("server=localhost;username=root;password=rubi2006;database=hackyfox"))
+                            using (MySqlConnection connIdProgreso = new MySqlConnection("server=localhost;username=root;password=rute;database=hackyfox"))
                             {
                                 connIdProgreso.Open();
 

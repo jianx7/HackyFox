@@ -72,7 +72,7 @@ namespace HackyFox
                     conexion.Open();
 
                     int idAlias = 1;
-                    int idProgresoGeneral = 0;
+                    int idProgresoGeneral = 1;
 
                     // Obtener el id_progreso_general válido del alias 1
                     string queryId = @"SELECT id_progreso_general 
@@ -104,7 +104,7 @@ namespace HackyFox
 
                         string insertarDetalle = @"INSERT INTO detalle_progreso 
                                            (id_progreso_general, id_leccion, componente, completado, porcentaje, fecha) 
-                                           VALUES (@idProg, @idLeccion, 'reto', 1, @porcentaje, CURRENT_TIMESTAMP)";
+                                           VALUES (1, @idLeccion, 'reto', 1, @porcentaje, CURRENT_TIMESTAMP)";
                         MySqlCommand cmdInsertarDetalle = new MySqlCommand(insertarDetalle, conexion);
                         cmdInsertarDetalle.Parameters.AddWithValue("@idProg", idProgresoGeneral);
                         cmdInsertarDetalle.Parameters.AddWithValue("@idLeccion", idLeccionActual);
