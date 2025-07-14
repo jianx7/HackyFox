@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MenuProgreso));
             panelMenu = new Panel();
             btnSalir = new FontAwesome.Sharp.IconButton();
             btnMascota = new Button();
@@ -219,6 +220,7 @@
             ClientSize = new Size(1109, 725);
             Controls.Add(panelProgreso);
             Controls.Add(panelMenu);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "MenuProgreso";
             Text = "MenuProgreso";
             Load += MenuProgreso_Load;
