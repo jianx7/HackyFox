@@ -1,6 +1,6 @@
 ﻿namespace HackyFox
 {
-    partial class Dinamica3
+    partial class MenuProgreso
     {
         /// <summary>
         /// Required designer variable.
@@ -33,20 +33,14 @@
             btnMascota = new Button();
             btnLecciones = new Button();
             btnUser = new Button();
+            panel1 = new Panel();
             btnMenu = new Button();
-            panelDinamica = new Panel();
-            pbDetective = new PictureBox();
-            btnNext = new Btn_personalizado();
-            lbElige = new Label();
-            lbCambiante = new Label();
-            tbContraseña = new TextBox();
-            pbTitulo = new PictureBox();
+            panelProgreso = new Panel();
             panelDashboard = new Panel();
-            lbLeccion = new Label();
+            lbDashboard = new Label();
             panelMenu.SuspendLayout();
-            panelDinamica.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pbDetective).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pbTitulo).BeginInit();
+            panel1.SuspendLayout();
+            panelProgreso.SuspendLayout();
             panelDashboard.SuspendLayout();
             SuspendLayout();
             // 
@@ -57,12 +51,12 @@
             panelMenu.Controls.Add(btnMascota);
             panelMenu.Controls.Add(btnLecciones);
             panelMenu.Controls.Add(btnUser);
-            panelMenu.Controls.Add(btnMenu);
+            panelMenu.Controls.Add(panel1);
             panelMenu.Dock = DockStyle.Left;
             panelMenu.Location = new Point(0, 0);
             panelMenu.Name = "panelMenu";
-            panelMenu.Size = new Size(100, 725);
-            panelMenu.TabIndex = 0;
+            panelMenu.Size = new Size(318, 725);
+            panelMenu.TabIndex = 1;
             // 
             // btnSalir
             // 
@@ -79,12 +73,14 @@
             btnSalir.Location = new Point(0, 656);
             btnSalir.Name = "btnSalir";
             btnSalir.Padding = new Padding(10, 0, 0, 0);
-            btnSalir.Size = new Size(100, 69);
-            btnSalir.TabIndex = 12;
+            btnSalir.Size = new Size(318, 69);
+            btnSalir.TabIndex = 10;
             btnSalir.Tag = "Salir";
+            btnSalir.Text = "Salir";
             btnSalir.TextAlign = ContentAlignment.MiddleLeft;
             btnSalir.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnSalir.UseVisualStyleBackColor = true;
+            btnSalir.Click += btnSalir_Click;
             // 
             // btnMascota
             // 
@@ -100,12 +96,14 @@
             btnMascota.Name = "btnMascota";
             btnMascota.Padding = new Padding(10, 0, 0, 0);
             btnMascota.RightToLeft = RightToLeft.No;
-            btnMascota.Size = new Size(100, 75);
-            btnMascota.TabIndex = 11;
+            btnMascota.Size = new Size(318, 75);
+            btnMascota.TabIndex = 9;
             btnMascota.Tag = "Mascota";
+            btnMascota.Text = "Mascota";
             btnMascota.TextAlign = ContentAlignment.MiddleLeft;
             btnMascota.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnMascota.UseVisualStyleBackColor = true;
+            btnMascota.Click += btnMascota_Click;
             // 
             // btnLecciones
             // 
@@ -121,12 +119,14 @@
             btnLecciones.Name = "btnLecciones";
             btnLecciones.Padding = new Padding(10, 0, 0, 0);
             btnLecciones.RightToLeft = RightToLeft.No;
-            btnLecciones.Size = new Size(100, 75);
-            btnLecciones.TabIndex = 10;
+            btnLecciones.Size = new Size(318, 75);
+            btnLecciones.TabIndex = 8;
             btnLecciones.Tag = "Lecciones";
+            btnLecciones.Text = "Lecciones";
             btnLecciones.TextAlign = ContentAlignment.MiddleLeft;
             btnLecciones.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnLecciones.UseVisualStyleBackColor = true;
+            btnLecciones.Click += btnLecciones_Click;
             // 
             // btnUser
             // 
@@ -142,16 +142,26 @@
             btnUser.Name = "btnUser";
             btnUser.Padding = new Padding(10, 0, 0, 0);
             btnUser.RightToLeft = RightToLeft.No;
-            btnUser.Size = new Size(100, 75);
-            btnUser.TabIndex = 9;
+            btnUser.Size = new Size(318, 75);
+            btnUser.TabIndex = 7;
             btnUser.Tag = "Usuario";
+            btnUser.Text = "Usuario";
             btnUser.TextAlign = ContentAlignment.MiddleLeft;
             btnUser.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnUser.UseVisualStyleBackColor = true;
             // 
+            // panel1
+            // 
+            panel1.Controls.Add(btnMenu);
+            panel1.Dock = DockStyle.Top;
+            panel1.Location = new Point(0, 0);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(318, 93);
+            panel1.TabIndex = 0;
+            // 
             // btnMenu
             // 
-            btnMenu.Dock = DockStyle.Top;
+            btnMenu.Dock = DockStyle.Fill;
             btnMenu.FlatAppearance.BorderSize = 0;
             btnMenu.FlatAppearance.MouseOverBackColor = Color.FromArgb(241, 202, 96);
             btnMenu.FlatStyle = FlatStyle.Flat;
@@ -162,143 +172,59 @@
             btnMenu.Location = new Point(0, 0);
             btnMenu.Name = "btnMenu";
             btnMenu.Padding = new Padding(10, 0, 0, 0);
-            btnMenu.Size = new Size(100, 93);
-            btnMenu.TabIndex = 3;
+            btnMenu.Size = new Size(318, 93);
+            btnMenu.TabIndex = 1;
             btnMenu.Tag = "HackyFox";
+            btnMenu.Text = "HackyFox";
             btnMenu.TextAlign = ContentAlignment.MiddleLeft;
             btnMenu.TextImageRelation = TextImageRelation.TextBeforeImage;
             btnMenu.UseVisualStyleBackColor = true;
             btnMenu.Click += btnMenu_Click;
             // 
-            // panelDinamica
+            // panelProgreso
             // 
-            panelDinamica.BackColor = Color.FromArgb(242, 242, 242);
-            panelDinamica.Controls.Add(pbDetective);
-            panelDinamica.Controls.Add(btnNext);
-            panelDinamica.Controls.Add(lbElige);
-            panelDinamica.Controls.Add(lbCambiante);
-            panelDinamica.Controls.Add(tbContraseña);
-            panelDinamica.Controls.Add(pbTitulo);
-            panelDinamica.Controls.Add(panelDashboard);
-            panelDinamica.Dock = DockStyle.Fill;
-            panelDinamica.Location = new Point(100, 0);
-            panelDinamica.Name = "panelDinamica";
-            panelDinamica.Size = new Size(1009, 725);
-            panelDinamica.TabIndex = 1;
-            // 
-            // pbDetective
-            // 
-            pbDetective.BackgroundImage = Properties.Resources.detective;
-            pbDetective.BackgroundImageLayout = ImageLayout.Stretch;
-            pbDetective.Location = new Point(664, 361);
-            pbDetective.Name = "pbDetective";
-            pbDetective.Size = new Size(333, 361);
-            pbDetective.TabIndex = 5;
-            pbDetective.TabStop = false;
-            // 
-            // btnNext
-            // 
-            btnNext.BackColor = Color.FromArgb(255, 206, 1);
-            btnNext.FlatAppearance.BorderSize = 0;
-            btnNext.FlatStyle = FlatStyle.Flat;
-            btnNext.Font = new Font("Comfortaa", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnNext.ForeColor = Color.FromArgb(0, 74, 173);
-            btnNext.Location = new Point(208, 406);
-            btnNext.Name = "btnNext";
-            btnNext.Size = new Size(254, 77);
-            btnNext.TabIndex = 4;
-            btnNext.Text = "Siguiente";
-            btnNext.UseVisualStyleBackColor = false;
-            btnNext.Click += btnNext_Click;
-            // 
-            // lbElige
-            // 
-            lbElige.AutoSize = true;
-            lbElige.BackColor = Color.Transparent;
-            lbElige.FlatStyle = FlatStyle.Flat;
-            lbElige.Font = new Font("Comfortaa", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lbElige.ForeColor = Color.FromArgb(0, 74, 173);
-            lbElige.Location = new Point(117, 243);
-            lbElige.Name = "lbElige";
-            lbElige.Size = new Size(158, 53);
-            lbElige.TabIndex = 0;
-            lbElige.Text = "Elige tu";
-            // 
-            // lbCambiante
-            // 
-            lbCambiante.AutoSize = true;
-            lbCambiante.FlatStyle = FlatStyle.Flat;
-            lbCambiante.Font = new Font("Comfortaa", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lbCambiante.ForeColor = Color.FromArgb(249, 150, 11);
-            lbCambiante.ImageAlign = ContentAlignment.MiddleLeft;
-            lbCambiante.Location = new Point(255, 242);
-            lbCambiante.Margin = new Padding(0);
-            lbCambiante.Name = "lbCambiante";
-            lbCambiante.RightToLeft = RightToLeft.No;
-            lbCambiante.Size = new Size(330, 53);
-            lbCambiante.TabIndex = 1;
-            lbCambiante.Text = " palabra favorita:";
-            lbCambiante.TextAlign = ContentAlignment.MiddleLeft;
-            // 
-            // tbContraseña
-            // 
-            tbContraseña.BackColor = Color.AliceBlue;
-            tbContraseña.Font = new Font("Comfortaa", 17.9999981F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            tbContraseña.ForeColor = Color.FromArgb(97, 54, 37);
-            tbContraseña.Location = new Point(129, 315);
-            tbContraseña.Multiline = true;
-            tbContraseña.Name = "tbContraseña";
-            tbContraseña.PlaceholderText = "¡Escribelo aqui!";
-            tbContraseña.Size = new Size(443, 55);
-            tbContraseña.TabIndex = 3;
-            // 
-            // pbTitulo
-            // 
-            pbTitulo.BackgroundImage = Properties.Resources.TiuloD3;
-            pbTitulo.BackgroundImageLayout = ImageLayout.Stretch;
-            pbTitulo.Location = new Point(117, 114);
-            pbTitulo.Name = "pbTitulo";
-            pbTitulo.Size = new Size(793, 73);
-            pbTitulo.TabIndex = 1;
-            pbTitulo.TabStop = false;
+            panelProgreso.Controls.Add(panelDashboard);
+            panelProgreso.Dock = DockStyle.Fill;
+            panelProgreso.Location = new Point(318, 0);
+            panelProgreso.Name = "panelProgreso";
+            panelProgreso.Size = new Size(791, 725);
+            panelProgreso.TabIndex = 2;
             // 
             // panelDashboard
             // 
-            panelDashboard.BackColor = Color.FromArgb(155, 209, 219);
-            panelDashboard.Controls.Add(lbLeccion);
+            panelDashboard.BackColor = Color.FromArgb(255, 206, 1);
+            panelDashboard.Controls.Add(lbDashboard);
             panelDashboard.Dock = DockStyle.Top;
             panelDashboard.Location = new Point(0, 0);
             panelDashboard.Name = "panelDashboard";
-            panelDashboard.Size = new Size(1009, 80);
+            panelDashboard.Size = new Size(791, 80);
             panelDashboard.TabIndex = 0;
             // 
-            // lbLeccion
+            // lbDashboard
             // 
-            lbLeccion.AutoSize = true;
-            lbLeccion.Font = new Font("Clear Sans", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lbLeccion.ForeColor = Color.FromArgb(249, 249, 249);
-            lbLeccion.Location = new Point(16, 19);
-            lbLeccion.Name = "lbLeccion";
-            lbLeccion.Size = new Size(356, 39);
-            lbLeccion.TabIndex = 1;
-            lbLeccion.Text = "Lección 3. La llave secreta";
+            lbDashboard.AutoSize = true;
+            lbDashboard.Font = new Font("Comfortaa", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lbDashboard.ForeColor = Color.FromArgb(242, 242, 242);
+            lbDashboard.Location = new Point(16, 19);
+            lbDashboard.Name = "lbDashboard";
+            lbDashboard.Size = new Size(151, 44);
+            lbDashboard.TabIndex = 2;
+            lbDashboard.Tag = "Lecciones";
+            lbDashboard.Text = "Progreso";
             // 
-            // Dinamica3
+            // MenuProgreso
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1109, 725);
-            Controls.Add(panelDinamica);
+            Controls.Add(panelProgreso);
             Controls.Add(panelMenu);
-            Margin = new Padding(3, 4, 3, 4);
-            Name = "Dinamica3";
-            Text = "Dinamica3";
-            Load += Dinamica3_Load;
+            Name = "MenuProgreso";
+            Text = "MenuProgreso";
+            Load += MenuProgreso_Load;
             panelMenu.ResumeLayout(false);
-            panelDinamica.ResumeLayout(false);
-            panelDinamica.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pbDetective).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pbTitulo).EndInit();
+            panel1.ResumeLayout(false);
+            panelProgreso.ResumeLayout(false);
             panelDashboard.ResumeLayout(false);
             panelDashboard.PerformLayout();
             ResumeLayout(false);
@@ -307,19 +233,14 @@
         #endregion
 
         private Panel panelMenu;
-        private Panel panelDinamica;
-        private Panel panelDashboard;
-        private Button btnMenu;
-        private Button btnUser;
-        private Button btnLecciones;
-        private Button btnMascota;
         private FontAwesome.Sharp.IconButton btnSalir;
-        private Label lbLeccion;
-        private PictureBox pbTitulo;
-        private Label lbElige;
-        private Label lbCambiante;
-        private TextBox tbContraseña;
-        private Btn_personalizado btnNext;
-        private PictureBox pbDetective;
+        private Button btnMascota;
+        private Button btnLecciones;
+        private Button btnUser;
+        private Panel panel1;
+        private Button btnMenu;
+        private Panel panelProgreso;
+        private Panel panelDashboard;
+        private Label lbDashboard;
     }
 }
