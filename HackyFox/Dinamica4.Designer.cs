@@ -29,6 +29,11 @@
         private void InitializeComponent()
         {
             panelMenu = new Panel();
+            btnSalir = new FontAwesome.Sharp.IconButton();
+            btnMascota = new Button();
+            btnLecciones = new Button();
+            btnUser = new Button();
+            btnMenu = new Button();
             pNombreD4 = new Panel();
             lbNombreD4 = new Label();
             lbTituloD4 = new Label();
@@ -40,11 +45,7 @@
             btn_D4R5 = new Button();
             btn_D4R6 = new Button();
             pBMascotaD4 = new PictureBox();
-            btnMenu = new Button();
-            btnUser = new Button();
-            btnLecciones = new Button();
-            btnMascota = new Button();
-            btnSalir = new FontAwesome.Sharp.IconButton();
+            btnNextD4 = new Button();
             panelMenu.SuspendLayout();
             pNombreD4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pBMascotaD4).BeginInit();
@@ -64,9 +65,120 @@
             panelMenu.Size = new Size(100, 726);
             panelMenu.TabIndex = 0;
             // 
+            // btnSalir
+            // 
+            btnSalir.Dock = DockStyle.Bottom;
+            btnSalir.FlatAppearance.BorderSize = 0;
+            btnSalir.FlatAppearance.MouseOverBackColor = Color.FromArgb(241, 202, 96);
+            btnSalir.FlatStyle = FlatStyle.Flat;
+            btnSalir.Font = new Font("Clear Sans", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnSalir.ForeColor = Color.FromArgb(0, 151, 178);
+            btnSalir.IconChar = FontAwesome.Sharp.IconChar.LongArrowLeft;
+            btnSalir.IconColor = Color.FromArgb(0, 151, 178);
+            btnSalir.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnSalir.ImageAlign = ContentAlignment.MiddleLeft;
+            btnSalir.Location = new Point(0, 657);
+            btnSalir.Name = "btnSalir";
+            btnSalir.Padding = new Padding(10, 0, 0, 0);
+            btnSalir.Size = new Size(100, 69);
+            btnSalir.TabIndex = 13;
+            btnSalir.Tag = "Salir";
+            btnSalir.TextAlign = ContentAlignment.MiddleLeft;
+            btnSalir.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btnSalir.UseVisualStyleBackColor = true;
+            btnSalir.Click += btnSalir_Click;
+            // 
+            // btnMascota
+            // 
+            btnMascota.Dock = DockStyle.Top;
+            btnMascota.FlatAppearance.BorderSize = 0;
+            btnMascota.FlatAppearance.MouseOverBackColor = Color.FromArgb(255, 241, 62);
+            btnMascota.FlatStyle = FlatStyle.Flat;
+            btnMascota.Font = new Font("Clear Sans", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnMascota.ForeColor = Color.FromArgb(0, 151, 178);
+            btnMascota.Image = Properties.Resources.mascota;
+            btnMascota.ImageAlign = ContentAlignment.MiddleLeft;
+            btnMascota.Location = new Point(0, 243);
+            btnMascota.Name = "btnMascota";
+            btnMascota.Padding = new Padding(10, 0, 0, 0);
+            btnMascota.RightToLeft = RightToLeft.No;
+            btnMascota.Size = new Size(100, 75);
+            btnMascota.TabIndex = 12;
+            btnMascota.Tag = "Mascota";
+            btnMascota.TextAlign = ContentAlignment.MiddleLeft;
+            btnMascota.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btnMascota.UseVisualStyleBackColor = true;
+            btnMascota.Click += btnMascota_Click;
+            // 
+            // btnLecciones
+            // 
+            btnLecciones.Dock = DockStyle.Top;
+            btnLecciones.FlatAppearance.BorderSize = 0;
+            btnLecciones.FlatAppearance.MouseOverBackColor = Color.FromArgb(255, 241, 62);
+            btnLecciones.FlatStyle = FlatStyle.Flat;
+            btnLecciones.Font = new Font("Clear Sans", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnLecciones.ForeColor = Color.FromArgb(0, 151, 178);
+            btnLecciones.Image = Properties.Resources.book;
+            btnLecciones.ImageAlign = ContentAlignment.MiddleLeft;
+            btnLecciones.Location = new Point(0, 168);
+            btnLecciones.Name = "btnLecciones";
+            btnLecciones.Padding = new Padding(10, 0, 0, 0);
+            btnLecciones.RightToLeft = RightToLeft.No;
+            btnLecciones.Size = new Size(100, 75);
+            btnLecciones.TabIndex = 11;
+            btnLecciones.Tag = "Lecciones";
+            btnLecciones.TextAlign = ContentAlignment.MiddleLeft;
+            btnLecciones.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btnLecciones.UseVisualStyleBackColor = true;
+            btnLecciones.Click += btnLecciones_Click;
+            // 
+            // btnUser
+            // 
+            btnUser.Dock = DockStyle.Top;
+            btnUser.FlatAppearance.BorderSize = 0;
+            btnUser.FlatAppearance.MouseOverBackColor = Color.FromArgb(255, 241, 62);
+            btnUser.FlatStyle = FlatStyle.Flat;
+            btnUser.Font = new Font("Clear Sans", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnUser.ForeColor = Color.FromArgb(0, 151, 178);
+            btnUser.Image = Properties.Resources.user;
+            btnUser.ImageAlign = ContentAlignment.MiddleLeft;
+            btnUser.Location = new Point(0, 93);
+            btnUser.Name = "btnUser";
+            btnUser.Padding = new Padding(10, 0, 0, 0);
+            btnUser.RightToLeft = RightToLeft.No;
+            btnUser.Size = new Size(100, 75);
+            btnUser.TabIndex = 10;
+            btnUser.Tag = "Usuario";
+            btnUser.TextAlign = ContentAlignment.MiddleLeft;
+            btnUser.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btnUser.UseVisualStyleBackColor = true;
+            btnUser.Click += btnUser_Click;
+            // 
+            // btnMenu
+            // 
+            btnMenu.Dock = DockStyle.Top;
+            btnMenu.FlatAppearance.BorderSize = 0;
+            btnMenu.FlatAppearance.MouseOverBackColor = Color.FromArgb(241, 202, 96);
+            btnMenu.FlatStyle = FlatStyle.Flat;
+            btnMenu.Font = new Font("Microsoft Sans Serif", 28.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnMenu.ForeColor = Color.FromArgb(0, 151, 178);
+            btnMenu.Image = Properties.Resources.menu;
+            btnMenu.ImageAlign = ContentAlignment.MiddleLeft;
+            btnMenu.Location = new Point(0, 0);
+            btnMenu.Name = "btnMenu";
+            btnMenu.Padding = new Padding(10, 0, 0, 0);
+            btnMenu.Size = new Size(100, 93);
+            btnMenu.TabIndex = 4;
+            btnMenu.Tag = "HackyFox";
+            btnMenu.TextAlign = ContentAlignment.MiddleLeft;
+            btnMenu.TextImageRelation = TextImageRelation.TextBeforeImage;
+            btnMenu.UseVisualStyleBackColor = true;
+            btnMenu.Click += btnMenu_Click;
+            // 
             // pNombreD4
             // 
             pNombreD4.BackColor = Color.FromArgb(155, 209, 219);
+            pNombreD4.Controls.Add(btnNextD4);
             pNombreD4.Controls.Add(lbNombreD4);
             pNombreD4.Dock = DockStyle.Top;
             pNombreD4.Location = new Point(100, 0);
@@ -115,6 +227,7 @@
             btn_D4R1.Size = new Size(141, 104);
             btn_D4R1.TabIndex = 4;
             btn_D4R1.UseVisualStyleBackColor = true;
+            btn_D4R1.Click += btn_D4R1_Click;
             // 
             // btn_D4R2
             // 
@@ -124,6 +237,7 @@
             btn_D4R2.Size = new Size(141, 104);
             btn_D4R2.TabIndex = 5;
             btn_D4R2.UseVisualStyleBackColor = true;
+            btn_D4R2.Click += btn_D4R2_Click;
             // 
             // btn_D4R3
             // 
@@ -133,6 +247,7 @@
             btn_D4R3.Size = new Size(141, 104);
             btn_D4R3.TabIndex = 6;
             btn_D4R3.UseVisualStyleBackColor = true;
+            btn_D4R3.Click += btn_D4R3_Click;
             // 
             // btn_D4R4
             // 
@@ -142,6 +257,7 @@
             btn_D4R4.Size = new Size(141, 104);
             btn_D4R4.TabIndex = 7;
             btn_D4R4.UseVisualStyleBackColor = true;
+            btn_D4R4.Click += btn_D4R4_Click;
             // 
             // btn_D4R5
             // 
@@ -151,6 +267,7 @@
             btn_D4R5.Size = new Size(141, 104);
             btn_D4R5.TabIndex = 8;
             btn_D4R5.UseVisualStyleBackColor = true;
+            btn_D4R5.Click += btn_D4R5_Click;
             // 
             // btn_D4R6
             // 
@@ -160,6 +277,7 @@
             btn_D4R6.Size = new Size(141, 104);
             btn_D4R6.TabIndex = 9;
             btn_D4R6.UseVisualStyleBackColor = true;
+            btn_D4R6.Click += btn_D4R6_Click;
             // 
             // pBMascotaD4
             // 
@@ -171,115 +289,17 @@
             pBMascotaD4.TabIndex = 10;
             pBMascotaD4.TabStop = false;
             // 
-            // btnMenu
+            // btnNextD4
             // 
-            btnMenu.Dock = DockStyle.Top;
-            btnMenu.FlatAppearance.BorderSize = 0;
-            btnMenu.FlatAppearance.MouseOverBackColor = Color.FromArgb(241, 202, 96);
-            btnMenu.FlatStyle = FlatStyle.Flat;
-            btnMenu.Font = new Font("04b_19", 28.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnMenu.ForeColor = Color.FromArgb(0, 151, 178);
-            btnMenu.Image = Properties.Resources.menu;
-            btnMenu.ImageAlign = ContentAlignment.MiddleLeft;
-            btnMenu.Location = new Point(0, 0);
-            btnMenu.Name = "btnMenu";
-            btnMenu.Padding = new Padding(10, 0, 0, 0);
-            btnMenu.Size = new Size(100, 93);
-            btnMenu.TabIndex = 4;
-            btnMenu.Tag = "HackyFox";
-            btnMenu.TextAlign = ContentAlignment.MiddleLeft;
-            btnMenu.TextImageRelation = TextImageRelation.TextBeforeImage;
-            btnMenu.UseVisualStyleBackColor = true;
-            btnMenu.Click += btnMenu_Click;
-            // 
-            // btnUser
-            // 
-            btnUser.Dock = DockStyle.Top;
-            btnUser.FlatAppearance.BorderSize = 0;
-            btnUser.FlatAppearance.MouseOverBackColor = Color.FromArgb(255, 241, 62);
-            btnUser.FlatStyle = FlatStyle.Flat;
-            btnUser.Font = new Font("Clear Sans", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnUser.ForeColor = Color.FromArgb(0, 151, 178);
-            btnUser.Image = Properties.Resources.user;
-            btnUser.ImageAlign = ContentAlignment.MiddleLeft;
-            btnUser.Location = new Point(0, 93);
-            btnUser.Name = "btnUser";
-            btnUser.Padding = new Padding(10, 0, 0, 0);
-            btnUser.RightToLeft = RightToLeft.No;
-            btnUser.Size = new Size(100, 75);
-            btnUser.TabIndex = 10;
-            btnUser.Tag = "Usuario";
-            btnUser.TextAlign = ContentAlignment.MiddleLeft;
-            btnUser.TextImageRelation = TextImageRelation.ImageBeforeText;
-            btnUser.UseVisualStyleBackColor = true;
-            btnUser.Click += btnUser_Click;
-            // 
-            // btnLecciones
-            // 
-            btnLecciones.Dock = DockStyle.Top;
-            btnLecciones.FlatAppearance.BorderSize = 0;
-            btnLecciones.FlatAppearance.MouseOverBackColor = Color.FromArgb(255, 241, 62);
-            btnLecciones.FlatStyle = FlatStyle.Flat;
-            btnLecciones.Font = new Font("Clear Sans", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnLecciones.ForeColor = Color.FromArgb(0, 151, 178);
-            btnLecciones.Image = Properties.Resources.book;
-            btnLecciones.ImageAlign = ContentAlignment.MiddleLeft;
-            btnLecciones.Location = new Point(0, 168);
-            btnLecciones.Name = "btnLecciones";
-            btnLecciones.Padding = new Padding(10, 0, 0, 0);
-            btnLecciones.RightToLeft = RightToLeft.No;
-            btnLecciones.Size = new Size(100, 75);
-            btnLecciones.TabIndex = 11;
-            btnLecciones.Tag = "Lecciones";
-            btnLecciones.TextAlign = ContentAlignment.MiddleLeft;
-            btnLecciones.TextImageRelation = TextImageRelation.ImageBeforeText;
-            btnLecciones.UseVisualStyleBackColor = true;
-            btnLecciones.Click += btnLecciones_Click;
-            // 
-            // btnMascota
-            // 
-            btnMascota.Dock = DockStyle.Top;
-            btnMascota.FlatAppearance.BorderSize = 0;
-            btnMascota.FlatAppearance.MouseOverBackColor = Color.FromArgb(255, 241, 62);
-            btnMascota.FlatStyle = FlatStyle.Flat;
-            btnMascota.Font = new Font("Clear Sans", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnMascota.ForeColor = Color.FromArgb(0, 151, 178);
-            btnMascota.Image = Properties.Resources.mascota;
-            btnMascota.ImageAlign = ContentAlignment.MiddleLeft;
-            btnMascota.Location = new Point(0, 243);
-            btnMascota.Name = "btnMascota";
-            btnMascota.Padding = new Padding(10, 0, 0, 0);
-            btnMascota.RightToLeft = RightToLeft.No;
-            btnMascota.Size = new Size(100, 75);
-            btnMascota.TabIndex = 12;
-            btnMascota.Tag = "Mascota";
-            btnMascota.TextAlign = ContentAlignment.MiddleLeft;
-            btnMascota.TextImageRelation = TextImageRelation.ImageBeforeText;
-            btnMascota.UseVisualStyleBackColor = true;
-            btnMascota.Click += btnMascota_Click;
-            // 
-            // btnSalir
-            // 
-            btnSalir.Dock = DockStyle.Bottom;
-            btnSalir.FlatAppearance.BorderSize = 0;
-            btnSalir.FlatAppearance.MouseOverBackColor = Color.FromArgb(241, 202, 96);
-            btnSalir.FlatStyle = FlatStyle.Flat;
-            btnSalir.Font = new Font("Clear Sans", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnSalir.ForeColor = Color.FromArgb(0, 151, 178);
-            btnSalir.IconChar = FontAwesome.Sharp.IconChar.LongArrowLeft;
-            btnSalir.IconColor = Color.FromArgb(0, 151, 178);
-            btnSalir.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            btnSalir.ImageAlign = ContentAlignment.MiddleLeft;
-            btnSalir.Location = new Point(0, 657);
-            btnSalir.Name = "btnSalir";
-            btnSalir.Padding = new Padding(10, 0, 0, 0);
-            btnSalir.Size = new Size(100, 69);
-            btnSalir.TabIndex = 13;
-            btnSalir.Tag = "Salir";
-            btnSalir.TextAlign = ContentAlignment.MiddleLeft;
-            btnSalir.TextImageRelation = TextImageRelation.ImageBeforeText;
-            btnSalir.UseVisualStyleBackColor = true;
-            btnSalir.Click += btnSalir_Click;
+            btnNextD4.BackgroundImage = Properties.Resources.flecha;
+            btnNextD4.BackgroundImageLayout = ImageLayout.Stretch;
+            btnNextD4.FlatAppearance.BorderSize = 0;
+            btnNextD4.FlatStyle = FlatStyle.Flat;
+            btnNextD4.Location = new Point(939, 3);
+            btnNextD4.Name = "btnNextD4";
+            btnNextD4.Size = new Size(66, 61);
+            btnNextD4.TabIndex = 11;
+            btnNextD4.UseVisualStyleBackColor = true;
             // 
             // Dinamica4
             // 
@@ -328,5 +348,6 @@
         private Button btnLecciones;
         private Button btnMascota;
         private FontAwesome.Sharp.IconButton btnSalir;
+        private Button btnNextD4;
     }
 }

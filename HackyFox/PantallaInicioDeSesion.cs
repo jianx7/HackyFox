@@ -111,24 +111,6 @@ namespace HackyFox
 
                             }
 
-                           
-
-                            using (MySqlConnection connIdProgreso = new MySqlConnection("server=localhost;username=root;password=rubi2006;database=hackyfox"))
-                            {
-                                connIdProgreso.Open();
-
-                                string queryIdProgreso = "SELECT id_progreso_general FROM progreso_general WHERE id_alias = @idAlias LIMIT 1;";
-                                MySqlCommand cmdIdProgreso = new MySqlCommand(queryIdProgreso, connIdProgreso);
-                                cmdIdProgreso.Parameters.AddWithValue("@idAlias", idAlias);
-
-                                object resultado = cmdIdProgreso.ExecuteScalar();
-                                if (resultado != null)
-                                {
-                                    idProgresoGeneral = Convert.ToInt32(resultado);
-                                    LoginData.idProgresoActual = idProgresoGeneral;
-                                }
-                            }
-
                             // Redirigir al formulario de lecciones
                             MenuLecciones f = new MenuLecciones();
                             f.Show();

@@ -14,15 +14,23 @@ namespace HackyFox
 {
     public partial class PantallaRegistro : Form
     {
-        string cadenaConexion = "server=localhost;username=root;password=rute;database=hackyfox";
+        string cadenaConexion = "server=localhost;username=root;password=rubi2006;database=hackyfox";
 
         Dictionary<Control, Rectangle> controlesOriginales = new Dictionary<Control, Rectangle>();
         Size tamañoFormularioOriginal;
         float fuenteOriginal;
+        private System.Windows.Forms.DateTimePicker dTPNacimiento;
+
         public PantallaRegistro()
         {
             InitializeComponent();
             this.Resize += PantallaRegistro_Resize;
+
+            // Si dTPNacimiento no está en el archivo de diseño, inicialízalo aquí.
+            dTPNacimiento = new System.Windows.Forms.DateTimePicker();
+            dTPNacimiento.Name = "dTPNacimiento";
+            dTPNacimiento.Location = new Point(100, 100); // Ajusta la ubicación según sea necesario.
+            this.Controls.Add(dTPNacimiento);
         }
 
 
@@ -126,14 +134,6 @@ namespace HackyFox
                     idCmd.Parameters.AddWithValue("@alias", aliasIngresado);
                     int idAlias = Convert.ToInt32(idCmd.ExecuteScalar());
 
-                    // Insertar registro en progreso_general
-                    string progresoQuery = @"INSERT INTO progreso_general 
-                   (id_alias, total_lecciones, lecciones_completadas, porcentaje_global, fecha_creacion, fecha_actualizacion)
-                    VALUES (@idAlias, 0, 0, 0.00, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);";
-                    MySqlCommand progresoCmd = new MySqlCommand(progresoQuery, conexion);
-                    progresoCmd.Parameters.AddWithValue("@idAlias", idAlias);
-                    progresoCmd.ExecuteNonQuery();
-
                    
 
                     // Redirigir al formulario principal
@@ -148,11 +148,6 @@ namespace HackyFox
             {
                 MessageBox.Show("¡Uy! Algo salió mal al guardar. Inténtalo otra vez." + ex.Message);
             }
-        }
-
-        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void btnRegistroRegresar_Click(object sender, EventArgs e)

@@ -119,5 +119,29 @@ namespace HackyFox
                 Application.Exit(); // Cierra toda la aplicación
             }
         }
+
+        private void btn_D5R1_Click(object sender, EventArgs e)
+        {
+            MostrarError();
+        }
+
+        private void btn_D5R2_Click(object sender, EventArgs e)
+        {
+            MostrarCorrecto();
+        }
+
+        // Método para mostrar advertencia
+        private void MostrarError()
+        {
+            DialogResult resultado = MessageBox.Show("Compartir tu dirección puede poner en riesgo tu seguridad.\n\n¿Quieres intentarlo de nuevo?",
+                "¡Piénsalo bien!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        }
+
+        // Método para mostrar pantalla correcta
+        private void MostrarCorrecto()
+        {
+            Bien ventanaBien = new Bien();
+            ventanaBien.ShowDialog(); // Muestra retroalimentación positiva
+        }
     }
 }

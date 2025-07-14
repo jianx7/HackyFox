@@ -119,5 +119,53 @@ namespace HackyFox
             }
         }
 
+        private void btn_D4R1_Click(object sender, EventArgs e)
+        {
+            MostrarError();
+
+        }
+
+        private void btn_D4R2_Click(object sender, EventArgs e)
+        {
+            MostrarCorrecto();
+        }
+
+        private void btn_D4R3_Click(object sender, EventArgs e)
+        {
+            MostrarError();
+
+        }
+
+        private void btn_D4R4_Click(object sender, EventArgs e)
+        {
+            MostrarError();
+
+        }
+
+        private void btn_D4R5_Click(object sender, EventArgs e)
+        {
+            MostrarError();
+
+        }
+
+        private void btn_D4R6_Click(object sender, EventArgs e)
+        {
+            MostrarError();
+
+        }
+
+        // Método para mostrar pantalla correcta
+        private void MostrarCorrecto()
+        {
+            Bien ventanaBien = new Bien();
+            ventanaBien.ShowDialog(); // Muestra pantalla con imagen positiva
+        }
+
+        // Método para mostrar advertencia de error
+        private void MostrarError()
+        {
+            DialogResult resultado = MessageBox.Show("Ese correo no es confiable.\n\n¿Quieres intentarlo de nuevo?",
+                "¡Cuidado con los correos sospechosos!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        }
     }
 }

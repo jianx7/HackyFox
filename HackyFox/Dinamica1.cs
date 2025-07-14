@@ -103,7 +103,7 @@ namespace HackyFox
 
         private void btnMascota_Click(object sender, EventArgs e)
         {
-           SalirYMostrarFormulario(new MenuMascota());
+            SalirYMostrarFormulario(new MenuMascota());
         }
         private void btnSalir_Click(object sender, EventArgs e)
         {
@@ -119,6 +119,11 @@ namespace HackyFox
             {
                 Application.Exit(); // Cierra toda la aplicación
             }
+        }
+
+        private void btnNext_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
