@@ -76,6 +76,55 @@ namespace HackyFox
             }
         }
 
+        //Método para cambiar de pantalla
+        private void SalirYMostrarFormulario(Form formularioDestino)
+        {
+            DialogResult resultado = MessageBox.Show(
+                "¿Estás seguro que quieres salir del juego?",
+                "Salir",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question
+            );
+
+            if (resultado == DialogResult.Yes)
+            {
+                formularioDestino.Show();
+                this.Close();
+            }
+        }
+        //Llamar al método para cada boton
+        private void btnUser_Click(object sender, EventArgs e)
+        {
+            SalirYMostrarFormulario(new MenuProgreso());
+        }
+
+        private void btnLecciones_Click(object sender, EventArgs e)
+        {
+            SalirYMostrarFormulario(new MenuLecciones());
+        }
+
+        private void btnMascota_Click(object sender, EventArgs e)
+        {
+            SalirYMostrarFormulario(new MenuMascota());
+        }
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            DialogResult resultado = MessageBox.Show
+           (
+             "¿Estás seguro que quieres salir del juego?",
+             "Salir",
+             MessageBoxButtons.YesNo,
+             MessageBoxIcon.Question
+           );
+
+            if (resultado == DialogResult.Yes)
+            {
+                Application.Exit(); // Cierra toda la aplicación
+            }
+        }
+
+
+
         //Botones de opción correcta
 
         private void btnGuia_Click(object sender, EventArgs e)

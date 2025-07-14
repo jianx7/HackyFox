@@ -26,6 +26,14 @@ namespace HackyFox
             InitializeComponent();
         }
 
+        //Redimensionar imagen de botones
+        private void Dinamica3_Load(object sender, EventArgs e)
+        {
+            foreach (Button menuButton in panelMenu.Controls.OfType<Button>())
+            {
+                menuButton.Image = new Bitmap(menuButton.Image, new Size(52, 52));
+            }
+        }
         //Menu despegable
         private void btnMenu_Click(object sender, EventArgs e)
         {
@@ -72,6 +80,56 @@ namespace HackyFox
             }
         }
 
+
+        //Método para cambiar de pantalla
+        private void SalirYMostrarFormulario(Form formularioDestino)
+        {
+            DialogResult resultado = MessageBox.Show(
+                "¿Estás seguro que quieres salir del juego?",
+                "Salir",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question
+            );
+
+            if (resultado == DialogResult.Yes)
+            {
+                formularioDestino.Show();
+                this.Close();
+            }
+        }
+        //Llamar al método para cada boton
+        private void btnUser_Click(object sender, EventArgs e)
+        {
+            SalirYMostrarFormulario(new MenuProgreso());
+        }
+
+        private void btnLecciones_Click(object sender, EventArgs e)
+        {
+            SalirYMostrarFormulario(new MenuLecciones());
+        }
+
+        private void btnMascota_Click(object sender, EventArgs e)
+        {
+            SalirYMostrarFormulario(new MenuMascota());
+        }
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            DialogResult resultado = MessageBox.Show
+           (
+             "¿Estás seguro que quieres salir del juego?",
+             "Salir",
+             MessageBoxButtons.YesNo,
+             MessageBoxIcon.Question
+           );
+
+            if (resultado == DialogResult.Yes)
+            {
+                Application.Exit(); // Cierra toda la aplicación
+            }
+        }
+
+        //Evento para el botón "Siguiente"
+
         private void btnNext_Click(object sender, EventArgs e)
         {
             string contraseña = tbContraseña.Text.Trim();
@@ -109,14 +167,6 @@ namespace HackyFox
             pasoActual++;
             tbContraseña.Clear();
             tbContraseña.Focus();
-        }
-
-        private void Dinamica3_Load(object sender, EventArgs e)
-        {
-            foreach (Button menuButton in panelMenu.Controls.OfType<Button>())
-            {
-                menuButton.Image = new Bitmap(menuButton.Image, new Size(52, 52));
-            }
         }
     }
 }

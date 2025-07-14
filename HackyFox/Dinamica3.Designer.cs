@@ -85,6 +85,7 @@
             btnSalir.TextAlign = ContentAlignment.MiddleLeft;
             btnSalir.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnSalir.UseVisualStyleBackColor = true;
+            btnSalir.Click += btnSalir_Click;
             // 
             // btnMascota
             // 
@@ -106,6 +107,7 @@
             btnMascota.TextAlign = ContentAlignment.MiddleLeft;
             btnMascota.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnMascota.UseVisualStyleBackColor = true;
+            btnMascota.Click += btnMascota_Click;
             // 
             // btnLecciones
             // 
@@ -127,6 +129,7 @@
             btnLecciones.TextAlign = ContentAlignment.MiddleLeft;
             btnLecciones.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnLecciones.UseVisualStyleBackColor = true;
+            btnLecciones.Click += btnLecciones_Click;
             // 
             // btnUser
             // 
@@ -148,6 +151,7 @@
             btnUser.TextAlign = ContentAlignment.MiddleLeft;
             btnUser.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnUser.UseVisualStyleBackColor = true;
+            btnUser.Click += btnUser_Click;
             // 
             // btnMenu
             // 
