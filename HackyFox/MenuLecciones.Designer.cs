@@ -200,7 +200,7 @@
             // 
             // panelDashboard
             // 
-            panelDashboard.BackColor = Color.FromArgb(244, 185, 112);
+            panelDashboard.BackColor = Color.FromArgb(155, 209, 219);
             panelDashboard.Controls.Add(lbDashboard);
             panelDashboard.Dock = DockStyle.Top;
             panelDashboard.Font = new Font("Comfortaa", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);

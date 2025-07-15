@@ -111,6 +111,7 @@ namespace HackyFox
 
                             }
 
+<<<<<<< HEAD
                            
 
                             using (MySqlConnection connIdProgreso = new MySqlConnection("server=localhost;username=root;password=rute;database=hackyfox"))
@@ -129,6 +130,8 @@ namespace HackyFox
                                 }
                             }
 
+=======
+>>>>>>> a942f3eeb36d38e1608f23cb3e76abfb2331b414
                             // Redirigir al formulario de lecciones
                             MenuLecciones f = new MenuLecciones();
                             f.Show();
@@ -154,10 +157,6 @@ namespace HackyFox
             }
         }
 
-        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
 
         private void PantallaInicioDeSesion_Load(object sender, EventArgs e)
         {

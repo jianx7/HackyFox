@@ -36,7 +36,7 @@ namespace HackyFox
 
         private void CargarRetoDesdeBD()
         {
-            using (MySqlConnection conexion = new MySqlConnection("server=localhost;username=root;password=rute;database=hackyfox"))
+            using (MySqlConnection conexion = new MySqlConnection("server=localhost;username=root;password=rubi2006;database=hackyfox"))
             {
                 conexion.Open();
                 string query = @"SELECT leccion, pregunta, respuesta1, respuesta2, respuesta3, valida 
@@ -67,7 +67,7 @@ namespace HackyFox
         {
             if (seleccion == opcionCorrecta)
             {
-                using (MySqlConnection conexion = new MySqlConnection("server=localhost;username=root;password=rute;database=hackyfox"))
+                using (MySqlConnection conexion = new MySqlConnection("server=localhost;username=root;password=rubi2006;database=hackyfox"))
                 {
                     conexion.Open();
 

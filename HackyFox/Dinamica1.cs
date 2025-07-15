@@ -30,10 +30,10 @@ namespace HackyFox
         //Desplegar el menú
         private void btnMenu_Click(object sender, EventArgs e)
         {
-            openMneu();
+            openMenu();
         }
 
-        private void openMneu()
+        private void openMenu()
         {
             //Cambiar el ancho del panel si es mayor a 300px
             if (this.panelMenu.Width > 300)
@@ -73,6 +73,38 @@ namespace HackyFox
             }
         }
 
+
+        //Método para cambiar de pantalla
+        private void SalirYMostrarFormulario(Form formularioDestino)
+        {
+            DialogResult resultado = MessageBox.Show(
+                "¿Estás seguro que quieres salir del juego?",
+                "Salir",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question
+            );
+
+            if (resultado == DialogResult.Yes)
+            {
+                formularioDestino.Show();
+                this.Close();
+            }
+        }
+        //Llamar al método para cada boton
+        private void btnUser_Click(object sender, EventArgs e)
+        {
+            SalirYMostrarFormulario(new MenuProgreso());
+        }
+
+        private void btnLecciones_Click(object sender, EventArgs e)
+        {
+            SalirYMostrarFormulario(new MenuLecciones());
+        }
+
+        private void btnMascota_Click(object sender, EventArgs e)
+        {
+            SalirYMostrarFormulario(new MenuMascota());
+        }
         private void btnSalir_Click(object sender, EventArgs e)
         {
             DialogResult resultado = MessageBox.Show
@@ -89,5 +121,9 @@ namespace HackyFox
             }
         }
 
+        private void btnNext_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

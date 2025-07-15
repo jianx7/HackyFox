@@ -111,6 +111,7 @@
             btnMascota.TextAlign = ContentAlignment.MiddleLeft;
             btnMascota.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnMascota.UseVisualStyleBackColor = true;
+            btnMascota.Click += btnMascota_Click;
             // 
             // btnLecciones
             // 
@@ -132,6 +133,7 @@
             btnLecciones.TextAlign = ContentAlignment.MiddleLeft;
             btnLecciones.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnLecciones.UseVisualStyleBackColor = true;
+            btnLecciones.Click += btnLecciones_Click;
             // 
             // btnUser
             // 
@@ -153,6 +155,7 @@
             btnUser.TextAlign = ContentAlignment.MiddleLeft;
             btnUser.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnUser.UseVisualStyleBackColor = true;
+            btnUser.Click += btnUser_Click;
             // 
             // btnMenu
             // 
@@ -160,7 +163,7 @@
             btnMenu.FlatAppearance.BorderSize = 0;
             btnMenu.FlatAppearance.MouseOverBackColor = Color.FromArgb(241, 202, 96);
             btnMenu.FlatStyle = FlatStyle.Flat;
-            btnMenu.Font = new Font("04b_19", 28.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnMenu.Font = new Font("Microsoft Sans Serif", 28.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnMenu.ForeColor = Color.FromArgb(0, 151, 178);
             btnMenu.Image = Properties.Resources.menu;
             btnMenu.ImageAlign = ContentAlignment.MiddleLeft;
@@ -228,7 +231,7 @@
             lbPregunta.ForeColor = Color.FromArgb(0, 151, 178);
             lbPregunta.Location = new Point(322, 300);
             lbPregunta.Name = "lbPregunta";
-            lbPregunta.Size = new Size(262, 116);
+            lbPregunta.Size = new Size(274, 116);
             lbPregunta.TabIndex = 5;
             lbPregunta.Text = "¿Le das tu \r\ninfomación?";
             // 
@@ -296,6 +299,7 @@
             btnNext.Size = new Size(66, 61);
             btnNext.TabIndex = 1;
             btnNext.UseVisualStyleBackColor = true;
+            btnNext.Click += btnNext_Click;
             // 
             // lbLeccion
             // 
