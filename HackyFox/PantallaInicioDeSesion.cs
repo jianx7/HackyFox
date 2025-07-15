@@ -136,10 +136,6 @@ namespace HackyFox
             }
         }
 
-        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
 
         private void PantallaInicioDeSesion_Load(object sender, EventArgs e)
         {

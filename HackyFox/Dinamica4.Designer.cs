@@ -35,6 +35,7 @@
             btnUser = new Button();
             btnMenu = new Button();
             pNombreD4 = new Panel();
+            btnNextD4 = new Button();
             lbNombreD4 = new Label();
             lbTituloD4 = new Label();
             lbInstruccionesD4 = new Label();
@@ -45,7 +46,6 @@
             btn_D4R5 = new Button();
             btn_D4R6 = new Button();
             pBMascotaD4 = new PictureBox();
-            btnNextD4 = new Button();
             panelMenu.SuspendLayout();
             pNombreD4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pBMascotaD4).BeginInit();
@@ -186,6 +186,18 @@
             pNombreD4.Size = new Size(1008, 70);
             pNombreD4.TabIndex = 1;
             // 
+            // btnNextD4
+            // 
+            btnNextD4.BackgroundImage = Properties.Resources.flecha;
+            btnNextD4.BackgroundImageLayout = ImageLayout.Stretch;
+            btnNextD4.FlatAppearance.BorderSize = 0;
+            btnNextD4.FlatStyle = FlatStyle.Flat;
+            btnNextD4.Location = new Point(939, 3);
+            btnNextD4.Name = "btnNextD4";
+            btnNextD4.Size = new Size(66, 61);
+            btnNextD4.TabIndex = 11;
+            btnNextD4.UseVisualStyleBackColor = true;
+            // 
             // lbNombreD4
             // 
             lbNombreD4.AutoSize = true;
@@ -288,18 +300,6 @@
             pBMascotaD4.SizeMode = PictureBoxSizeMode.Zoom;
             pBMascotaD4.TabIndex = 10;
             pBMascotaD4.TabStop = false;
-            // 
-            // btnNextD4
-            // 
-            btnNextD4.BackgroundImage = Properties.Resources.flecha;
-            btnNextD4.BackgroundImageLayout = ImageLayout.Stretch;
-            btnNextD4.FlatAppearance.BorderSize = 0;
-            btnNextD4.FlatStyle = FlatStyle.Flat;
-            btnNextD4.Location = new Point(939, 3);
-            btnNextD4.Name = "btnNextD4";
-            btnNextD4.Size = new Size(66, 61);
-            btnNextD4.TabIndex = 11;
-            btnNextD4.UseVisualStyleBackColor = true;
             // 
             // Dinamica4
             // 

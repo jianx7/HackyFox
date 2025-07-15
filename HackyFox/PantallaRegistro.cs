@@ -19,18 +19,12 @@ namespace HackyFox
         Dictionary<Control, Rectangle> controlesOriginales = new Dictionary<Control, Rectangle>();
         Size tamañoFormularioOriginal;
         float fuenteOriginal;
-        private System.Windows.Forms.DateTimePicker dTPNacimiento;
+
 
         public PantallaRegistro()
         {
             InitializeComponent();
             this.Resize += PantallaRegistro_Resize;
-
-            // Si dTPNacimiento no está en el archivo de diseño, inicialízalo aquí.
-            dTPNacimiento = new System.Windows.Forms.DateTimePicker();
-            dTPNacimiento.Name = "dTPNacimiento";
-            dTPNacimiento.Location = new Point(100, 100); // Ajusta la ubicación según sea necesario.
-            this.Controls.Add(dTPNacimiento);
         }
 
 
@@ -45,7 +39,6 @@ namespace HackyFox
             // Guardar ubicación y tamaño de cada control
             controlesOriginales[pbLogoRegistro] = pbLogoRegistro.Bounds;
             controlesOriginales[lbNacimiento] = lbNacimiento.Bounds;
-            controlesOriginales[dTPNacimiento] = dTPNacimiento.Bounds;
             controlesOriginales[pbPastelRegistro] = pbPastelRegistro.Bounds;
             controlesOriginales[lbAliasRegistro] = lbAliasRegistro.Bounds;
             controlesOriginales[lbAdvertenciaRegistro] = lbAdvertenciaRegistro.Bounds;
@@ -53,6 +46,7 @@ namespace HackyFox
             controlesOriginales[btnRegistroAlias] = btnRegistroAlias.Bounds;
             controlesOriginales[pbFondoRegistro] = pbFondoRegistro.Bounds;
             controlesOriginales[btnRegistroRegresar] = btnRegistroRegresar.Bounds;
+            controlesOriginales[dTPNacimiento] = dTPNacimiento.Bounds;
 
         }
 

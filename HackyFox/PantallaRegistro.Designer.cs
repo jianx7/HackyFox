@@ -38,7 +38,7 @@
             btnRegistroAlias = new Btn_personalizado();
             pbPastelRegistro = new PictureBox();
             btnRegistroRegresar = new Btn_personalizado();
-            dateTimePicker1 = new DateTimePicker();
+            dTPNacimiento = new DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)pbFondoRegistro).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pbLogoRegistro).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pbPastelRegistro).BeginInit();
@@ -152,12 +152,12 @@
             btnRegistroRegresar.UseVisualStyleBackColor = false;
             btnRegistroRegresar.Click += btnRegistroRegresar_Click;
             // 
-            // dateTimePicker1
+            // dTPNacimiento
             // 
-            dateTimePicker1.Location = new Point(420, 273);
-            dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new Size(250, 27);
-            dateTimePicker1.TabIndex = 11;
+            dTPNacimiento.Location = new Point(420, 262);
+            dTPNacimiento.Name = "dTPNacimiento";
+            dTPNacimiento.Size = new Size(250, 27);
+            dTPNacimiento.TabIndex = 12;
             // 
             // PantallaRegistro
             // 
@@ -165,7 +165,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(255, 241, 62);
             ClientSize = new Size(1109, 725);
-            Controls.Add(dateTimePicker1);
+            Controls.Add(dTPNacimiento);
             Controls.Add(btnRegistroRegresar);
             Controls.Add(pbPastelRegistro);
             Controls.Add(btnRegistroAlias);
@@ -199,6 +199,6 @@
         private Btn_personalizado btnRegistroAlias;
         private PictureBox pbPastelRegistro;
         private Btn_personalizado btnRegistroRegresar;
-        private DateTimePicker dateTimePicker1;
+        private DateTimePicker dTPNacimiento;
     }
 }
