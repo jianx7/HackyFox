@@ -151,6 +151,9 @@
   <data name="D4Mascota" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\D4Mascota.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="AprendizajeProgresBG" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\AprendizajeProgresBG.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="user" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\user.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -181,14 +184,17 @@
   <data name="pet" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\pet.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="mochila" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\mochila.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="btn1_Dinamica2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\btn1_Dinamica2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="D2R2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\D2R2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="D2R5" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\D2R5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="edit cuidado" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\edit cuidado.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="flecha" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\flecha.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -217,8 +223,8 @@
   <data name="book" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\book.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="btn1_Dinamica2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\btn1_Dinamica2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="mochila" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\mochila.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="photoKey" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\photoKey.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -238,7 +244,7 @@
   <data name="btn_Dinamica21" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\btn_Dinamica21.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="edit cuidado" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\edit cuidado.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="pfp HackyFox" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\pfp HackyFox.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

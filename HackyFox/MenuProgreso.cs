@@ -100,5 +100,10 @@ namespace HackyFox
                 Application.Exit(); // Cierra toda la aplicación
             }
         }
+
+        private void ProgresoGeneral_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

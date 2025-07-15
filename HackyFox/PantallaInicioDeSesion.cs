@@ -111,7 +111,7 @@ namespace HackyFox
 
                             }
 
-<<<<<<< HEAD
+
                            
 
                             using (MySqlConnection connIdProgreso = new MySqlConnection("server=localhost;username=root;password=rute;database=hackyfox"))
@@ -130,8 +130,7 @@ namespace HackyFox
                                 }
                             }
 
-=======
->>>>>>> a942f3eeb36d38e1608f23cb3e76abfb2331b414
+
                             // Redirigir al formulario de lecciones
                             MenuLecciones f = new MenuLecciones();
                             f.Show();

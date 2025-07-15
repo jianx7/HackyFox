@@ -3,15 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Forms;
+using System.ComponentModel;
 using System.Drawing;
 using System.Drawing.Drawing2D;
-using System.ComponentModel;
+using System.Windows.Forms;
 
-
-namespace HackyFox.Properties
+namespace HackyFox.Controls
 {
-    internal class BarraProgeso
+    [ToolboxItem(true)]
+    [DefaultEvent("Click")]
+    public class RJProgressBar : ProgressBar
     {
         public enum TextPosition
         {
@@ -22,260 +23,200 @@ namespace HackyFox.Properties
             None
         }
 
-        [ToolboxItem(true)]
-        class RJProgressBar : ProgressBar
+        // Apariencia
+        private Color channelColor = Color.LightSteelBlue;
+        private Color sliderColor = Color.RoyalBlue;
+        private Color foreBackColor = Color.RoyalBlue;
+        private int channelHeight = 6;
+        private int sliderHeight = 6;
+        private TextPosition showValue = TextPosition.Right;
+        private string symbolBefore = "";
+        private string symbolAfter = "";
+        private bool showMaximun = false;
+
+        // Otros
+        private bool paintedBack = false;
+        private bool stopPainting = false;
+
+        public RJProgressBar()
         {
-            //campos
-            //-> apariencia
-            private Color channelColor = Color.LightSteelBlue;
-            private Color sliderColor = Color.RoyalBlue;
-            private Color foreBackColor = Color.RoyalBlue;
-            private int channelHeight = 6;
-            private int sliderHeight = 6;
-            private TextPosition showValue = TextPosition.Right;
-            private string symbolBefore = "";
-            private string symbolAfter = "";
-            private bool showMaximun = false;
-            //-> otros
-            private bool paintedBack = false;
-            private bool stopPainting = false;
+            this.SetStyle(ControlStyles.UserPaint, true);
+            this.ForeColor = Color.FromArgb(255, 241, 62);
+        }
 
+        [Category("RJ Code Advance")]
+        public Color ChannelColor
+        {
+            get => channelColor;
+            set { channelColor = value; Invalidate(); }
+        }
 
-            //Constructor
-            public RJProgressBar()
+        [Category("RJ Code Advance")]
+        public Color SliderColor
+        {
+            get => sliderColor;
+            set { sliderColor = value; Invalidate(); }
+        }
+
+        [Category("RJ Code Advance")]
+        public Color ForeBackColor
+        {
+            get => foreBackColor;
+            set { foreBackColor = value; Invalidate(); }
+        }
+
+        [Category("RJ Code Advance")]
+        public int ChannelHeight
+        {
+            get => channelHeight;
+            set { channelHeight = value; Invalidate(); }
+        }
+
+        [Category("RJ Code Advance")]
+        public int SliderHeight
+        {
+            get => sliderHeight;
+            set { sliderHeight = value; Invalidate(); }
+        }
+
+        [Category("RJ Code Advance")]
+        public TextPosition ShowValue
+        {
+            get => showValue;
+            set { showValue = value; Invalidate(); }
+        }
+
+        [Category("RJ Code Advance")]
+        public string SymbolBefore
+        {
+            get => symbolBefore;
+            set { symbolBefore = value; Invalidate(); }
+        }
+
+        [Category("RJ Code Advance")]
+        public string SymbolAfter
+        {
+            get => symbolAfter;
+            set { symbolAfter = value; Invalidate(); }
+        }
+
+        [Category("RJ Code Advance")]
+        public bool ShowMaximun
+        {
+            get => showMaximun;
+            set { showMaximun = value; Invalidate(); }
+        }
+
+        [Category("RJ Code Advance")]
+        [Browsable(true)]
+        [EditorBrowsable(EditorBrowsableState.Always)]
+        public override Font Font
+        {
+            get => base.Font;
+            set => base.Font = value;
+        }
+
+        [Category("RJ Code Advance")]
+        public override Color ForeColor
+        {
+            get => base.ForeColor;
+            set => base.ForeColor = value;
+        }
+
+        protected override void OnPaintBackground(PaintEventArgs pevent)
+        {
+            if (!stopPainting && !paintedBack)
             {
-                this.SetStyle(ControlStyles.UserPaint, true);
-                this.ForeColor = Color.White;
-            }
+                Graphics graph = pevent.Graphics;
+                Rectangle rectChannel = new Rectangle(0, 0, Width, ChannelHeight);
 
-            //Properties
-            [Category("RJ Code Advance")]
-            public Color ChannelColor
-            {
-                get { return channelColor; }
-                set
+                using (var brushChannel = new SolidBrush(channelColor))
                 {
-                    channelColor = value;
-                    this.Invalidate();
+                    rectChannel.Y = ChannelHeight >= SliderHeight ?
+                        Height - ChannelHeight :
+                        Height - ((ChannelHeight + SliderHeight) / 2);
+
+                    graph.Clear(Parent?.BackColor ?? SystemColors.Control);
+                    graph.FillRectangle(brushChannel, rectChannel);
+
+                    if (!DesignMode)
+                        paintedBack = true;
+                }
+
+                if (Value == Maximum || Value == Minimum)
+                    paintedBack = false;
+            }
+        }
+
+        protected override void OnPaint(PaintEventArgs e)
+        {
+            if (!stopPainting)
+            {
+                Graphics graph = e.Graphics;
+                double scaleFactor = ((double)Value - Minimum) / (Maximum - Minimum);
+                int sliderWidth = (int)(Width * scaleFactor);
+                Rectangle rectSlider = new Rectangle(0, 0, sliderWidth, SliderHeight);
+
+                using (var brushSlider = new SolidBrush(sliderColor))
+                {
+                    rectSlider.Y = SliderHeight >= ChannelHeight ?
+                        Height - SliderHeight :
+                        Height - ((SliderHeight + ChannelHeight) / 2);
+
+                    if (sliderWidth > 1)
+                        graph.FillRectangle(brushSlider, rectSlider);
+
+                    if (showValue != TextPosition.None)
+                        DrawValueText(graph, sliderWidth, rectSlider);
                 }
             }
 
-            [Category("RJ Code Advance")]
-            public Color SliderColor
-            {
-                get { return sliderColor; }
-                set
-                {
-                    sliderColor = value;
-                    this.Invalidate();
-                }
-            }
+            stopPainting = Value == Maximum;
+        }
 
-            [Category("RJ Code Advance")]
-            public Color ForeBackColor
-            {
-                get { return foreBackColor; }
-                set
-                {
-                    foreBackColor = value;
-                    this.Invalidate();
-                }
-            }
+        private void DrawValueText(Graphics graph, int sliderWidth, Rectangle rectSlider)
+        {
+            string text = symbolBefore + Value.ToString() + symbolAfter;
+            if (showMaximun)
+                text += "/" + symbolBefore + Maximum.ToString() + symbolAfter;
 
-            [Category("RJ Code Advance")]
-            public int ChannelHeight
-            {
-                get { return channelHeight; }
-                set
-                {
-                    channelHeight = value;
-                    this.Invalidate();
-                }
-            }
+            var textSize = TextRenderer.MeasureText(text, Font);
+            var rectText = new Rectangle(0, 0, textSize.Width, textSize.Height + 2);
 
-            [Category("RJ Code Advance")]
-            public int SliderHeight
-            {
-                get { return sliderHeight; }
-                set
-                {
-                    sliderHeight = value;
-                    this.Invalidate();
-                }
-            }
+            using var brushText = new SolidBrush(ForeColor);
+            using var brushTextBack = new SolidBrush(ForeBackColor);
+            using var textFormat = new StringFormat();
 
-            [Category("RJ Code Advance")]
-            public TextPosition ShowValue
+            switch (showValue)
             {
-                get { return showValue; }
-                set
-                {
-                    showValue = value;
-                    this.Invalidate();
-                }
-            }
+                case TextPosition.Left:
+                    rectText.X = 0;
+                    textFormat.Alignment = StringAlignment.Near;
+                    break;
+                case TextPosition.Right:
+                    rectText.X = Width - textSize.Width;
+                    textFormat.Alignment = StringAlignment.Far;
+                    break;
+                case TextPosition.Center:
+                    rectText.X = (Width - textSize.Width) / 2;
+                    textFormat.Alignment = StringAlignment.Center;
+                    break;
+                case TextPosition.Sliding:
+                    rectText.X = sliderWidth - textSize.Width;
+                    textFormat.Alignment = StringAlignment.Center;
 
-            [Category("RJ Code Advance")]
-            public string SymbolBefore
-            {
-                get { return symbolBefore; }
-                set
-                {
-                    symbolBefore = value;
-                    this.Invalidate();
-                }
-            }
-
-            [Category("RJ Code Advance")]
-            public string SymbolAfter
-            {
-                get { return symbolAfter; }
-                set
-                {
-                    symbolAfter = value;
-                    this.Invalidate();
-                }
-            }
-
-            [Category("RJ Code Advance")]
-            public bool ShowMaximun
-            {
-                get { return showMaximun; }
-                set
-                {
-                    showMaximun = value;
-                    this.Invalidate();
-                }
-            }
-
-            [Category("RJ Code Advance")]
-            [Browsable(true)]
-            [EditorBrowsable(EditorBrowsableState.Always)]
-            public override Font Font
-            {
-                get { return base.Font; }
-                set
-                {
-                    base.Font = value;
-                }
-            }
-
-            [Category("RJ Code Advance")]
-            public override Color ForeColor
-            {
-                get { return base.ForeColor; }
-                set
-                {
-                    base.ForeColor = value;
-                }
-            }
-
-            //-> Paint the background & channel
-            protected override void OnPaintBackground(PaintEventArgs pevent)
-            {
-                if (stopPainting == false)
-                {
-                    if (paintedBack == false)
+                    using (var brushClear = new SolidBrush(Parent?.BackColor ?? SystemColors.Control))
                     {
-                        //Fields
-                        Graphics graph = pevent.Graphics;
-                        Rectangle rectChannel = new Rectangle(0, 0, this.Width, ChannelHeight);
-                        using (var brushChannel = new SolidBrush(channelColor))
-                        {
-                            if (channelHeight >= sliderHeight)
-                                rectChannel.Y = this.Height - channelHeight;
-                            else rectChannel.Y = this.Height - ((channelHeight + sliderHeight) / 2);
-
-                            //Painting
-                            graph.Clear(this.Parent.BackColor);//Surface
-                            graph.FillRectangle(brushChannel, rectChannel);//Channel
-
-                            //Stop painting the back & Channel
-                            if (this.DesignMode == false)
-                                paintedBack = true;
-                        }
+                        var rect = rectSlider;
+                        rect.Y = rectText.Y;
+                        rect.Height = rectText.Height;
+                        graph.FillRectangle(brushClear, rect);
                     }
-                    //Reset painting the back & channel
-                    if (this.Value == this.Maximum || this.Value == this.Minimum)
-                        paintedBack = false;
-                }
+                    break;
             }
 
-            //-> Paint slider
-            protected override void OnPaint(PaintEventArgs e)
-            {
-                if (stopPainting == false)
-                {
-                    //Fields
-                    Graphics graph = e.Graphics;
-                    double scaleFactor = (((double)this.Value - this.Minimum) / ((double)this.Maximum - this.Minimum));
-                    int sliderWidth = (int)(this.Width * scaleFactor);
-                    Rectangle rectSlider = new Rectangle(0, 0, sliderWidth, sliderHeight);
-                    using (var brushSlider = new SolidBrush(sliderColor))
-                    {
-                        if (sliderHeight >= channelHeight)
-                            rectSlider.Y = this.Height - sliderHeight;
-                        else rectSlider.Y = this.Height - ((sliderHeight + channelHeight) / 2);
-
-                        //Painting
-                        if (sliderWidth > 1) //Slider
-                            graph.FillRectangle(brushSlider, rectSlider);
-                        if (showValue != TextPosition.None) //Text
-                            DrawValueText(graph, sliderWidth, rectSlider);
-                    }
-                }
-                if (this.Value == this.Maximum) stopPainting = true;//Stop painting
-                else stopPainting = false; //Keep painting
-            }
-
-            //-> Paint value text
-            private void DrawValueText(Graphics graph, int sliderWidth, Rectangle rectSlider)
-            {
-                //Fields
-                string text = symbolBefore + this.Value.ToString() + symbolAfter;
-                if (showMaximun) text = text + "/" + symbolBefore + this.Maximum.ToString() + symbolAfter;
-                var textSize = TextRenderer.MeasureText(text, this.Font);
-                var rectText = new Rectangle(0, 0, textSize.Width, textSize.Height + 2);
-                using (var brushText = new SolidBrush(this.ForeColor))
-                using (var brushTextBack = new SolidBrush(foreBackColor))
-                using (var textFormat = new StringFormat())
-                {
-                    switch (showValue)
-                    {
-                        case TextPosition.Left:
-                            rectText.X = 0;
-                            textFormat.Alignment = StringAlignment.Near;
-                            break;
-
-                        case TextPosition.Right:
-                            rectText.X = this.Width - textSize.Width;
-                            textFormat.Alignment = StringAlignment.Far;
-                            break;
-
-                        case TextPosition.Center:
-                            rectText.X = (this.Width - textSize.Width) / 2;
-                            textFormat.Alignment = StringAlignment.Center;
-                            break;
-
-                        case TextPosition.Sliding:
-                            rectText.X = sliderWidth - textSize.Width;
-                            textFormat.Alignment = StringAlignment.Center;
-                            //Clean previous text surface
-                            using (var brushClear = new SolidBrush(this.Parent.BackColor))
-                            {
-                                var rect = rectSlider;
-                                rect.Y = rectText.Y;
-                                rect.Height = rectText.Height;
-                                graph.FillRectangle(brushClear, rect);
-                            }
-                            break;
-                    }
-                    //Painting
-                    graph.FillRectangle(brushTextBack, rectText);
-                    graph.DrawString(text, this.Font, brushText, rectText, textFormat);
-                }
-            }
-
+            graph.FillRectangle(brushTextBack, rectText);
+            graph.DrawString(text, Font, brushText, rectText, textFormat);
         }
     }
 }

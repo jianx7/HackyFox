@@ -37,11 +37,16 @@
             panel1 = new Panel();
             btnMenu = new Button();
             panelProgreso = new Panel();
+            panel2 = new Panel();
+            ProgresoGeneral = new HackyFox.Controls.RJProgressBar();
+            PicProgress = new PictureBox();
             panelDashboard = new Panel();
             lbDashboard = new Label();
             panelMenu.SuspendLayout();
             panel1.SuspendLayout();
             panelProgreso.SuspendLayout();
+            panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)PicProgress).BeginInit();
             panelDashboard.SuspendLayout();
             SuspendLayout();
             // 
@@ -191,6 +196,7 @@
             // 
             // panelProgreso
             // 
+            panelProgreso.Controls.Add(panel2);
             panelProgreso.Controls.Add(panelDashboard);
             panelProgreso.Dock = DockStyle.Fill;
             panelProgreso.Location = new Point(278, 0);
@@ -198,6 +204,45 @@
             panelProgreso.Name = "panelProgreso";
             panelProgreso.Size = new Size(692, 544);
             panelProgreso.TabIndex = 2;
+            // 
+            // panel2
+            // 
+            panel2.Controls.Add(ProgresoGeneral);
+            panel2.Controls.Add(PicProgress);
+            panel2.Dock = DockStyle.Bottom;
+            panel2.Location = new Point(0, 302);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(692, 242);
+            panel2.TabIndex = 2;
+            // 
+            // ProgresoGeneral
+            // 
+            ProgresoGeneral.BackColor = Color.FromArgb(255, 241, 62);
+            ProgresoGeneral.ChannelColor = Color.LightSteelBlue;
+            ProgresoGeneral.ChannelHeight = 6;
+            ProgresoGeneral.ForeBackColor = Color.RoyalBlue;
+            ProgresoGeneral.ForeColor = Color.FromArgb(255, 241, 62);
+            ProgresoGeneral.Location = new Point(244, 110);
+            ProgresoGeneral.Name = "ProgresoGeneral";
+            ProgresoGeneral.ShowMaximun = false;
+            ProgresoGeneral.ShowValue = HackyFox.Controls.RJProgressBar.TextPosition.Right;
+            ProgresoGeneral.Size = new Size(226, 38);
+            ProgresoGeneral.SliderColor = Color.RoyalBlue;
+            ProgresoGeneral.SliderHeight = 6;
+            ProgresoGeneral.SymbolAfter = "";
+            ProgresoGeneral.SymbolBefore = "";
+            ProgresoGeneral.TabIndex = 0;
+            ProgresoGeneral.Click += ProgresoGeneral_Click;
+            // 
+            // PicProgress
+            // 
+            PicProgress.Image = Properties.Resources.AprendizajeProgresBG;
+            PicProgress.Location = new Point(134, 14);
+            PicProgress.Name = "PicProgress";
+            PicProgress.Size = new Size(495, 172);
+            PicProgress.SizeMode = PictureBoxSizeMode.Zoom;
+            PicProgress.TabIndex = 2;
+            PicProgress.TabStop = false;
             // 
             // panelDashboard
             // 
@@ -237,6 +282,8 @@
             panelMenu.ResumeLayout(false);
             panel1.ResumeLayout(false);
             panelProgreso.ResumeLayout(false);
+            panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)PicProgress).EndInit();
             panelDashboard.ResumeLayout(false);
             panelDashboard.PerformLayout();
             ResumeLayout(false);
@@ -254,5 +301,8 @@
         private Panel panelProgreso;
         private Panel panelDashboard;
         private Label lbDashboard;
+        private Controls.RJProgressBar ProgresoGeneral;
+        private Panel panel2;
+        private PictureBox PicProgress;
     }
 }
