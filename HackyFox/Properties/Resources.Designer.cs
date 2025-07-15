@@ -93,6 +93,16 @@ namespace HackyFox.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap btn_Dinamica21 {
+            get {
+                object obj = ResourceManager.GetObject("btn_Dinamica21", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap btn1_Dinamica2 {
             get {
                 object obj = ResourceManager.GetObject("btn1_Dinamica2", resourceCulture);
@@ -246,6 +256,16 @@ namespace HackyFox.Properties {
         internal static System.Drawing.Bitmap detective {
             get {
                 object obj = ResourceManager.GetObject("detective", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap edit_cuidado {
+            get {
+                object obj = ResourceManager.GetObject("edit cuidado", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
