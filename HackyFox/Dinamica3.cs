@@ -12,6 +12,7 @@ namespace HackyFox
 {
     public partial class Dinamica3 : Form
     {
+        private readonly int idLeccionActual;
         // Variable para almacenar la contraseeña del usuario
         string palabraFavorita = "";
         string numFavorito = "";
@@ -21,9 +22,10 @@ namespace HackyFox
         int pasoActual = 0;
 
 
-        public Dinamica3()
+        public Dinamica3(int idLeccionActual)
         {
             InitializeComponent();
+            this.idLeccionActual = idLeccionActual;
         }
 
         //Redimensionar imagen de botones

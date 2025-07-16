@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HackyFox.Clases;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,11 @@ namespace HackyFox
 {
     public partial class Dinamica4 : Form
     {
-        public Dinamica4()
+        private readonly int idLeccionActual;
+        public Dinamica4(int idLeccionActual)
         {
             InitializeComponent();
+            this.idLeccionActual = idLeccionActual;
         }
 
         //Redimensionar imagen de botones
@@ -157,8 +160,20 @@ namespace HackyFox
         // Método para mostrar pantalla correcta
         private void MostrarCorrecto()
         {
-            Bien ventanaBien = new Bien();
-            ventanaBien.ShowDialog(); // Muestra pantalla con imagen positiva
+            // 1) Registrar la dinámica como completada
+            using var conexion = ConexionBD.ObtenerConexion();
+            conexion.Open();
+            ProgresoManager.RegistrarComponente(
+                conexion,
+                Sesion.UsuarioActual.IdProgresoGeneral,
+                idLeccionActual,
+                "dinamica");
+
+            var final = new FinalDinamica(idLeccionActual);
+            final.StartPosition = FormStartPosition.Manual;
+            final.Location = this.Location;
+            final.Show();
+            this.Close();
         }
 
         // Método para mostrar advertencia de error

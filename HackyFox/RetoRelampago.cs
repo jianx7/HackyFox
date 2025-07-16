@@ -37,6 +37,7 @@ namespace HackyFox
         private void CargarRetoDesdeBD()
         {
             using var conexion = ConexionBD.ObtenerConexion();
+            conexion.Open();
 
             string query = @"SELECT leccion, pregunta, respuesta1, respuesta2, respuesta3, valida 
                              FROM reto 
@@ -109,7 +110,7 @@ namespace HackyFox
 
         private void NavegarAFelicitacion()
         {
-            Bien siguientePantalla = new Bien();
+            Bien siguientePantalla = new Bien(idLeccionActual);
             siguientePantalla.StartPosition = FormStartPosition.Manual;
             siguientePantalla.Location = this.Location;
             siguientePantalla.Show();

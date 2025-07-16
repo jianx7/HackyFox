@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HackyFox.Clases;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,12 +13,15 @@ namespace HackyFox
 {
     public partial class Dinamica6 : Form
     {
+        private readonly int idLeccionActual;
+
         List<string> mochilaCiberdefensor = new List<string>();
         int objetosCorrectos = 0;
 
-        public Dinamica6()
+        public Dinamica6(int idLeccionActual)
         {
             InitializeComponent();
+            this.idLeccionActual = idLeccionActual;
         }
 
         //Redimensionar imagen de botones
@@ -162,8 +166,20 @@ namespace HackyFox
                 if (objetosCorrectos == 4)
                 {
                     // Mostrar la ventana de felicitación
-                    Dinamica6Final ventanaFinal = new Dinamica6Final();
-                    ventanaFinal.ShowDialog();
+                    // 1) Registrar la dinámica como completada
+                    using var conexion = ConexionBD.ObtenerConexion();
+                    conexion.Open();
+                    ProgresoManager.RegistrarComponente(
+                        conexion,
+                        Sesion.UsuarioActual.IdProgresoGeneral,
+                        idLeccionActual,
+                        "dinamica");
+
+                    var final = new FinalDinamica(idLeccionActual);
+                    final.StartPosition = FormStartPosition.Manual;
+                    final.Location = this.Location;
+                    final.Show();
+                    this.Close();
                 }
             }
         }

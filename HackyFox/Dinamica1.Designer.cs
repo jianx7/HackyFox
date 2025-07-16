@@ -301,7 +301,7 @@
             btnNext.Size = new Size(66, 61);
             btnNext.TabIndex = 1;
             btnNext.UseVisualStyleBackColor = true;
-            btnNext.Click += btnNext_Click;
+            
             // 
             // lbLeccion
             // 

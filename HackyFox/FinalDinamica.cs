@@ -1,4 +1,6 @@
-﻿using System;
+﻿using HackyFox.Clases;
+using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -8,7 +10,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static HackyFox.MenuLecciones;
-using HackyFox.Clases;
 
 namespace HackyFox
 {
@@ -35,14 +36,38 @@ namespace HackyFox
 
         private void btnSiguienteLeccion_Click(object sender, EventArgs e)
         {
-            // (Si quieres volver a asegurarte de registrar, puedes repetir el insert aquí)
+            // Obtener la siguiente lección
+            int siguienteLeccion = idLeccionActual + 1;
 
-            var menu = new MenuLecciones();
-            menu.StartPosition = FormStartPosition.Manual;
-            menu.Location = this.Location;
-            menu.Show();
-            menu.RefrescarSiguienteLeccion();
+            // Verificar si existe la lección antes de continuar
+            if (LeccionExiste(siguienteLeccion))
+            {
+                var leccion = new Leccion(); // O podrías pasar el id si tu Leccion lo soporta
+                leccion.StartPosition = FormStartPosition.Manual;
+                leccion.Location = this.Location;
+                leccion.Show();
+            }
+            else
+            {
+                MessageBox.Show("¡Has completado todas las lecciones!");
+                var menu = new MenuLecciones();
+                menu.StartPosition = FormStartPosition.Manual;
+                menu.Location = this.Location;
+                menu.Show();
+            }
             this.Close();
+        }
+
+        private bool LeccionExiste(int idLeccion)
+        {
+            using var conexion = ConexionBD.ObtenerConexion();
+            conexion.Open();
+            string query = "SELECT COUNT(*) FROM lecciones WHERE id_leccion = @idLeccion";
+
+            using var cmd = new MySqlCommand(query, conexion);
+            cmd.Parameters.AddWithValue("@idLeccion", idLeccion);
+
+            return Convert.ToInt32(cmd.ExecuteScalar()) > 0;
         }
     }
 }
