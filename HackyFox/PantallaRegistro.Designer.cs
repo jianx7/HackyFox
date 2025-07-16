@@ -137,7 +137,7 @@
             pbPastelRegistro.TabIndex = 8;
             pbPastelRegistro.TabStop = false;
             // 
-<<<<<<< HEAD
+
             // dTPNacimiento
             // 
             dTPNacimiento.CalendarForeColor = Color.FromArgb(97, 54, 37);
@@ -148,8 +148,7 @@
             dTPNacimiento.Size = new Size(219, 21);
             dTPNacimiento.TabIndex = 9;
             // 
-=======
->>>>>>> fc98b296748f4597c8c97a9a9f6582c13e323af4
+
             // btnRegistroRegresar
             // 
             btnRegistroRegresar.BackColor = Color.FromArgb(174, 225, 235);
@@ -165,13 +164,7 @@
             btnRegistroRegresar.UseVisualStyleBackColor = false;
             btnRegistroRegresar.Click += btnRegistroRegresar_Click;
             // 
-            // dTPNacimiento
-            // 
-            dTPNacimiento.Location = new Point(420, 262);
-            dTPNacimiento.Name = "dTPNacimiento";
-            dTPNacimiento.Size = new Size(250, 27);
-            dTPNacimiento.TabIndex = 12;
-            // 
+            
             // PantallaRegistro
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
