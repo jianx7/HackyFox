@@ -128,7 +128,6 @@ namespace HackyFox
             }
         }
 
-<<<<<<< HEAD
         private void btnYes_Click(object sender, EventArgs e)
         {
             DialogResult resultado = MessageBox.Show("⚠️ Estas seguro?.\n\n¿Quieres intentarlo de nuevo?",
@@ -151,11 +150,6 @@ namespace HackyFox
             final.Location = this.Location;
             final.Show();
             this.Close();
-=======
-        private void btnNext_Click(object sender, EventArgs e)
-        {
-
->>>>>>> fc98b296748f4597c8c97a9a9f6582c13e323af4
         }
     }
 }
