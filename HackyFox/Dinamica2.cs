@@ -18,11 +18,6 @@ namespace HackyFox
         }
 
 
-        private void btn_D2R1_Click(object sender, EventArgs e)
-        {
-
-        }
-
         //Redimensionar imagen de botones
         private void Dinamica2_Load(object sender, EventArgs e)
         {
@@ -125,6 +120,32 @@ namespace HackyFox
             }
         }
 
-        
+        private void btn_D2R2_Click(object sender, EventArgs e)
+        {
+            MostrarError();
+        }
+
+        private void btn_D2R4_Click(object sender, EventArgs e)
+        {
+            MostrarCorrecto();
+        }
+
+        private void btn_D2R1_Click(object sender, EventArgs e)
+        {
+            MostrarError();
+        }
+        // Método para mostrar error
+        private void MostrarError()
+        {
+            DialogResult resultado = MessageBox.Show("Esa opción no es adecuada para compartir en internet.\n\n¿Quieres intentarlo de nuevo?",
+                "¡Piénsalo mejor!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        }
+
+        // Método para mostrar pantalla correcta
+        private void MostrarCorrecto()
+        {
+            Bien ventanaBien = new Bien();
+            ventanaBien.ShowDialog(); // Abre la pantalla con imagen positiva
+        }
     }
 }

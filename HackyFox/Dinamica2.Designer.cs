@@ -43,6 +43,7 @@
             btn_D2R3 = new Button();
             btn_D2R4 = new Button();
             pictureBox1 = new PictureBox();
+            btnNextD2 = new Button();
             panelMenu.SuspendLayout();
             panelDashboard.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -157,7 +158,7 @@
             btnMenu.FlatAppearance.BorderSize = 0;
             btnMenu.FlatAppearance.MouseOverBackColor = Color.FromArgb(241, 202, 96);
             btnMenu.FlatStyle = FlatStyle.Flat;
-            btnMenu.Font = new Font("04b_19", 28.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnMenu.Font = new Font("Microsoft Sans Serif", 28.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnMenu.ForeColor = Color.FromArgb(0, 151, 178);
             btnMenu.Image = Properties.Resources.menu;
             btnMenu.ImageAlign = ContentAlignment.MiddleLeft;
@@ -175,6 +176,7 @@
             // panelDashboard
             // 
             panelDashboard.BackColor = Color.FromArgb(155, 209, 219);
+            panelDashboard.Controls.Add(btnNextD2);
             panelDashboard.Controls.Add(lbNombreD2);
             panelDashboard.Dock = DockStyle.Top;
             panelDashboard.Location = new Point(100, 0);
@@ -218,7 +220,7 @@
             // btn_D2R1
             // 
             btn_D2R1.Image = Properties.Resources.btn_Dinamica2;
-            btn_D2R1.Location = new Point(199, 257);
+            btn_D2R1.Location = new Point(156, 257);
             btn_D2R1.Name = "btn_D2R1";
             btn_D2R1.Size = new Size(264, 406);
             btn_D2R1.TabIndex = 4;
@@ -228,11 +230,12 @@
             // btn_D2R2
             // 
             btn_D2R2.Image = Properties.Resources.btn1_Dinamica2;
-            btn_D2R2.Location = new Point(496, 257);
+            btn_D2R2.Location = new Point(473, 257);
             btn_D2R2.Name = "btn_D2R2";
             btn_D2R2.Size = new Size(264, 406);
             btn_D2R2.TabIndex = 5;
             btn_D2R2.UseVisualStyleBackColor = true;
+            btn_D2R2.Click += btn_D2R2_Click;
             // 
             // btn_D2R3
             // 
@@ -246,21 +249,34 @@
             // btn_D2R4
             // 
             btn_D2R4.Image = Properties.Resources.btn2_Dinamica2;
-            btn_D2R4.Location = new Point(798, 257);
+            btn_D2R4.Location = new Point(784, 257);
             btn_D2R4.Name = "btn_D2R4";
             btn_D2R4.Size = new Size(264, 406);
             btn_D2R4.TabIndex = 7;
             btn_D2R4.UseVisualStyleBackColor = true;
+            btn_D2R4.Click += btn_D2R4_Click;
             // 
             // pictureBox1
             // 
             pictureBox1.Image = Properties.Resources.edit_cuidado;
-            pictureBox1.Location = new Point(843, 76);
+            pictureBox1.Location = new Point(851, 76);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(312, 185);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 8;
             pictureBox1.TabStop = false;
+            // 
+            // btnNextD2
+            // 
+            btnNextD2.BackgroundImage = Properties.Resources.flecha;
+            btnNextD2.BackgroundImageLayout = ImageLayout.Stretch;
+            btnNextD2.FlatAppearance.BorderSize = 0;
+            btnNextD2.FlatStyle = FlatStyle.Flat;
+            btnNextD2.Location = new Point(939, 3);
+            btnNextD2.Name = "btnNextD2";
+            btnNextD2.Size = new Size(66, 61);
+            btnNextD2.TabIndex = 9;
+            btnNextD2.UseVisualStyleBackColor = true;
             // 
             // Dinamica2
             // 
@@ -305,5 +321,6 @@
         private Button btnLecciones;
         private Button btnMascota;
         private FontAwesome.Sharp.IconButton btnSalir;
+        private Button btnNextD2;
     }
 }

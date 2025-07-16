@@ -73,6 +73,16 @@ namespace HackyFox.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap AprendizajeProgresBG {
+            get {
+                object obj = ResourceManager.GetObject("AprendizajeProgresBG", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap book {
             get {
                 object obj = ResourceManager.GetObject("book", resourceCulture);
@@ -396,6 +406,16 @@ namespace HackyFox.Properties {
         internal static System.Drawing.Bitmap pet {
             get {
                 object obj = ResourceManager.GetObject("pet", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap pfp_HackyFox {
+            get {
+                object obj = ResourceManager.GetObject("pfp HackyFox", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

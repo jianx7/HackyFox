@@ -37,11 +37,16 @@
             panel1 = new Panel();
             btnMenu = new Button();
             panelProgreso = new Panel();
+            panel2 = new Panel();
+            ProgresoGeneral = new HackyFox.Controls.RJProgressBar();
+            PicProgress = new PictureBox();
             panelDashboard = new Panel();
             lbDashboard = new Label();
             panelMenu.SuspendLayout();
             panel1.SuspendLayout();
             panelProgreso.SuspendLayout();
+            panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)PicProgress).BeginInit();
             panelDashboard.SuspendLayout();
             SuspendLayout();
             // 
@@ -55,8 +60,9 @@
             panelMenu.Controls.Add(panel1);
             panelMenu.Dock = DockStyle.Left;
             panelMenu.Location = new Point(0, 0);
+            panelMenu.Margin = new Padding(3, 2, 3, 2);
             panelMenu.Name = "panelMenu";
-            panelMenu.Size = new Size(318, 725);
+            panelMenu.Size = new Size(278, 544);
             panelMenu.TabIndex = 1;
             // 
             // btnSalir
@@ -71,10 +77,11 @@
             btnSalir.IconColor = Color.FromArgb(0, 151, 178);
             btnSalir.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnSalir.ImageAlign = ContentAlignment.MiddleLeft;
-            btnSalir.Location = new Point(0, 656);
+            btnSalir.Location = new Point(0, 492);
+            btnSalir.Margin = new Padding(3, 2, 3, 2);
             btnSalir.Name = "btnSalir";
-            btnSalir.Padding = new Padding(10, 0, 0, 0);
-            btnSalir.Size = new Size(318, 69);
+            btnSalir.Padding = new Padding(9, 0, 0, 0);
+            btnSalir.Size = new Size(278, 52);
             btnSalir.TabIndex = 10;
             btnSalir.Tag = "Salir";
             btnSalir.Text = "Salir";
@@ -93,11 +100,12 @@
             btnMascota.ForeColor = Color.FromArgb(0, 151, 178);
             btnMascota.Image = Properties.Resources.mascota;
             btnMascota.ImageAlign = ContentAlignment.MiddleLeft;
-            btnMascota.Location = new Point(0, 243);
+            btnMascota.Location = new Point(0, 182);
+            btnMascota.Margin = new Padding(3, 2, 3, 2);
             btnMascota.Name = "btnMascota";
-            btnMascota.Padding = new Padding(10, 0, 0, 0);
+            btnMascota.Padding = new Padding(9, 0, 0, 0);
             btnMascota.RightToLeft = RightToLeft.No;
-            btnMascota.Size = new Size(318, 75);
+            btnMascota.Size = new Size(278, 56);
             btnMascota.TabIndex = 9;
             btnMascota.Tag = "Mascota";
             btnMascota.Text = "Mascota";
@@ -116,11 +124,12 @@
             btnLecciones.ForeColor = Color.FromArgb(0, 151, 178);
             btnLecciones.Image = Properties.Resources.book;
             btnLecciones.ImageAlign = ContentAlignment.MiddleLeft;
-            btnLecciones.Location = new Point(0, 168);
+            btnLecciones.Location = new Point(0, 126);
+            btnLecciones.Margin = new Padding(3, 2, 3, 2);
             btnLecciones.Name = "btnLecciones";
-            btnLecciones.Padding = new Padding(10, 0, 0, 0);
+            btnLecciones.Padding = new Padding(9, 0, 0, 0);
             btnLecciones.RightToLeft = RightToLeft.No;
-            btnLecciones.Size = new Size(318, 75);
+            btnLecciones.Size = new Size(278, 56);
             btnLecciones.TabIndex = 8;
             btnLecciones.Tag = "Lecciones";
             btnLecciones.Text = "Lecciones";
@@ -139,11 +148,12 @@
             btnUser.ForeColor = Color.FromArgb(0, 151, 178);
             btnUser.Image = Properties.Resources.user;
             btnUser.ImageAlign = ContentAlignment.MiddleLeft;
-            btnUser.Location = new Point(0, 93);
+            btnUser.Location = new Point(0, 70);
+            btnUser.Margin = new Padding(3, 2, 3, 2);
             btnUser.Name = "btnUser";
-            btnUser.Padding = new Padding(10, 0, 0, 0);
+            btnUser.Padding = new Padding(9, 0, 0, 0);
             btnUser.RightToLeft = RightToLeft.No;
-            btnUser.Size = new Size(318, 75);
+            btnUser.Size = new Size(278, 56);
             btnUser.TabIndex = 7;
             btnUser.Tag = "Usuario";
             btnUser.Text = "Usuario";
@@ -156,8 +166,9 @@
             panel1.Controls.Add(btnMenu);
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
+            panel1.Margin = new Padding(3, 2, 3, 2);
             panel1.Name = "panel1";
-            panel1.Size = new Size(318, 93);
+            panel1.Size = new Size(278, 70);
             panel1.TabIndex = 0;
             // 
             // btnMenu
@@ -171,9 +182,10 @@
             btnMenu.Image = Properties.Resources.menu;
             btnMenu.ImageAlign = ContentAlignment.MiddleLeft;
             btnMenu.Location = new Point(0, 0);
+            btnMenu.Margin = new Padding(3, 2, 3, 2);
             btnMenu.Name = "btnMenu";
-            btnMenu.Padding = new Padding(10, 0, 0, 0);
-            btnMenu.Size = new Size(318, 93);
+            btnMenu.Padding = new Padding(9, 0, 0, 0);
+            btnMenu.Size = new Size(278, 70);
             btnMenu.TabIndex = 1;
             btnMenu.Tag = "HackyFox";
             btnMenu.Text = "HackyFox";
@@ -184,49 +196,94 @@
             // 
             // panelProgreso
             // 
+            panelProgreso.Controls.Add(panel2);
             panelProgreso.Controls.Add(panelDashboard);
             panelProgreso.Dock = DockStyle.Fill;
-            panelProgreso.Location = new Point(318, 0);
+            panelProgreso.Location = new Point(278, 0);
+            panelProgreso.Margin = new Padding(3, 2, 3, 2);
             panelProgreso.Name = "panelProgreso";
-            panelProgreso.Size = new Size(791, 725);
+            panelProgreso.Size = new Size(692, 544);
             panelProgreso.TabIndex = 2;
+            // 
+            // panel2
+            // 
+            panel2.Controls.Add(ProgresoGeneral);
+            panel2.Controls.Add(PicProgress);
+            panel2.Dock = DockStyle.Bottom;
+            panel2.Location = new Point(0, 302);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(692, 242);
+            panel2.TabIndex = 2;
+            // 
+            // ProgresoGeneral
+            // 
+            ProgresoGeneral.BackColor = Color.FromArgb(255, 241, 62);
+            ProgresoGeneral.ChannelColor = Color.LightSteelBlue;
+            ProgresoGeneral.ChannelHeight = 6;
+            ProgresoGeneral.ForeBackColor = Color.RoyalBlue;
+            ProgresoGeneral.ForeColor = Color.FromArgb(255, 241, 62);
+            ProgresoGeneral.Location = new Point(244, 110);
+            ProgresoGeneral.Name = "ProgresoGeneral";
+            ProgresoGeneral.ShowMaximun = false;
+            ProgresoGeneral.ShowValue = HackyFox.Controls.RJProgressBar.TextPosition.Right;
+            ProgresoGeneral.Size = new Size(226, 38);
+            ProgresoGeneral.SliderColor = Color.RoyalBlue;
+            ProgresoGeneral.SliderHeight = 6;
+            ProgresoGeneral.SymbolAfter = "";
+            ProgresoGeneral.SymbolBefore = "";
+            ProgresoGeneral.TabIndex = 0;
+            ProgresoGeneral.Click += ProgresoGeneral_Click;
+            // 
+            // PicProgress
+            // 
+            PicProgress.Image = Properties.Resources.AprendizajeProgresBG;
+            PicProgress.Location = new Point(134, 14);
+            PicProgress.Name = "PicProgress";
+            PicProgress.Size = new Size(495, 172);
+            PicProgress.SizeMode = PictureBoxSizeMode.Zoom;
+            PicProgress.TabIndex = 2;
+            PicProgress.TabStop = false;
             // 
             // panelDashboard
             // 
-            panelDashboard.BackColor = Color.FromArgb(255, 206, 1);
+            panelDashboard.BackColor = Color.FromArgb(155, 209, 219);
             panelDashboard.Controls.Add(lbDashboard);
             panelDashboard.Dock = DockStyle.Top;
             panelDashboard.Location = new Point(0, 0);
+            panelDashboard.Margin = new Padding(3, 2, 3, 2);
             panelDashboard.Name = "panelDashboard";
-            panelDashboard.Size = new Size(791, 80);
+            panelDashboard.Size = new Size(692, 54);
             panelDashboard.TabIndex = 0;
             // 
             // lbDashboard
             // 
             lbDashboard.AutoSize = true;
             lbDashboard.Font = new Font("Comfortaa", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lbDashboard.ForeColor = Color.FromArgb(242, 242, 242);
-            lbDashboard.Location = new Point(16, 19);
+            lbDashboard.ForeColor = Color.Black;
+            lbDashboard.Location = new Point(6, 9);
             lbDashboard.Name = "lbDashboard";
-            lbDashboard.Size = new Size(151, 44);
+            lbDashboard.Size = new Size(120, 34);
             lbDashboard.TabIndex = 2;
             lbDashboard.Tag = "Lecciones";
             lbDashboard.Text = "Progreso";
             // 
             // MenuProgreso
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1109, 725);
+            ClientSize = new Size(970, 544);
             Controls.Add(panelProgreso);
             Controls.Add(panelMenu);
             Icon = (Icon)resources.GetObject("$this.Icon");
+            Margin = new Padding(3, 2, 3, 2);
             Name = "MenuProgreso";
             Text = "MenuProgreso";
             Load += MenuProgreso_Load;
             panelMenu.ResumeLayout(false);
             panel1.ResumeLayout(false);
             panelProgreso.ResumeLayout(false);
+            panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)PicProgress).EndInit();
             panelDashboard.ResumeLayout(false);
             panelDashboard.PerformLayout();
             ResumeLayout(false);
@@ -244,5 +301,8 @@
         private Panel panelProgreso;
         private Panel panelDashboard;
         private Label lbDashboard;
+        private Controls.RJProgressBar ProgresoGeneral;
+        private Panel panel2;
+        private PictureBox PicProgress;
     }
 }

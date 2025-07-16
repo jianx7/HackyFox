@@ -42,6 +42,7 @@
             btn_D5R2 = new Btn_personalizado();
             pBImagenD5 = new PictureBox();
             pBMascotaD5 = new PictureBox();
+            btnNextD5 = new Button();
             panelMenu.SuspendLayout();
             pNombreD5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pBImagenD5).BeginInit();
@@ -157,7 +158,7 @@
             btnMenu.FlatAppearance.BorderSize = 0;
             btnMenu.FlatAppearance.MouseOverBackColor = Color.FromArgb(241, 202, 96);
             btnMenu.FlatStyle = FlatStyle.Flat;
-            btnMenu.Font = new Font("04b_19", 28.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnMenu.Font = new Font("Microsoft Sans Serif", 28.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnMenu.ForeColor = Color.FromArgb(0, 151, 178);
             btnMenu.Image = Properties.Resources.menu;
             btnMenu.ImageAlign = ContentAlignment.MiddleLeft;
@@ -175,6 +176,7 @@
             // pNombreD5
             // 
             pNombreD5.BackColor = Color.FromArgb(155, 209, 219);
+            pNombreD5.Controls.Add(btnNextD5);
             pNombreD5.Controls.Add(lbNombreD5);
             pNombreD5.Dock = DockStyle.Top;
             pNombreD5.Location = new Point(100, 0);
@@ -200,7 +202,7 @@
             lbTituloD5.ForeColor = Color.FromArgb(0, 151, 178);
             lbTituloD5.Location = new Point(127, 105);
             lbTituloD5.Name = "lbTituloD5";
-            lbTituloD5.Size = new Size(733, 78);
+            lbTituloD5.Size = new Size(754, 78);
             lbTituloD5.TabIndex = 2;
             lbTituloD5.Text = "Pensar antes de compartir";
             // 
@@ -208,7 +210,7 @@
             // 
             lbInstruccionesD5.Font = new Font("Comfortaa", 18F);
             lbInstruccionesD5.ForeColor = Color.FromArgb(0, 151, 178);
-            lbInstruccionesD5.Location = new Point(512, 201);
+            lbInstruccionesD5.Location = new Point(523, 197);
             lbInstruccionesD5.Name = "lbInstruccionesD5";
             lbInstruccionesD5.Size = new Size(380, 121);
             lbInstruccionesD5.TabIndex = 3;
@@ -228,6 +230,7 @@
             btn_D5R1.TabIndex = 4;
             btn_D5R1.Text = "¡Si!";
             btn_D5R1.UseVisualStyleBackColor = false;
+            btn_D5R1.Click += btn_D5R1_Click;
             // 
             // btn_D5R2
             // 
@@ -242,6 +245,7 @@
             btn_D5R2.TabIndex = 5;
             btn_D5R2.Text = "¡No!";
             btn_D5R2.UseVisualStyleBackColor = false;
+            btn_D5R2.Click += btn_D5R2_Click;
             // 
             // pBImagenD5
             // 
@@ -262,6 +266,18 @@
             pBMascotaD5.SizeMode = PictureBoxSizeMode.Zoom;
             pBMascotaD5.TabIndex = 7;
             pBMascotaD5.TabStop = false;
+            // 
+            // btnNextD5
+            // 
+            btnNextD5.BackgroundImage = Properties.Resources.flecha;
+            btnNextD5.BackgroundImageLayout = ImageLayout.Stretch;
+            btnNextD5.FlatAppearance.BorderSize = 0;
+            btnNextD5.FlatStyle = FlatStyle.Flat;
+            btnNextD5.Location = new Point(939, 3);
+            btnNextD5.Name = "btnNextD5";
+            btnNextD5.Size = new Size(66, 61);
+            btnNextD5.TabIndex = 8;
+            btnNextD5.UseVisualStyleBackColor = true;
             // 
             // Dinamica5
             // 
@@ -305,5 +321,6 @@
         private Button btnLecciones;
         private Button btnMascota;
         private FontAwesome.Sharp.IconButton btnSalir;
+        private Button btnNextD5;
     }
 }
