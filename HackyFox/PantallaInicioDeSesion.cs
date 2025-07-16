@@ -65,7 +65,7 @@ namespace HackyFox
                 }
             }
         }
-        //Evente que se ejecuta cuando se hace clic en el botón
+        //Evento que se ejecuta cuando se hace clic en el botón
         private void btnCorroborarAlias_Click(object sender, EventArgs e)
         {
             string aliasIngresado = tbAliasInicioDeSesion.Text.Trim();

@@ -37,6 +37,8 @@
             panel1 = new Panel();
             btnMenu = new Button();
             panelProgreso = new Panel();
+            label1 = new Label();
+            pictureBox1 = new PictureBox();
             panel2 = new Panel();
             ProgresoGeneral = new HackyFox.Controls.RJProgressBar();
             PicProgress = new PictureBox();
@@ -45,6 +47,7 @@
             panelMenu.SuspendLayout();
             panel1.SuspendLayout();
             panelProgreso.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)PicProgress).BeginInit();
             panelDashboard.SuspendLayout();
@@ -189,6 +192,8 @@
             // 
             // panelProgreso
             // 
+            panelProgreso.Controls.Add(label1);
+            panelProgreso.Controls.Add(pictureBox1);
             panelProgreso.Controls.Add(panel2);
             panelProgreso.Controls.Add(panelDashboard);
             panelProgreso.Dock = DockStyle.Fill;
@@ -196,6 +201,26 @@
             panelProgreso.Name = "panelProgreso";
             panelProgreso.Size = new Size(791, 725);
             panelProgreso.TabIndex = 2;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Comfortaa", 17.9999981F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Location = new Point(356, 351);
+            label1.Name = "label1";
+            label1.Size = new Size(110, 47);
+            label1.TabIndex = 4;
+            label1.Text = "Locky";
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.BackgroundImage = Properties.Resources.cabeza;
+            pictureBox1.BackgroundImageLayout = ImageLayout.Stretch;
+            pictureBox1.Location = new Point(291, 124);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(226, 216);
+            pictureBox1.TabIndex = 3;
+            pictureBox1.TabStop = false;
             // 
             // panel2
             // 
@@ -212,7 +237,7 @@
             // 
             ProgresoGeneral.BackColor = Color.FromArgb(255, 241, 62);
             ProgresoGeneral.ChannelColor = Color.LightSteelBlue;
-            ProgresoGeneral.ChannelHeight = 6;
+            ProgresoGeneral.ChannelHeight = 60;
             ProgresoGeneral.ForeBackColor = Color.RoyalBlue;
             ProgresoGeneral.ForeColor = Color.FromArgb(255, 241, 62);
             ProgresoGeneral.Location = new Point(279, 147);
@@ -276,6 +301,8 @@
             panelMenu.ResumeLayout(false);
             panel1.ResumeLayout(false);
             panelProgreso.ResumeLayout(false);
+            panelProgreso.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)PicProgress).EndInit();
             panelDashboard.ResumeLayout(false);
@@ -298,5 +325,7 @@
         private Controls.RJProgressBar ProgresoGeneral;
         private Panel panel2;
         private PictureBox PicProgress;
+        private PictureBox pictureBox1;
+        private Label label1;
     }
 }

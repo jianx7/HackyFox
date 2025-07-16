@@ -11,6 +11,7 @@ namespace HackyFox.Clases
     {
         private static readonly string cadenaConexion = "server=localhost;username=root;password=1234;database=hackyfox";
 
+        //Verifica si un alias ya está registrado
         public static bool ExisteAlias(string alias)
         {
             using (MySqlConnection conexion = new MySqlConnection(cadenaConexion))
@@ -24,6 +25,7 @@ namespace HackyFox.Clases
             }
         }
 
+        //Crea un nuevo alias con su fecha de nacimiento
         public static int RegistrarAlias(string alias, DateTime fechaNacimiento)
         {
             using (MySqlConnection conexion = new MySqlConnection(cadenaConexion))
@@ -49,6 +51,7 @@ namespace HackyFox.Clases
             }
         }
 
+        //Recupera el ID de un alias existente
         public static int ObtenerIdAlias(string alias)
         {
             using (MySqlConnection conexion = new MySqlConnection("server=localhost;username=root;password=1234;database=hackyfox"))

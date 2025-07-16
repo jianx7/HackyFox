@@ -218,5 +218,6 @@ namespace HackyFox.Controls
             graph.FillRectangle(brushTextBack, rectText);
             graph.DrawString(text, Font, brushText, rectText, textFormat);
         }
+
     }
 }

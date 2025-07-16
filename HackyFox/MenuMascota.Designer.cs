@@ -259,9 +259,9 @@
             label1.Image = Properties.Resources.rectanguloMorado;
             label1.Location = new Point(41, 156);
             label1.Name = "label1";
-            label1.Size = new Size(129, 52);
+            label1.Size = new Size(122, 52);
             label1.TabIndex = 1;
-            label1.Text = "label1";
+            label1.Text = "Locky";
             // 
             // panelDashboard
             // 
@@ -284,7 +284,6 @@
             lbDashboard.TabIndex = 1;
             lbDashboard.Tag = "Lecciones";
             lbDashboard.Text = "Mascota";
-            
             // 
             // pictureBox1
             // 

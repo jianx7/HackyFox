@@ -1,4 +1,6 @@
-﻿using MySql.Data.MySqlClient;
+﻿using HackyFox.Clases;
+using HackyFox.Controls;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -71,29 +73,9 @@ namespace HackyFox
             btnMenu.Image = Properties.Resources.menu;
             btnMenu.Image = new Bitmap(Properties.Resources.menu, new Size(52, 52));
 
-            using (MySqlConnection conexion = new MySqlConnection("server=localhost;username=root;password=1234;database=hackyfox"))
-            {
-                conexion.Open();
-                string query = "SELECT porcentaje FROM tu_tabla WHERE id = @id";
+            // Cargar progreso del usuario actual
+            CargarProgresoUsuario();
 
-                using (MySqlCommand cmd = new MySqlCommand(query, conexion))
-                {
-                    cmd.Parameters.AddWithValue("@id", 1); // Cambia el ID según necesites
-
-                    using (MySqlDataReader reader = cmd.ExecuteReader())
-                    {
-                        if (reader.Read())
-                        {
-                            decimal porcentajeDecimal = Convert.ToDecimal(reader["porcentaje"]);
-                            int porcentajeEntero = (int)Math.Round(porcentajeDecimal);
-
-                            ProgresoGeneral.Minimum = 0;
-                            ProgresoGeneral.Maximum = 100;
-                            ProgresoGeneral.Value = Math.Min(100, Math.Max(0, porcentajeEntero));
-                        }
-                    }
-                }
-            }
         }
 
         private void btnLecciones_Click(object sender, EventArgs e)
@@ -126,9 +108,79 @@ namespace HackyFox
             }
         }
 
+
+
         private void ProgresoGeneral_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void CargarProgresoUsuario()
+        {
+            // Verificar si hay un usuario logueado
+            if (Sesion.UsuarioActual == null)
+            {
+                MessageBox.Show("No hay usuario logueado", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            try
+            {
+                using (MySqlConnection conexion = new MySqlConnection("server=localhost;username=root;password=1234;database=hackyfox"))
+                {
+                    conexion.Open();
+                    string query = @"SELECT pg.porcentaje_global, pg.lecciones_completadas, 
+                           (SELECT COUNT(*) FROM lecciones) as total_lecciones
+                           FROM progreso_general pg
+                           WHERE pg.id_progreso_general = @idProgreso";
+
+                    using (MySqlCommand cmd = new MySqlCommand(query, conexion))
+                    {
+                        cmd.Parameters.AddWithValue("@idProgreso", Sesion.UsuarioActual.IdProgresoGeneral);
+
+                        using (MySqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                // Obtener porcentaje y redondear
+                                decimal porcentaje = reader["porcentaje_global"] != DBNull.Value ?
+                                                   Convert.ToDecimal(reader["porcentaje_global"]) : 0;
+
+                                int leccionesCompletadas = Convert.ToInt32(reader["lecciones_completadas"]);
+                                int totalLecciones = Convert.ToInt32(reader["total_lecciones"]);
+
+                                // Configurar progress bar
+                                ProgresoGeneral.Minimum = 0;
+                                ProgresoGeneral.Maximum = 100;
+                                ProgresoGeneral.Value = (int)Math.Round(porcentaje);
+
+                                // Opcional: Mostrar texto descriptivo
+                                ProgresoGeneral.SymbolBefore = "Progreso: ";
+                                ProgresoGeneral.SymbolAfter = "%";
+                                ProgresoGeneral.ShowValue = RJProgressBar.TextPosition.Center;
+                                ProgresoGeneral.ShowMaximun = true;
+
+                                // Actualizar otros controles si los tienes
+                                // lblLecciones.Text = $"{leccionesCompletadas}/{totalLecciones} lecciones";
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al cargar progreso: {ex.Message}", "Error",
+                              MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        protected override void OnVisibleChanged(EventArgs e)
+        {
+            base.OnVisibleChanged(e);
+            if (this.Visible)
+            {
+                CargarProgresoUsuario();
+            }
         }
     }
 }
