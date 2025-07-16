@@ -17,9 +17,10 @@ namespace HackyFox
         public Leccion()
         {
             InitializeComponent();
-            CargarLeccionDesdeProgreso();
+            CargarLeccionDesdeProgreso();// Cargar lección desde el progreso actual
         }
 
+        //Cargas desde la bd la informcacion de la leccion actual
         private void CargarLeccionDesdeProgreso()
         {
             try
@@ -52,6 +53,7 @@ namespace HackyFox
                                     byte[] imagenBytes = (byte[])reader["imagen"];
                                     using var ms = new System.IO.MemoryStream(imagenBytes);
                                     pbLeccion.Image = Image.FromStream(ms);
+                                    pbLeccion.SizeMode = PictureBoxSizeMode.StretchImage;
                                 }
                             }
                         }
@@ -70,6 +72,7 @@ namespace HackyFox
             }
         }
 
+        //Metodo auxiliar para saber cuantas lecciones se han completado
         private int ObtenerLeccionesCompletadas(MySqlConnection conexion, int idProgresoGeneral)
         {
             string query = @"SELECT lecciones_completadas 
@@ -84,6 +87,7 @@ namespace HackyFox
             }
         }
 
+        //Botón para avanzar a la siguiente ventana de reto
         private void btnLeccionAReto_Click(object sender, EventArgs e)
         {
             try
@@ -230,5 +234,36 @@ namespace HackyFox
             }
         }
 
+        //Método para cambiar de pantalla
+        private void SalirYMostrarFormulario(Form formularioDestino)
+        {
+            DialogResult resultado = MessageBox.Show(
+                "¿Estás seguro que quieres salir del juego?",
+                "Salir",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question
+            );
+
+            if (resultado == DialogResult.Yes)
+            {
+                formularioDestino.Show();
+                this.Close();
+            }
+        }
+        //Llamar al método para cada boton
+        private void btnUser_Click(object sender, EventArgs e)
+        {
+            SalirYMostrarFormulario(new MenuProgreso());
+        }
+
+        private void btnLecciones_Click(object sender, EventArgs e)
+        {
+            SalirYMostrarFormulario(new MenuProgreso());
+        }
+
+        private void btnMascota_Click(object sender, EventArgs e)
+        {
+            SalirYMostrarFormulario(new MenuProgreso());
+        }
     }
 }

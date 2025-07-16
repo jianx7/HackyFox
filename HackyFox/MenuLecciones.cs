@@ -15,11 +15,12 @@ namespace HackyFox
 
     public partial class MenuLecciones : Form
     {
+        //Indicar la siguiente lección
         public int LeccionSiguienteId { get; private set; } = 1;
-
+        // Cadena de conexión a la base de datos
         private readonly string cadenaConexion = "server=localhost;username=root;password=1234;database=hackyfox";
 
-
+        // Constructor
         public MenuLecciones()
         {
             InitializeComponent();
@@ -41,43 +42,48 @@ namespace HackyFox
             RefrescarSiguienteLeccion();
         }
 
-        private void btnMenu_Click(object sender, EventArgs e)
-            => ToggleMenu();
-
-        private void ToggleMenu()
+        private void btnMenu_Click_1(object sender, EventArgs e)
         {
-            if (panelMenu.Width > 300)
+            //Colapsar el menu llamando al método colapseMenu
+            colapseMenu();
+        }
+
+        private void colapseMenu()
+        {
+            //Cambiar el ancho del panel si es mayor a 300px
+            if (this.panelMenu.Width > 300)
             {
-                // Colapsar
                 panelMenu.Width = 100;
-                btnMenu.Text = "";
+                btnMenu.Text = string.Empty;
                 btnMenu.ImageAlign = ContentAlignment.MiddleCenter;
 
-                foreach (var btn in panelMenu.Controls.OfType<Button>())
+                foreach (Button menuButton in panelMenu.Controls.OfType<Button>())
                 {
-                    btn.Text = "";
-                    btn.ImageAlign = ContentAlignment.MiddleCenter;
-                    btn.Padding = new Padding(0);
+                    menuButton.Text = string.Empty;
+                    menuButton.ImageAlign = ContentAlignment.MiddleCenter;
+                    menuButton.Padding = new Padding(0);
                 }
             }
             else
             {
-                // Expandir
+                //Cambiar el ancho del panel si es menor a 300px
                 panelMenu.Width = 318;
                 btnMenu.Text = "HackyFox";
                 btnMenu.ImageAlign = ContentAlignment.MiddleLeft;
 
-                foreach (var btn in panelMenu.Controls.OfType<Button>())
+                foreach (Button menuButton in panelMenu.Controls.OfType<Button>())
                 {
-                    if (btn.Tag != null)
-                        btn.Text = "   " + btn.Tag;
-                    btn.ImageAlign = ContentAlignment.MiddleLeft;
-                    btn.Padding = new Padding(10, 0, 0, 0);
+                    if (menuButton.Tag != null) // Verificación para evitar referencias nulas
+                    {
+                        menuButton.Text = "   " + menuButton.Tag.ToString();
+                    }
+                    menuButton.ImageAlign = ContentAlignment.MiddleLeft;
+                    menuButton.Padding = new Padding(10, 0, 0, 0);
                 }
             }
         }
 
-
+        // Evento para salir
         private void btnSalir_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("¿Estás seguro que quieres salir del juego?",
@@ -96,13 +102,12 @@ namespace HackyFox
             this.Close();
         }
 
-        /// <summary>
-        /// Consulta la BD y actualiza la UI con la siguiente lección pendiente.
-        /// </summary>
+        //Consulta la bd para obtener la siguiente lección y actualizar los labels
         public void RefrescarSiguienteLeccion()
         {
+            //Obtener el ID del progreso del usuario actual
             int idProgreso = Sesion.UsuarioActual.IdProgresoGeneral;
-
+            //Consulta SQL
             using (var conexion = new MySqlConnection(cadenaConexion))
             {
                 conexion.Open();
@@ -126,6 +131,7 @@ namespace HackyFox
                     {
                         if (reader.Read())
                         {
+                            //Extraer datos de la lección siguiente
                             LeccionSiguienteId = Convert.ToInt32(reader["id_leccion"]);
                             lbLeccion.Text = $"Lección {LeccionSiguienteId}";
                             lbTema.Text = reader["nombre"].ToString();
@@ -147,7 +153,7 @@ namespace HackyFox
         {
 
         }
-
+        // Eventos para ir a los menus
         private void btnMascota_Click(object sender, EventArgs e)
         {
             MenuMascota menuMascota = new MenuMascota();

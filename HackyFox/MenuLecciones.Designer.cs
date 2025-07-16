@@ -177,6 +177,7 @@
             // 
             btnMenu.Dock = DockStyle.Fill;
             btnMenu.FlatAppearance.BorderSize = 0;
+            btnMenu.FlatAppearance.MouseOverBackColor = Color.FromArgb(241, 202, 96);
             btnMenu.FlatStyle = FlatStyle.Flat;
             btnMenu.Font = new Font("04b_19", 28.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnMenu.ForeColor = Color.FromArgb(0, 151, 178);
@@ -330,8 +331,8 @@
             Controls.Add(panelMenu);
             MinimumSize = new Size(949, 598);
             Name = "MenuLecciones";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = " HackyFox";
-            WindowState = FormWindowState.Maximized;
             Load += MenuLecciones_Load;
             panelMenu.ResumeLayout(false);
             panelLogo.ResumeLayout(false);

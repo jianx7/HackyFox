@@ -24,10 +24,11 @@ namespace HackyFox
             this.idLeccionActual = idLeccionActual;
         }
 
+        //Regresa al menú de lecciones
         private void btnVolverAlMenu_Click(object sender, EventArgs e)
         {
             var menu = new MenuLecciones();
-            menu.StartPosition = FormStartPosition.Manual;
+            menu.StartPosition = FormStartPosition.CenterScreen;
             menu.Location = this.Location;
             menu.Show();
             menu.RefrescarSiguienteLeccion();
@@ -43,7 +44,7 @@ namespace HackyFox
             if (LeccionExiste(siguienteLeccion))
             {
                 Sesion.LeccionActual++;
-
+                //crea y muestra el form con la siguiente lección
                 var leccion = new Leccion();
                 leccion.StartPosition = FormStartPosition.Manual;
                 leccion.Location = this.Location;
@@ -61,6 +62,7 @@ namespace HackyFox
             this.Close();
         }
 
+        //Metodo para consultar la existencia de una lección en la base de datos
         private bool LeccionExiste(int idLeccion)
         {
             using var conexion = ConexionBD.ObtenerConexion();

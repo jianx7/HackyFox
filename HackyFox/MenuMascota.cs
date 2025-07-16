@@ -12,20 +12,11 @@ namespace HackyFox
 {
     public partial class MenuMascota : Form
     {
+        // Constructor de la clase
         public MenuMascota()
         {
             InitializeComponent();
-        }
-
-        private void lbDashboard_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnMenu_Click(object sender, EventArgs e)
-        {
-
-        }
+        } 
 
         private void btnMenu_Click_1(object sender, EventArgs e)
         {
@@ -33,6 +24,7 @@ namespace HackyFox
             colapseMenu();
         }
 
+        // Método para colapsar o expandir el menú
         private void colapseMenu()
         {
             //Cambiar el ancho del panel si es mayor a 300px
@@ -68,6 +60,7 @@ namespace HackyFox
             }
         }
 
+        //Salir del juego
         private void btnSalir_Click(object sender, EventArgs e)
         {
             DialogResult resultado = MessageBox.Show
@@ -109,6 +102,11 @@ namespace HackyFox
             MenuProgreso menuProgreso = new MenuProgreso();
             menuProgreso.Show();
             this.Close(); // Cierra el formulario actual
+        }
+
+        private void btnMascota_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

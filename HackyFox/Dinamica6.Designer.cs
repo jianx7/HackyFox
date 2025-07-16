@@ -378,6 +378,7 @@
             Controls.Add(panelDinamica);
             Controls.Add(panelMenu);
             Name = "Dinamica6";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Dinamica6";
             Load += Dinamica6_Load;
             panelMenu.ResumeLayout(false);

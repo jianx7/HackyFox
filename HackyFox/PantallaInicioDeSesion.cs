@@ -14,10 +14,13 @@ namespace HackyFox
 {
     public partial class PantallaInicioDeSesion : Form
     {
+        // Diccionario para almacenar las posiciones y tamaños originales de los controles
         Dictionary<Control, Rectangle> controlesOriginales = new Dictionary<Control, Rectangle>();
+        // Variables para almacenar el tamaño original del formulario y la fuente de un label
         Size tamañoFormularioOriginal;
         float fuenteOriginal;
 
+        // Constructor 
         public PantallaInicioDeSesion()
         {
             InitializeComponent();
@@ -26,9 +29,10 @@ namespace HackyFox
 
         private void PantallaInicioDeSesion_Load(object sender, EventArgs e)
         {
+            // Guardar tamaños originales del formularrio y el tammo de fuente de un label
             tamañoFormularioOriginal = this.ClientSize;
             fuenteOriginal = lbInicioDeSesion.Font.Size;
-
+            // Guardar tamaños y posiciones originales de los controles
             controlesOriginales[pbLogoInicioDeSesion] = pbLogoInicioDeSesion.Bounds;
             controlesOriginales[lbInicioDeSesion] = lbInicioDeSesion.Bounds;
             controlesOriginales[lbAliasInicioDeSesion] = lbAliasInicioDeSesion.Bounds;
@@ -39,6 +43,7 @@ namespace HackyFox
             controlesOriginales[btnIniciarSesionRegresar] = btnIniciarSesionRegresar.Bounds;
         }
 
+        // Evento que ajusta automáticamente los controles cuando se cambia el tamaño del formulario
         private void PantallaInicioDeSesion_Resize(object sender, EventArgs e)
         {
             float escalaX = (float)this.ClientSize.Width / tamañoFormularioOriginal.Width;
@@ -60,11 +65,12 @@ namespace HackyFox
                 }
             }
         }
-
+        //Evente que se ejecuta cuando se hace clic en el botón
         private void btnCorroborarAlias_Click(object sender, EventArgs e)
         {
             string aliasIngresado = tbAliasInicioDeSesion.Text.Trim();
 
+            // Validar que el alias no esté vacío
             if (string.IsNullOrWhiteSpace(aliasIngresado))
             {
                 MessageBox.Show("Por favor, ingresa tu alias.");
@@ -73,6 +79,7 @@ namespace HackyFox
 
             try
             {
+                //Buscar el id de alias en la base de datos
                 int idAlias = AliasDB.ObtenerIdAlias(aliasIngresado);
 
                 if (idAlias == -1)
@@ -83,8 +90,9 @@ namespace HackyFox
 
                 MessageBox.Show("¡Bienvenido de nuevo, " + aliasIngresado + "!");
 
+                //Busca el progreso general del usuario y si no existe lo crea
                 int idProgreso = ProgresoDB.ObtenerOCrearProgreso(idAlias);
-
+                // Inicia la sesión del usuario
                 Sesion.IniciarSesion(idAlias, idProgreso);
 
                 MenuLecciones f = new MenuLecciones();
@@ -96,7 +104,7 @@ namespace HackyFox
                 MessageBox.Show("Error: " + ex.Message);
             }
         }
-
+        //Evento para regresar a la pantalla de bienvenida
         private void btnIniciarSesionRegresar_Click(object sender, EventArgs e)
         {
             PantallaBienvenida volver = new PantallaBienvenida();

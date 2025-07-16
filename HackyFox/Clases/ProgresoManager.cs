@@ -9,9 +9,7 @@ namespace HackyFox.Clases
 {
     public static class ProgresoManager
     {
-        /// <summary>
-        /// Recalcula y guarda el porcentaje global en progreso_general.
-        /// </summary>
+        // Recalcula y guarda el porcentaje global en progreso_general.
         public static void ActualizarProgresoGlobal(int idProgresoGeneral, MySqlConnection conexion)
         {
             string queryLecciones = "SELECT COUNT(*) FROM lecciones";
@@ -43,10 +41,8 @@ namespace HackyFox.Clases
             cmdUpdate.ExecuteNonQuery();
         }
 
-        /// <summary>
-        /// Registra un componente (p.e. "dinamica", "reto") en detalle_progreso y 
-        /// actualiza progreso_general.  
-        /// </summary>
+
+        /// Registra un componente en detalle_progreso y actualiza progreso_general.  
         public static void RegistrarComponente(
             MySqlConnection conexion,
             int idProgresoGeneral,
@@ -56,7 +52,7 @@ namespace HackyFox.Clases
             if (idLeccion <= 0)
                 throw new ArgumentException("El id de lección debe ser mayor que 0.", nameof(idLeccion));
 
-            // 0) Verificar que la lección exista
+            //Verificar que la lección exista
             const string sqlCheckLeccion = @"
                 SELECT COUNT(*) 
                   FROM lecciones 
@@ -70,7 +66,7 @@ namespace HackyFox.Clases
                         $"No existe la lección con id {idLeccion} en la tabla 'lecciones'.");
             }
 
-            // 1) Verificar si ya existe ese registro en detalle_progreso
+            //Verificar si ya existe ese registro en detalle_progreso
             const string sqlCheck = @"
                 SELECT COUNT(*) 
                   FROM detalle_progreso
@@ -85,8 +81,8 @@ namespace HackyFox.Clases
 
             if (existe == 0)
             {
-                // 2) Insertar el nuevo componente
-                double porcentaje = 100.0 / 18; // Ajusta si cambias total de componentes
+                // Insertar el nuevo componente
+                double porcentaje = 100.0 / 18; 
 
                 const string sqlInsert = @"
                     INSERT INTO detalle_progreso
@@ -101,10 +97,10 @@ namespace HackyFox.Clases
                 cmdInsert.ExecuteNonQuery();
             }
 
-            // 3) Recalcular porcentaje global
+            //Recalcular porcentaje global
             ActualizarProgresoGlobal(idProgresoGeneral, conexion);
 
-            // 4) Si con esto alcanzó 100% en esta lección, incrementar lecciones_completadas
+            //Si con esto alcanzó 100% en esta lección, incrementar lecciones_completadas
             const string sqlSum = @"
                 SELECT SUM(porcentaje) 
                   FROM detalle_progreso 

@@ -160,7 +160,7 @@
             btnMenu.FlatAppearance.BorderSize = 0;
             btnMenu.FlatAppearance.MouseOverBackColor = Color.FromArgb(241, 202, 96);
             btnMenu.FlatStyle = FlatStyle.Flat;
-            btnMenu.Font = new Font("Microsoft Sans Serif", 28.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnMenu.Font = new Font("04b_19", 28.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnMenu.ForeColor = Color.FromArgb(0, 151, 178);
             btnMenu.Image = Properties.Resources.menu;
             btnMenu.ImageAlign = ContentAlignment.MiddleLeft;
@@ -319,6 +319,7 @@
             Controls.Add(pBMascotaD4);
             MinimumSize = new Size(950, 600);
             Name = "Dinamica4";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Dinamica4";
             Load += Dinamica4_Load;
             panelMenu.ResumeLayout(false);

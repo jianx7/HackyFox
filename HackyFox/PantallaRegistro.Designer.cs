@@ -95,7 +95,7 @@
             lbAdvertenciaRegistro.ForeColor = Color.FromArgb(97, 54, 37);
             lbAdvertenciaRegistro.Location = new Point(411, 425);
             lbAdvertenciaRegistro.Name = "lbAdvertenciaRegistro";
-            lbAdvertenciaRegistro.Size = new Size(281, 29);
+            lbAdvertenciaRegistro.Size = new Size(258, 29);
             lbAdvertenciaRegistro.TabIndex = 5;
             lbAdvertenciaRegistro.Text = "(No uses tu nombre real)";
             // 
@@ -137,18 +137,6 @@
             pbPastelRegistro.TabIndex = 8;
             pbPastelRegistro.TabStop = false;
             // 
-
-            // dTPNacimiento
-            // 
-            dTPNacimiento.CalendarForeColor = Color.FromArgb(97, 54, 37);
-            dTPNacimiento.Font = new Font("Comfortaa", 8.999999F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dTPNacimiento.Location = new Point(350, 202);
-            dTPNacimiento.Margin = new Padding(3, 2, 3, 2);
-            dTPNacimiento.Name = "dTPNacimiento";
-            dTPNacimiento.Size = new Size(219, 21);
-            dTPNacimiento.TabIndex = 9;
-            // 
-
             // btnRegistroRegresar
             // 
             btnRegistroRegresar.BackColor = Color.FromArgb(174, 225, 235);
@@ -164,7 +152,16 @@
             btnRegistroRegresar.UseVisualStyleBackColor = false;
             btnRegistroRegresar.Click += btnRegistroRegresar_Click;
             // 
-            
+            // dTPNacimiento
+            // 
+            dTPNacimiento.CalendarForeColor = Color.FromArgb(97, 54, 37);
+            dTPNacimiento.Font = new Font("Comfortaa", 8.999999F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dTPNacimiento.Location = new Point(417, 264);
+            dTPNacimiento.Margin = new Padding(3, 2, 3, 2);
+            dTPNacimiento.Name = "dTPNacimiento";
+            dTPNacimiento.Size = new Size(219, 24);
+            dTPNacimiento.TabIndex = 9;
+            // 
             // PantallaRegistro
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -184,8 +181,8 @@
             Icon = (Icon)resources.GetObject("$this.Icon");
             MinimumSize = new Size(949, 598);
             Name = "PantallaRegistro";
+            StartPosition = FormStartPosition.Manual;
             Text = " ";
-            WindowState = FormWindowState.Maximized;
             Load += PantallaRegistro_Load;
             ((System.ComponentModel.ISupportInitialize)pbFondoRegistro).EndInit();
             ((System.ComponentModel.ISupportInitialize)pbLogoRegistro).EndInit();

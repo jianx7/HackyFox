@@ -33,6 +33,7 @@ namespace HackyFox
         private void btnMenu_Click(object sender, EventArgs e)
         {
             openMenu();
+            
         }
 
         private void openMenu()

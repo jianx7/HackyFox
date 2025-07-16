@@ -43,10 +43,9 @@
             // 
             pbLogoBienvenida.BackColor = Color.FromArgb(242, 242, 242);
             pbLogoBienvenida.Image = (Image)resources.GetObject("pbLogoBienvenida.Image");
-            pbLogoBienvenida.Location = new Point(293, 106);
-            pbLogoBienvenida.Margin = new Padding(3, 2, 3, 2);
+            pbLogoBienvenida.Location = new Point(335, 141);
             pbLogoBienvenida.Name = "pbLogoBienvenida";
-            pbLogoBienvenida.Size = new Size(426, 101);
+            pbLogoBienvenida.Size = new Size(487, 135);
             pbLogoBienvenida.SizeMode = PictureBoxSizeMode.Zoom;
             pbLogoBienvenida.TabIndex = 0;
             pbLogoBienvenida.TabStop = false;
@@ -55,10 +54,9 @@
             // pbFondoBienvenida
             // 
             pbFondoBienvenida.Image = (Image)resources.GetObject("pbFondoBienvenida.Image");
-            pbFondoBienvenida.Location = new Point(74, 52);
-            pbFondoBienvenida.Margin = new Padding(3, 2, 3, 2);
+            pbFondoBienvenida.Location = new Point(85, 69);
             pbFondoBienvenida.Name = "pbFondoBienvenida";
-            pbFondoBienvenida.Size = new Size(830, 449);
+            pbFondoBienvenida.Size = new Size(949, 599);
             pbFondoBienvenida.SizeMode = PictureBoxSizeMode.Zoom;
             pbFondoBienvenida.TabIndex = 1;
             pbFondoBienvenida.TabStop = false;
@@ -68,9 +66,9 @@
             // 
             lbBienvenida.BackColor = Color.FromArgb(242, 242, 242);
             lbBienvenida.Font = new Font("Clear Sans", 15F, FontStyle.Bold);
-            lbBienvenida.Location = new Point(410, 233);
+            lbBienvenida.Location = new Point(469, 311);
             lbBienvenida.Name = "lbBienvenida";
-            lbBienvenida.Size = new Size(158, 29);
+            lbBienvenida.Size = new Size(181, 39);
             lbBienvenida.TabIndex = 2;
             lbBienvenida.Text = "¡Bienvenido!";
             lbBienvenida.TextAlign = ContentAlignment.MiddleCenter;
@@ -83,10 +81,9 @@
             btnIniciarSesion.FlatStyle = FlatStyle.Flat;
             btnIniciarSesion.Font = new Font("Comfortaa", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnIniciarSesion.ForeColor = Color.FromArgb(97, 54, 37);
-            btnIniciarSesion.Location = new Point(410, 280);
-            btnIniciarSesion.Margin = new Padding(3, 2, 3, 2);
+            btnIniciarSesion.Location = new Point(469, 373);
             btnIniciarSesion.Name = "btnIniciarSesion";
-            btnIniciarSesion.Size = new Size(171, 47);
+            btnIniciarSesion.Size = new Size(195, 63);
             btnIniciarSesion.TabIndex = 3;
             btnIniciarSesion.Text = "Inciar Sesión";
             btnIniciarSesion.UseVisualStyleBackColor = false;
@@ -99,10 +96,9 @@
             btnRegistrarse.FlatStyle = FlatStyle.Flat;
             btnRegistrarse.Font = new Font("Comfortaa", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnRegistrarse.ForeColor = Color.FromArgb(97, 54, 37);
-            btnRegistrarse.Location = new Point(410, 349);
-            btnRegistrarse.Margin = new Padding(3, 2, 3, 2);
+            btnRegistrarse.Location = new Point(469, 465);
             btnRegistrarse.Name = "btnRegistrarse";
-            btnRegistrarse.Size = new Size(171, 47);
+            btnRegistrarse.Size = new Size(195, 63);
             btnRegistrarse.TabIndex = 4;
             btnRegistrarse.Text = "Registrarse";
             btnRegistrarse.UseVisualStyleBackColor = false;
@@ -115,10 +111,9 @@
             btnBienvenidaCerrar.FlatStyle = FlatStyle.Flat;
             btnBienvenidaCerrar.Font = new Font("Comfortaa", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnBienvenidaCerrar.ForeColor = Color.FromArgb(97, 54, 37);
-            btnBienvenidaCerrar.Location = new Point(410, 416);
-            btnBienvenidaCerrar.Margin = new Padding(3, 2, 3, 2);
+            btnBienvenidaCerrar.Location = new Point(469, 555);
             btnBienvenidaCerrar.Name = "btnBienvenidaCerrar";
-            btnBienvenidaCerrar.Size = new Size(171, 47);
+            btnBienvenidaCerrar.Size = new Size(195, 63);
             btnBienvenidaCerrar.TabIndex = 5;
             btnBienvenidaCerrar.Text = "Cerrar";
             btnBienvenidaCerrar.UseVisualStyleBackColor = false;
@@ -126,10 +121,10 @@
             // 
             // PantallaBienvenida
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(255, 241, 62);
-            ClientSize = new Size(970, 544);
+            ClientSize = new Size(1109, 725);
             Controls.Add(btnBienvenidaCerrar);
             Controls.Add(btnRegistrarse);
             Controls.Add(btnIniciarSesion);
@@ -137,12 +132,11 @@
             Controls.Add(pbLogoBienvenida);
             Controls.Add(pbFondoBienvenida);
             Icon = (Icon)resources.GetObject("$this.Icon");
-            Margin = new Padding(3, 2, 3, 2);
             MinimizeBox = false;
-            MinimumSize = new Size(833, 460);
+            MinimumSize = new Size(949, 598);
             Name = "PantallaBienvenida";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "HackyFox-Bienvenida";
-            WindowState = FormWindowState.Maximized;
             Load += PantallaBienvenida_Load;
             ((System.ComponentModel.ISupportInitialize)pbLogoBienvenida).EndInit();
             ((System.ComponentModel.ISupportInitialize)pbFondoBienvenida).EndInit();

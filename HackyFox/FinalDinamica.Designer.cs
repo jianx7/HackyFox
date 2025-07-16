@@ -45,7 +45,7 @@
             panel1.Dock = DockStyle.Fill;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1269, 979);
+            panel1.Size = new Size(1108, 726);
             panel1.TabIndex = 3;
             // 
             // btnVolverAlMenu
@@ -55,10 +55,10 @@
             btnVolverAlMenu.FlatStyle = FlatStyle.Flat;
             btnVolverAlMenu.Font = new Font("Comfortaa", 17.9999981F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnVolverAlMenu.ForeColor = Color.FromArgb(24, 76, 172);
-            btnVolverAlMenu.Location = new Point(454, 543);
+            btnVolverAlMenu.Location = new Point(377, 533);
             btnVolverAlMenu.Margin = new Padding(3, 4, 3, 4);
             btnVolverAlMenu.Name = "btnVolverAlMenu";
-            btnVolverAlMenu.Size = new Size(331, 99);
+            btnVolverAlMenu.Size = new Size(297, 99);
             btnVolverAlMenu.TabIndex = 3;
             btnVolverAlMenu.Text = "Volver al menú";
             btnVolverAlMenu.UseVisualStyleBackColor = false;
@@ -71,7 +71,7 @@
             btnSiguienteLeccion.FlatStyle = FlatStyle.Flat;
             btnSiguienteLeccion.Font = new Font("Comfortaa", 17.9999981F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnSiguienteLeccion.ForeColor = Color.FromArgb(24, 76, 172);
-            btnSiguienteLeccion.Location = new Point(86, 543);
+            btnSiguienteLeccion.Location = new Point(27, 533);
             btnSiguienteLeccion.Margin = new Padding(3, 4, 3, 4);
             btnSiguienteLeccion.Name = "btnSiguienteLeccion";
             btnSiguienteLeccion.Size = new Size(331, 99);
@@ -83,11 +83,12 @@
             // pbBien
             // 
             pbBien.BackColor = Color.FromArgb(249, 249, 249);
+            pbBien.BackgroundImage = Properties.Resources.pet;
+            pbBien.BackgroundImageLayout = ImageLayout.Stretch;
             pbBien.Dock = DockStyle.Fill;
-            pbBien.Image = Properties.Resources.pet;
             pbBien.Location = new Point(0, 0);
             pbBien.Name = "pbBien";
-            pbBien.Size = new Size(1269, 979);
+            pbBien.Size = new Size(1108, 726);
             pbBien.TabIndex = 2;
             pbBien.TabStop = false;
             // 
@@ -95,9 +96,10 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1269, 979);
+            ClientSize = new Size(1108, 726);
             Controls.Add(panel1);
             Name = "FinalDinamica";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "FinalDinamica";
             panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pbBien).EndInit();

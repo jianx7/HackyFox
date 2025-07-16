@@ -59,17 +59,18 @@
             panel1.Dock = DockStyle.Fill;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1269, 979);
+            panel1.Size = new Size(1109, 725);
             panel1.TabIndex = 2;
             // 
             // pbBien
             // 
             pbBien.BackColor = Color.FromArgb(249, 249, 249);
+            pbBien.BackgroundImage = Properties.Resources.pet;
+            pbBien.BackgroundImageLayout = ImageLayout.Stretch;
             pbBien.Dock = DockStyle.Fill;
-            pbBien.Image = Properties.Resources.pet;
             pbBien.Location = new Point(0, 0);
             pbBien.Name = "pbBien";
-            pbBien.Size = new Size(1269, 979);
+            pbBien.Size = new Size(1109, 725);
             pbBien.TabIndex = 2;
             pbBien.TabStop = false;
             // 
@@ -77,12 +78,14 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1269, 979);
+            BackgroundImage = Properties.Resources.pet;
+            BackgroundImageLayout = ImageLayout.Stretch;
+            ClientSize = new Size(1109, 725);
             Controls.Add(panel1);
             Margin = new Padding(3, 4, 3, 4);
             Name = "Bien";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Bien";
-            WindowState = FormWindowState.Maximized;
             panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pbBien).EndInit();
             ResumeLayout(false);

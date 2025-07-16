@@ -14,8 +14,10 @@ namespace HackyFox
 {
     public partial class Bien : Form
     {
+        //Alamacenar el id de la lección actual
         private readonly int _idLeccionActual;
 
+        // Constructor
         public Bien(int idLeccionActual)
         {
             InitializeComponent();
@@ -24,9 +26,10 @@ namespace HackyFox
 
         private void btnRetoADinamica_Click(object sender, EventArgs e)
         {
+            //Se decide que form abrir según el id de la lección actual
             Form dinamica = _idLeccionActual switch
             {
-                1 => new Dinamica1(_idLeccionActual),
+                1 => new Dinamica1(_idLeccionActual),//Polimorfismo
                 2 => new Dinamica2(_idLeccionActual),
                 3 => new Dinamica3(_idLeccionActual),
                 4 => new Dinamica4(_idLeccionActual),
@@ -35,8 +38,8 @@ namespace HackyFox
                 _ => new Dinamica1(_idLeccionActual) // Valor por defecto
             };
 
-            dinamica.StartPosition = FormStartPosition.Manual;
-            dinamica.Location = this.Location;
+            dinamica.StartPosition = FormStartPosition.CenterScreen;
+            dinamica.Location = this.Location; //Abrir la dinámica correspondiente
             dinamica.Show();
             this.Close();
         }

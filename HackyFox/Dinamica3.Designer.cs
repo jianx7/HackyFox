@@ -235,7 +235,7 @@
             lbCambiante.Font = new Font("Comfortaa", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lbCambiante.ForeColor = Color.FromArgb(249, 150, 11);
             lbCambiante.ImageAlign = ContentAlignment.MiddleLeft;
-            lbCambiante.Location = new Point(255, 242);
+            lbCambiante.Location = new Point(264, 242);
             lbCambiante.Margin = new Padding(0);
             lbCambiante.Name = "lbCambiante";
             lbCambiante.RightToLeft = RightToLeft.No;

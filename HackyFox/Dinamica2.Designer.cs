@@ -35,6 +35,7 @@
             btnUser = new Button();
             btnMenu = new Button();
             panelDashboard = new Panel();
+            btnNextD2 = new Button();
             lbNombreD2 = new Label();
             lbTituloD2 = new Label();
             lbInstruccionesD2 = new Label();
@@ -43,7 +44,6 @@
             btn_D2R3 = new Button();
             btn_D2R4 = new Button();
             pictureBox1 = new PictureBox();
-            btnNextD2 = new Button();
             panelMenu.SuspendLayout();
             panelDashboard.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -158,7 +158,7 @@
             btnMenu.FlatAppearance.BorderSize = 0;
             btnMenu.FlatAppearance.MouseOverBackColor = Color.FromArgb(241, 202, 96);
             btnMenu.FlatStyle = FlatStyle.Flat;
-            btnMenu.Font = new Font("Microsoft Sans Serif", 28.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnMenu.Font = new Font("04b_19", 28.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnMenu.ForeColor = Color.FromArgb(0, 151, 178);
             btnMenu.Image = Properties.Resources.menu;
             btnMenu.ImageAlign = ContentAlignment.MiddleLeft;
@@ -183,6 +183,18 @@
             panelDashboard.Name = "panelDashboard";
             panelDashboard.Size = new Size(1008, 70);
             panelDashboard.TabIndex = 1;
+            // 
+            // btnNextD2
+            // 
+            btnNextD2.BackgroundImage = Properties.Resources.flecha;
+            btnNextD2.BackgroundImageLayout = ImageLayout.Stretch;
+            btnNextD2.FlatAppearance.BorderSize = 0;
+            btnNextD2.FlatStyle = FlatStyle.Flat;
+            btnNextD2.Location = new Point(939, 3);
+            btnNextD2.Name = "btnNextD2";
+            btnNextD2.Size = new Size(66, 61);
+            btnNextD2.TabIndex = 9;
+            btnNextD2.UseVisualStyleBackColor = true;
             // 
             // lbNombreD2
             // 
@@ -266,18 +278,6 @@
             pictureBox1.TabIndex = 8;
             pictureBox1.TabStop = false;
             // 
-            // btnNextD2
-            // 
-            btnNextD2.BackgroundImage = Properties.Resources.flecha;
-            btnNextD2.BackgroundImageLayout = ImageLayout.Stretch;
-            btnNextD2.FlatAppearance.BorderSize = 0;
-            btnNextD2.FlatStyle = FlatStyle.Flat;
-            btnNextD2.Location = new Point(939, 3);
-            btnNextD2.Name = "btnNextD2";
-            btnNextD2.Size = new Size(66, 61);
-            btnNextD2.TabIndex = 9;
-            btnNextD2.UseVisualStyleBackColor = true;
-            // 
             // Dinamica2
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -294,6 +294,7 @@
             Controls.Add(pictureBox1);
             MinimumSize = new Size(950, 600);
             Name = "Dinamica2";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Dinamica2";
             Load += Dinamica2_Load;
             panelMenu.ResumeLayout(false);

@@ -14,6 +14,7 @@ namespace HackyFox
 {
     public partial class Dinamica1 : Form
     {
+        // Variable para almacenar el ID de la lección actual
         private readonly int idLeccionActual;
 
         public Dinamica1(int idLeccionActual)
@@ -36,8 +37,7 @@ namespace HackyFox
         private void btnMenu_Click(object sender, EventArgs e)
         {
             openMenu();
-            // ¡Para depurar! 
-            Console.WriteLine("Dinamica1 recibe idLeccionActual = " + idLeccionActual);
+            
         }
 
         private void openMenu()
@@ -128,15 +128,16 @@ namespace HackyFox
             }
         }
 
+        // Respuesta incorrecta
         private void btnYes_Click(object sender, EventArgs e)
         {
             DialogResult resultado = MessageBox.Show("⚠️ Estas seguro?.\n\n¿Quieres intentarlo de nuevo?",
                 "¡Piénsalo mejor!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
-
+        // Respuesta correcta
         private void btnNo_Click(object sender, EventArgs e)
         {
-            // 1) Registrar la dinámica como completada
+            //Registrar la dinámica como completada
             using var conexion = ConexionBD.ObtenerConexion();
             conexion.Open();
             ProgresoManager.RegistrarComponente(
@@ -144,7 +145,7 @@ namespace HackyFox
                 Sesion.UsuarioActual.IdProgresoGeneral,
                 idLeccionActual,
                 "dinamica");
-
+            // Mostrar la ventana de felicitación
             var final = new FinalDinamica(idLeccionActual);
             final.StartPosition = FormStartPosition.Manual;
             final.Location = this.Location;

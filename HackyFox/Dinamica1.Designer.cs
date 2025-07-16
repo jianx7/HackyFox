@@ -44,7 +44,6 @@
             pbTitulo = new PictureBox();
             label1 = new Label();
             panelDashoard = new Panel();
-            btnNext = new Button();
             lbLeccion = new Label();
             panelMenu.SuspendLayout();
             panelDinamica.SuspendLayout();
@@ -163,7 +162,7 @@
             btnMenu.FlatAppearance.BorderSize = 0;
             btnMenu.FlatAppearance.MouseOverBackColor = Color.FromArgb(241, 202, 96);
             btnMenu.FlatStyle = FlatStyle.Flat;
-            btnMenu.Font = new Font("Microsoft Sans Serif", 28.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnMenu.Font = new Font("04b_19", 28.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnMenu.ForeColor = Color.FromArgb(0, 151, 178);
             btnMenu.Image = Properties.Resources.menu;
             btnMenu.ImageAlign = ContentAlignment.MiddleLeft;
@@ -233,7 +232,7 @@
             lbPregunta.ForeColor = Color.FromArgb(0, 151, 178);
             lbPregunta.Location = new Point(322, 300);
             lbPregunta.Name = "lbPregunta";
-            lbPregunta.Size = new Size(274, 116);
+            lbPregunta.Size = new Size(262, 116);
             lbPregunta.TabIndex = 5;
             lbPregunta.Text = "¿Le das tu \r\ninfomación?";
             // 
@@ -282,26 +281,12 @@
             // panelDashoard
             // 
             panelDashoard.BackColor = Color.FromArgb(155, 209, 219);
-            panelDashoard.Controls.Add(btnNext);
             panelDashoard.Controls.Add(lbLeccion);
             panelDashoard.Dock = DockStyle.Top;
             panelDashoard.Location = new Point(0, 0);
             panelDashoard.Name = "panelDashoard";
             panelDashoard.Size = new Size(1009, 80);
             panelDashoard.TabIndex = 0;
-            // 
-            // btnNext
-            // 
-            btnNext.BackgroundImage = Properties.Resources.flecha;
-            btnNext.BackgroundImageLayout = ImageLayout.Stretch;
-            btnNext.FlatAppearance.BorderSize = 0;
-            btnNext.FlatStyle = FlatStyle.Flat;
-            btnNext.Location = new Point(933, 12);
-            btnNext.Name = "btnNext";
-            btnNext.Size = new Size(66, 61);
-            btnNext.TabIndex = 1;
-            btnNext.UseVisualStyleBackColor = true;
-            
             // 
             // lbLeccion
             // 
@@ -322,6 +307,7 @@
             Controls.Add(panelDinamica);
             Controls.Add(panelMenu);
             Name = "Dinamica1";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Dinamica1";
             Load += Dinamica1_Load;
             panelMenu.ResumeLayout(false);
@@ -353,6 +339,5 @@
         private Label lbPregunta;
         private Btn_personalizado btnNo;
         private Btn_personalizado btnYes;
-        private Button btnNext;
     }
 }

@@ -2,9 +2,12 @@ namespace HackyFox
 {
     public partial class PantallaBienvenida : Form
     {
+        // Diccionario para almacenar las posiciones y tamaños originales de los controles
         Dictionary<Control, Rectangle> controlesOriginales = new Dictionary<Control, Rectangle>();
         float fuenteOriginal;
         Size tamañoFormularioOriginal;
+
+        // Constructor
         public PantallaBienvenida()
         {
             InitializeComponent();

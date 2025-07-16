@@ -14,6 +14,7 @@ namespace HackyFox
     public partial class Dinamica3 : Form
     {
         private readonly int idLeccionActual;
+
         // Variable para almacenar la contraseeña del usuario
         string palabraFavorita = "";
         string numFavorito = "";
@@ -104,6 +105,7 @@ namespace HackyFox
         private void btnUser_Click(object sender, EventArgs e)
         {
             SalirYMostrarFormulario(new MenuProgreso());
+            this.Close();
         }
 
         private void btnLecciones_Click(object sender, EventArgs e)
@@ -131,8 +133,8 @@ namespace HackyFox
             }
         }
 
-        //Evento para el botón "Siguiente"
 
+        //Evento para el botón "Siguiente"
         private void btnNext_Click(object sender, EventArgs e)
         {
             string contraseña = tbContraseña.Text.Trim();
@@ -143,7 +145,7 @@ namespace HackyFox
                 MessageBox.Show("Por favor, ingresa una contraseña.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-
+            //Guardar la contraseña según el paso actual
             switch (pasoActual)
             {
                 case 0:
@@ -162,8 +164,14 @@ namespace HackyFox
                     simbolo = contraseña;
                     // Ya que terminó todo, generamos y mostramos la contraseña
                     string contraseñaGenerada = palabraFavorita + numFavorito + letraMayuscula + simbolo;
-                    Dinamica3Contraseña dinamica3Contraseña = new Dinamica3Contraseña(contraseñaGenerada);
-                    dinamica3Contraseña.ShowDialog();
+                    DialogResult resultado = MessageBox.Show($"🔐 ¡Tu llave secreta está lista! 🔐 \n\n Contraseña generada: \n" +
+                        $"{contraseñaGenerada} \n\n Recuerda no compartirla con nadie");
+
+                    var final = new FinalDinamica(idLeccionActual);
+                    final.StartPosition = FormStartPosition.Manual;
+                    final.Location = this.Location;
+                    final.Show();
+                    this.Close();
 
                     break;
             }

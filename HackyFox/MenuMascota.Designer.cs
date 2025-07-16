@@ -112,6 +112,7 @@
             btnMascota.TextAlign = ContentAlignment.MiddleLeft;
             btnMascota.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnMascota.UseVisualStyleBackColor = true;
+            btnMascota.Click += btnMascota_Click;
             // 
             // btnLecciones
             // 
@@ -283,7 +284,7 @@
             lbDashboard.TabIndex = 1;
             lbDashboard.Tag = "Lecciones";
             lbDashboard.Text = "Mascota";
-            lbDashboard.Click += lbDashboard_Click;
+            
             // 
             // pictureBox1
             // 
@@ -303,6 +304,7 @@
             Controls.Add(panelMascota);
             Controls.Add(panelMenu);
             Name = "MenuMascota";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "MenuMascota";
             Load += MenuMascota_Load;
             panelMenu.ResumeLayout(false);

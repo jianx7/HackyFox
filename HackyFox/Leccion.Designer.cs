@@ -42,16 +42,16 @@
             LbTituloContenido = new Label();
             panel3 = new Panel();
             panel4 = new Panel();
+            pbLeccion = new PictureBox();
             Lbconsejo = new Label();
             pictureBox1 = new PictureBox();
             TbContenido = new TextBox();
-            pbLeccion = new PictureBox();
             panelMenu.SuspendLayout();
             panel2.SuspendLayout();
             panel3.SuspendLayout();
             panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pbLeccion).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // panelMenu
@@ -66,7 +66,7 @@
             panelMenu.Location = new Point(0, 0);
             panelMenu.Margin = new Padding(3, 4, 3, 4);
             panelMenu.Name = "panelMenu";
-            panelMenu.Size = new Size(101, 749);
+            panelMenu.Size = new Size(101, 784);
             panelMenu.TabIndex = 0;
             // 
             // btnSalir
@@ -81,7 +81,7 @@
             btnSalir.IconColor = Color.FromArgb(0, 151, 178);
             btnSalir.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnSalir.ImageAlign = ContentAlignment.MiddleLeft;
-            btnSalir.Location = new Point(0, 680);
+            btnSalir.Location = new Point(0, 715);
             btnSalir.Name = "btnSalir";
             btnSalir.Padding = new Padding(10, 0, 0, 0);
             btnSalir.Size = new Size(101, 69);
@@ -112,6 +112,7 @@
             btnMascota.TextAlign = ContentAlignment.MiddleLeft;
             btnMascota.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnMascota.UseVisualStyleBackColor = true;
+            btnMascota.Click += btnMascota_Click;
             // 
             // btnLecciones
             // 
@@ -133,6 +134,7 @@
             btnLecciones.TextAlign = ContentAlignment.MiddleLeft;
             btnLecciones.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnLecciones.UseVisualStyleBackColor = true;
+            btnLecciones.Click += btnLecciones_Click;
             // 
             // btnUser
             // 
@@ -154,6 +156,7 @@
             btnUser.TextAlign = ContentAlignment.MiddleLeft;
             btnUser.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnUser.UseVisualStyleBackColor = true;
+            btnUser.Click += btnUser_Click;
             // 
             // btnMenu
             // 
@@ -161,7 +164,7 @@
             btnMenu.FlatAppearance.BorderSize = 0;
             btnMenu.FlatAppearance.MouseOverBackColor = Color.FromArgb(241, 202, 96);
             btnMenu.FlatStyle = FlatStyle.Flat;
-            btnMenu.Font = new Font("Microsoft Sans Serif", 28.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnMenu.Font = new Font("04b_19", 28.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnMenu.ForeColor = Color.FromArgb(0, 151, 178);
             btnMenu.Image = Properties.Resources.menu;
             btnMenu.ImageAlign = ContentAlignment.MiddleLeft;
@@ -185,7 +188,7 @@
             panel2.Location = new Point(101, 0);
             panel2.Margin = new Padding(3, 4, 3, 4);
             panel2.Name = "panel2";
-            panel2.Size = new Size(1269, 83);
+            panel2.Size = new Size(1158, 83);
             panel2.TabIndex = 1;
             // 
             // btnLeccionAReto
@@ -194,7 +197,7 @@
             btnLeccionAReto.FlatAppearance.BorderSize = 0;
             btnLeccionAReto.FlatStyle = FlatStyle.Flat;
             btnLeccionAReto.Image = Properties.Resources.flecha;
-            btnLeccionAReto.Location = new Point(1183, 0);
+            btnLeccionAReto.Location = new Point(1072, 0);
             btnLeccionAReto.Margin = new Padding(3, 4, 3, 4);
             btnLeccionAReto.Name = "btnLeccionAReto";
             btnLeccionAReto.Size = new Size(86, 83);
@@ -218,9 +221,9 @@
             LbSubtitulo.FlatStyle = FlatStyle.Flat;
             LbSubtitulo.Font = new Font("Comfortaa", 19F);
             LbSubtitulo.ForeColor = Color.FromArgb(1, 149, 177);
-            LbSubtitulo.Location = new Point(30, 220);
+            LbSubtitulo.Location = new Point(40, 144);
             LbSubtitulo.Name = "LbSubtitulo";
-            LbSubtitulo.Size = new Size(555, 171);
+            LbSubtitulo.Size = new Size(619, 171);
             LbSubtitulo.TabIndex = 1;
             LbSubtitulo.Text = "label3";
             LbSubtitulo.TextAlign = ContentAlignment.MiddleRight;
@@ -228,9 +231,9 @@
             // LbTituloContenido
             // 
             LbTituloContenido.FlatStyle = FlatStyle.Flat;
-            LbTituloContenido.Font = new Font("Comfortaa", 23F);
+            LbTituloContenido.Font = new Font("Comfortaa", 22.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
             LbTituloContenido.ForeColor = Color.FromArgb(1, 149, 177);
-            LbTituloContenido.Location = new Point(18, 36);
+            LbTituloContenido.Location = new Point(21, 25);
             LbTituloContenido.Name = "LbTituloContenido";
             LbTituloContenido.Size = new Size(567, 135);
             LbTituloContenido.TabIndex = 1;
@@ -248,7 +251,7 @@
             panel3.Location = new Point(101, 83);
             panel3.Margin = new Padding(3, 4, 3, 4);
             panel3.Name = "panel3";
-            panel3.Size = new Size(1269, 666);
+            panel3.Size = new Size(1158, 701);
             panel3.TabIndex = 2;
             // 
             // panel4
@@ -257,30 +260,38 @@
             panel4.Controls.Add(Lbconsejo);
             panel4.Controls.Add(pictureBox1);
             panel4.Dock = DockStyle.Right;
-            panel4.Location = new Point(472, 0);
+            panel4.Location = new Point(665, 0);
             panel4.Margin = new Padding(3, 4, 3, 4);
             panel4.Name = "panel4";
-            panel4.Size = new Size(797, 666);
+            panel4.Size = new Size(493, 701);
             panel4.TabIndex = 3;
+            // 
+            // pbLeccion
+            // 
+            pbLeccion.Location = new Point(3, 318);
+            pbLeccion.Name = "pbLeccion";
+            pbLeccion.Size = new Size(442, 309);
+            pbLeccion.TabIndex = 5;
+            pbLeccion.TabStop = false;
             // 
             // Lbconsejo
             // 
             Lbconsejo.BackColor = Color.White;
-            Lbconsejo.Font = new Font("Comfortaa", 20F);
+            Lbconsejo.Font = new Font("Comfortaa", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             Lbconsejo.ForeColor = Color.FromArgb(1, 149, 177);
-            Lbconsejo.Location = new Point(341, 77);
+            Lbconsejo.Location = new Point(163, 85);
             Lbconsejo.Name = "Lbconsejo";
-            Lbconsejo.Size = new Size(359, 159);
+            Lbconsejo.Size = new Size(257, 137);
             Lbconsejo.TabIndex = 4;
             Lbconsejo.Text = "label1";
             // 
             // pictureBox1
             // 
             pictureBox1.Image = Properties.Resources.consejopic;
-            pictureBox1.Location = new Point(88, 8);
+            pictureBox1.Location = new Point(3, 36);
             pictureBox1.Margin = new Padding(3, 4, 3, 4);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(650, 288);
+            pictureBox1.Size = new Size(442, 238);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
@@ -289,38 +300,30 @@
             // 
             TbContenido.BorderStyle = BorderStyle.None;
             TbContenido.Enabled = false;
-            TbContenido.Font = new Font("Comfortaa", 18F);
+            TbContenido.Font = new Font("Comfortaa", 13.7999992F, FontStyle.Regular, GraphicsUnit.Point, 0);
             TbContenido.ForeColor = Color.FromArgb(1, 149, 177);
-            TbContenido.Location = new Point(30, 395);
+            TbContenido.Location = new Point(40, 319);
             TbContenido.Margin = new Padding(3, 4, 3, 4);
             TbContenido.Multiline = true;
             TbContenido.Name = "TbContenido";
             TbContenido.ReadOnly = true;
-            TbContenido.Size = new Size(619, 427);
+            TbContenido.Size = new Size(610, 319);
             TbContenido.TabIndex = 2;
             TbContenido.TextAlign = HorizontalAlignment.Center;
-            // 
-            // pbLeccion
-            // 
-            pbLeccion.Location = new Point(90, 404);
-            pbLeccion.Name = "pbLeccion";
-            pbLeccion.Size = new Size(625, 427);
-            pbLeccion.TabIndex = 5;
-            pbLeccion.TabStop = false;
             // 
             // Leccion
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1370, 749);
+            ClientSize = new Size(1259, 784);
             Controls.Add(panel3);
             Controls.Add(panel2);
             Controls.Add(panelMenu);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(3, 4, 3, 4);
             Name = "Leccion";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Leccion";
-            WindowState = FormWindowState.Maximized;
             Load += Leccion_Load;
             panelMenu.ResumeLayout(false);
             panel2.ResumeLayout(false);
@@ -328,8 +331,8 @@
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
             panel4.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pbLeccion).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
         }
 

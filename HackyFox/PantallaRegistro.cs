@@ -15,10 +15,12 @@ namespace HackyFox
 {
     public partial class PantallaRegistro : Form
     {
+        // Diccionario para almacenar la ubicación y tamaño original de los controles
         Dictionary<Control, Rectangle> controlesOriginales = new Dictionary<Control, Rectangle>();
         Size tamañoFormularioOriginal;
         float fuenteOriginal;
 
+        //Constructor
         public PantallaRegistro()
         {
             InitializeComponent();
@@ -27,8 +29,9 @@ namespace HackyFox
 
         private void PantallaRegistro_Load(object sender, EventArgs e)
         {
+            // Guardamos el tamaño actual del formulario y el tamaño de fuente base
             tamañoFormularioOriginal = this.ClientSize;
-            fuenteOriginal = lbNacimiento.Font.Size; // Fuente base (puedes usar cualquier label como referencia)
+            fuenteOriginal = lbNacimiento.Font.Size; 
             //Guardar ubicacion u tamaño de cada control
             controlesOriginales[pbLogoRegistro] = pbLogoRegistro.Bounds;
             controlesOriginales[lbNacimiento] = lbNacimiento.Bounds;
@@ -43,6 +46,7 @@ namespace HackyFox
 
         }
 
+        //Evento de redimensionamiento del formulario
         private void PantallaRegistro_Resize(object? sender, EventArgs e)
         {
             float escalaX = (float)this.ClientSize.Width / tamañoFormularioOriginal.Width;
@@ -65,17 +69,19 @@ namespace HackyFox
             }
         }
 
+        // Evento para el botón de registro
         private void btnRegistroAlias_Click(object sender, EventArgs e)
         {
+            //Se obtiene el alias y la fecha de nacimiento ingresados
             string aliasIngresado = tbAliasRegistro.Text.Trim();
             DateTime fechaNacimiento = dTPNacimiento.Value;
-
+            //Valida si esta vacio
             if (string.IsNullOrEmpty(aliasIngresado))
             {
                 MessageBox.Show("Por favor, escribe un alias.");
                 return;
             }
-
+            //vlida que la fecha de nacimiento no sea en el futuro
             if (fechaNacimiento > DateTime.Now)
             {
                 MessageBox.Show("La fecha de nacimiento no puede ser en el futuro.");
@@ -97,7 +103,7 @@ namespace HackyFox
                 // Crear u obtener progreso
                 int idProgreso = ProgresoDB.ObtenerOCrearProgreso(idAlias);
 
-                // Guardar en sesión global
+                // Guardar en sesión 
                 Sesion.IniciarSesion(idAlias, idProgreso);
 
                 MessageBox.Show("¡Buen trabajo! ¡Tu nombre quedó registrado con éxito!");
@@ -114,7 +120,7 @@ namespace HackyFox
                 MessageBox.Show("¡Uy! Algo salió mal al guardar. Inténtalo otra vez.\n" + ex.Message);
             }
         }
-
+        // Evento para el botón de regresar
         private void btnRegistroRegresar_Click(object sender, EventArgs e)
         {
             PantallaBienvenida volver = new PantallaBienvenida();
