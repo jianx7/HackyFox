@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HackyFox.Clases;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,14 +8,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static HackyFox.MenuLecciones;
 
 namespace HackyFox
 {
     public partial class Dinamica1 : Form
     {
+        private readonly int idLeccionActual;
+
         public Dinamica1()
         {
             InitializeComponent();
+            this.idLeccionActual = idLeccionActual;
         }
 
         //Redimensionar imagen de botones
@@ -31,6 +36,8 @@ namespace HackyFox
         private void btnMenu_Click(object sender, EventArgs e)
         {
             openMenu();
+            // ¡Para depurar! 
+            Console.WriteLine("Dinamica1 recibe idLeccionActual = " + idLeccionActual);
         }
 
         private void openMenu()
@@ -103,7 +110,7 @@ namespace HackyFox
 
         private void btnMascota_Click(object sender, EventArgs e)
         {
-           SalirYMostrarFormulario(new MenuMascota());
+            SalirYMostrarFormulario(new MenuMascota());
         }
         private void btnSalir_Click(object sender, EventArgs e)
         {
@@ -119,6 +126,30 @@ namespace HackyFox
             {
                 Application.Exit(); // Cierra toda la aplicación
             }
+        }
+
+        private void btnYes_Click(object sender, EventArgs e)
+        {
+            DialogResult resultado = MessageBox.Show("⚠️ Estas seguro?.\n\n¿Quieres intentarlo de nuevo?",
+                "¡Piénsalo mejor!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        }
+
+        private void btnNo_Click(object sender, EventArgs e)
+        {
+            // 1) Registrar la dinámica como completada
+            using var conexion = ConexionBD.ObtenerConexion();
+            conexion.Open();
+            ProgresoManager.RegistrarComponente(
+                conexion,
+                Sesion.UsuarioActual.IdProgresoGeneral,
+                idLeccionActual,
+                "dinamica");
+
+            var final = new FinalDinamica(idLeccionActual);
+            final.StartPosition = FormStartPosition.Manual;
+            final.Location = this.Location;
+            final.Show();
+            this.Close();
         }
     }
 }

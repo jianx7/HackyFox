@@ -208,6 +208,7 @@
             btnNo.TabIndex = 7;
             btnNo.Text = "¡No!";
             btnNo.UseVisualStyleBackColor = false;
+            btnNo.Click += btnNo_Click;
             // 
             // btnYes
             // 
@@ -222,6 +223,7 @@
             btnYes.TabIndex = 6;
             btnYes.Text = "¡Si!";
             btnYes.UseVisualStyleBackColor = false;
+            btnYes.Click += btnYes_Click;
             // 
             // lbPregunta
             // 

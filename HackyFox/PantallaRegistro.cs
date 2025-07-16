@@ -8,33 +8,28 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
-using static HackyFox.PantallaInicioDeSesion;
+using HackyFox.Clases;
+
 
 namespace HackyFox
 {
     public partial class PantallaRegistro : Form
     {
-        string cadenaConexion = "server=localhost;username=root;password=rute;database=hackyfox";
-
         Dictionary<Control, Rectangle> controlesOriginales = new Dictionary<Control, Rectangle>();
         Size tamañoFormularioOriginal;
         float fuenteOriginal;
+
         public PantallaRegistro()
         {
             InitializeComponent();
             this.Resize += PantallaRegistro_Resize;
         }
 
-
-
         private void PantallaRegistro_Load(object sender, EventArgs e)
         {
             tamañoFormularioOriginal = this.ClientSize;
-
-            // Fuente base (puedes usar cualquier label como referencia)
             fuenteOriginal = lbNacimiento.Font.Size;
 
-            // Guardar ubicación y tamaño de cada control
             controlesOriginales[pbLogoRegistro] = pbLogoRegistro.Bounds;
             controlesOriginales[lbNacimiento] = lbNacimiento.Bounds;
             controlesOriginales[dTPNacimiento] = dTPNacimiento.Bounds;
@@ -45,7 +40,6 @@ namespace HackyFox
             controlesOriginales[btnRegistroAlias] = btnRegistroAlias.Bounds;
             controlesOriginales[pbFondoRegistro] = pbFondoRegistro.Bounds;
             controlesOriginales[btnRegistroRegresar] = btnRegistroRegresar.Bounds;
-
         }
 
         private void PantallaRegistro_Resize(object? sender, EventArgs e)
@@ -63,7 +57,6 @@ namespace HackyFox
                 ctrl.Width = (int)(rect.Width * escalaX);
                 ctrl.Height = (int)(rect.Height * escalaY);
 
-                // Ajustar fuente solo en controles con texto
                 if (ctrl is Label || ctrl is Button || ctrl is TextBox)
                 {
                     ctrl.Font = new Font(ctrl.Font.FontFamily, fuenteOriginal * Math.Min(escalaX, escalaY));
@@ -71,88 +64,54 @@ namespace HackyFox
             }
         }
 
-
         private void btnRegistroAlias_Click(object sender, EventArgs e)
         {
+            string aliasIngresado = tbAliasRegistro.Text.Trim();
+            DateTime fechaNacimiento = dTPNacimiento.Value;
 
-            if (string.IsNullOrWhiteSpace(dTPNacimiento.Text) || string.IsNullOrWhiteSpace(tbAliasRegistro.Text))
+            if (string.IsNullOrEmpty(aliasIngresado))
             {
-                MessageBox.Show("¡Oops! Aún hay casillas vacías. ¿Puedes completarlas?");
+                MessageBox.Show("Por favor, escribe un alias.");
                 return;
             }
 
-            string aliasIngresado = tbAliasRegistro.Text.Trim();
+            if (fechaNacimiento > DateTime.Now)
+            {
+                MessageBox.Show("La fecha de nacimiento no puede ser en el futuro.");
+                return;
+            }
 
             try
             {
-                using (MySqlConnection conexion = new MySqlConnection(cadenaConexion))
+                // Verificar si el alias ya existe
+                if (AliasDB.ExisteAlias(aliasIngresado))
                 {
-                    conexion.Open();
-
-                    // 1. Verificar si el alias ya existe
-                    string verificarAlias = "SELECT COUNT(*) FROM alias WHERE LOWER(alias) = LOWER(@alias)";
-                    MySqlCommand verificarCmd = new MySqlCommand(verificarAlias, conexion);
-                    verificarCmd.Parameters.AddWithValue("@alias", aliasIngresado);
-
-                    int existe = Convert.ToInt32(verificarCmd.ExecuteScalar());
-
-                    if (existe > 0)
-                    {
-                        MessageBox.Show("¡Ups! Ese nombre ya está ocupado. Elige uno único para ti.");
-                        return;
-                    }
-
-                    // 2. Si no existe, insertar
-                    string fechaNacimiento = dTPNacimiento.Value.ToString("yyyy-MM-dd");
-                    string fechaActual = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
-
-                    string insertQuery = @"INSERT INTO alias (fecha_nacimiento, alias, created_at, updated_at) 
-                                   VALUES (@fecha_nacimiento, @alias, @created_at, @updated_at)";
-                    MySqlCommand insertCmd = new MySqlCommand(insertQuery, conexion);
-                    insertCmd.Parameters.AddWithValue("@fecha_nacimiento", fechaNacimiento);
-                    insertCmd.Parameters.AddWithValue("@alias", aliasIngresado);
-                    insertCmd.Parameters.AddWithValue("@created_at", fechaActual);
-                    insertCmd.Parameters.AddWithValue("@updated_at", fechaActual);
-
-                    insertCmd.ExecuteNonQuery();
-
-                    MessageBox.Show("¡Buen trabajo! ¡Tu nombre quedó registrado con éxito!");
-
-
-
-                    // Obtener el ID del alias recién registrado
-                    string idQuery = "SELECT id_alias FROM alias WHERE alias = @alias LIMIT 1;";
-                    MySqlCommand idCmd = new MySqlCommand(idQuery, conexion);
-                    idCmd.Parameters.AddWithValue("@alias", aliasIngresado);
-                    int idAlias = Convert.ToInt32(idCmd.ExecuteScalar());
-
-                    // Insertar registro en progreso_general
-                    string progresoQuery = @"INSERT INTO progreso_general 
-                   (id_alias, total_lecciones, lecciones_completadas, porcentaje_global, fecha_creacion, fecha_actualizacion)
-                    VALUES (@idAlias, 0, 0, 0.00, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);";
-                    MySqlCommand progresoCmd = new MySqlCommand(progresoQuery, conexion);
-                    progresoCmd.Parameters.AddWithValue("@idAlias", idAlias);
-                    progresoCmd.ExecuteNonQuery();
-
-                   
-
-                    // Redirigir al formulario principal
-                    MenuLecciones menu = new MenuLecciones();
-                    menu.StartPosition = FormStartPosition.Manual;
-                    menu.Location = this.Location;
-                    menu.Show();
-                    this.Close(); // Cierra PantallaRegistro
+                    MessageBox.Show("¡Ups! Ese nombre ya está ocupado. Elige uno único para ti.");
+                    return;
                 }
+
+                // Registrar el alias y obtener el ID
+                int idAlias = AliasDB.RegistrarAlias(aliasIngresado, fechaNacimiento);
+
+                // Crear u obtener progreso
+                int idProgreso = ProgresoDB.ObtenerOCrearProgreso(idAlias);
+
+                // Guardar en sesión global
+                Sesion.IniciarSesion(idAlias, idProgreso);
+
+                MessageBox.Show("¡Buen trabajo! ¡Tu nombre quedó registrado con éxito!");
+
+                // Redirigir al menú de lecciones
+                MenuLecciones menu = new MenuLecciones();
+                menu.StartPosition = FormStartPosition.Manual;
+                menu.Location = this.Location;
+                menu.Show();
+                this.Close();
             }
             catch (Exception ex)
             {
-                MessageBox.Show("¡Uy! Algo salió mal al guardar. Inténtalo otra vez." + ex.Message);
+                MessageBox.Show("¡Uy! Algo salió mal al guardar. Inténtalo otra vez.\n" + ex.Message);
             }
-        }
-
-        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void btnRegistroRegresar_Click(object sender, EventArgs e)
@@ -161,7 +120,7 @@ namespace HackyFox
             volver.StartPosition = FormStartPosition.Manual;
             volver.Location = this.Location;
             volver.Show();
-            this.Close(); // Cierra PantallaRegistro
+            this.Close();
         }
     }
 }

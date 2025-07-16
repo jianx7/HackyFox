@@ -100,7 +100,6 @@
             tbAliasInicioDeSesion.Size = new Size(274, 38);
             tbAliasInicioDeSesion.TabIndex = 5;
             tbAliasInicioDeSesion.TextAlign = HorizontalAlignment.Center;
-            tbAliasInicioDeSesion.TextChanged += tbAliasInicioDeSesion_TextChanged;
             // 
             // pbMascotaInicioDeSesion
             // 

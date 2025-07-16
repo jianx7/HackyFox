@@ -43,14 +43,15 @@
             panel3 = new Panel();
             panel4 = new Panel();
             Lbconsejo = new Label();
-            TbContenidoDeco = new TextBox();
             pictureBox1 = new PictureBox();
             TbContenido = new TextBox();
+            pbLeccion = new PictureBox();
             panelMenu.SuspendLayout();
             panel2.SuspendLayout();
             panel3.SuspendLayout();
             panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pbLeccion).BeginInit();
             SuspendLayout();
             // 
             // panelMenu
@@ -186,7 +187,6 @@
             panel2.Name = "panel2";
             panel2.Size = new Size(1269, 83);
             panel2.TabIndex = 1;
-            panel2.Paint += panel2_Paint;
             // 
             // btnLeccionAReto
             // 
@@ -253,8 +253,8 @@
             // 
             // panel4
             // 
+            panel4.Controls.Add(pbLeccion);
             panel4.Controls.Add(Lbconsejo);
-            panel4.Controls.Add(TbContenidoDeco);
             panel4.Controls.Add(pictureBox1);
             panel4.Dock = DockStyle.Right;
             panel4.Location = new Point(472, 0);
@@ -273,20 +273,6 @@
             Lbconsejo.Size = new Size(359, 159);
             Lbconsejo.TabIndex = 4;
             Lbconsejo.Text = "label1";
-            // 
-            // TbContenidoDeco
-            // 
-            TbContenidoDeco.BorderStyle = BorderStyle.None;
-            TbContenidoDeco.Enabled = false;
-            TbContenidoDeco.Font = new Font("Comfortaa", 18F);
-            TbContenidoDeco.ForeColor = Color.FromArgb(1, 149, 177);
-            TbContenidoDeco.Location = new Point(98, 395);
-            TbContenidoDeco.Margin = new Padding(3, 4, 3, 4);
-            TbContenidoDeco.Multiline = true;
-            TbContenidoDeco.Name = "TbContenidoDeco";
-            TbContenidoDeco.ReadOnly = true;
-            TbContenidoDeco.Size = new Size(625, 427);
-            TbContenidoDeco.TabIndex = 3;
             // 
             // pictureBox1
             // 
@@ -314,6 +300,14 @@
             TbContenido.TabIndex = 2;
             TbContenido.TextAlign = HorizontalAlignment.Center;
             // 
+            // pbLeccion
+            // 
+            pbLeccion.Location = new Point(90, 404);
+            pbLeccion.Name = "pbLeccion";
+            pbLeccion.Size = new Size(625, 427);
+            pbLeccion.TabIndex = 5;
+            pbLeccion.TabStop = false;
+            // 
             // Leccion
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -334,8 +328,8 @@
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
             panel4.ResumeLayout(false);
-            panel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pbLeccion).EndInit();
             ResumeLayout(false);
         }
 
@@ -350,7 +344,6 @@
         private TextBox TbContenido;
         private Panel panel4;
         private PictureBox pictureBox1;
-        private TextBox TbContenidoDeco;
         private Label Lbconsejo;
         private Button btnMenu;
         private Button btnUser;
@@ -358,5 +351,6 @@
         private Button btnMascota;
         private FontAwesome.Sharp.IconButton btnSalir;
         private Button btnLeccionAReto;
+        private PictureBox pbLeccion;
     }
 }

@@ -151,7 +151,6 @@
             dTPNacimiento.Name = "dTPNacimiento";
             dTPNacimiento.Size = new Size(219, 21);
             dTPNacimiento.TabIndex = 9;
-            dTPNacimiento.ValueChanged += dateTimePicker1_ValueChanged;
             // 
             // btnRegistroRegresar
             // 

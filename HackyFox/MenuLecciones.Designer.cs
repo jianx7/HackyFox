@@ -67,9 +67,8 @@
             panelMenu.Controls.Add(panelLogo);
             panelMenu.Dock = DockStyle.Left;
             panelMenu.Location = new Point(0, 0);
-            panelMenu.Margin = new Padding(3, 2, 3, 2);
             panelMenu.Name = "panelMenu";
-            panelMenu.Size = new Size(278, 544);
+            panelMenu.Size = new Size(318, 725);
             panelMenu.TabIndex = 0;
             // 
             // btnMascota
@@ -82,18 +81,18 @@
             btnMascota.ForeColor = Color.FromArgb(0, 151, 178);
             btnMascota.Image = Properties.Resources.mascota;
             btnMascota.ImageAlign = ContentAlignment.MiddleLeft;
-            btnMascota.Location = new Point(0, 182);
-            btnMascota.Margin = new Padding(3, 2, 3, 2);
+            btnMascota.Location = new Point(0, 243);
             btnMascota.Name = "btnMascota";
-            btnMascota.Padding = new Padding(9, 0, 0, 0);
+            btnMascota.Padding = new Padding(10, 0, 0, 0);
             btnMascota.RightToLeft = RightToLeft.No;
-            btnMascota.Size = new Size(278, 56);
+            btnMascota.Size = new Size(318, 75);
             btnMascota.TabIndex = 8;
             btnMascota.Tag = "Mascota";
             btnMascota.Text = "Mascota";
             btnMascota.TextAlign = ContentAlignment.MiddleLeft;
             btnMascota.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnMascota.UseVisualStyleBackColor = true;
+            btnMascota.Click += btnMascota_Click;
             // 
             // btnLecciones
             // 
@@ -105,18 +104,18 @@
             btnLecciones.ForeColor = Color.FromArgb(0, 151, 178);
             btnLecciones.Image = Properties.Resources.book;
             btnLecciones.ImageAlign = ContentAlignment.MiddleLeft;
-            btnLecciones.Location = new Point(0, 126);
-            btnLecciones.Margin = new Padding(3, 2, 3, 2);
+            btnLecciones.Location = new Point(0, 168);
             btnLecciones.Name = "btnLecciones";
-            btnLecciones.Padding = new Padding(9, 0, 0, 0);
+            btnLecciones.Padding = new Padding(10, 0, 0, 0);
             btnLecciones.RightToLeft = RightToLeft.No;
-            btnLecciones.Size = new Size(278, 56);
+            btnLecciones.Size = new Size(318, 75);
             btnLecciones.TabIndex = 7;
             btnLecciones.Tag = "Lecciones";
             btnLecciones.Text = "Lecciones";
             btnLecciones.TextAlign = ContentAlignment.MiddleLeft;
             btnLecciones.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnLecciones.UseVisualStyleBackColor = true;
+            btnLecciones.Click += btnLecciones_Click;
             // 
             // btnUser
             // 
@@ -128,18 +127,18 @@
             btnUser.ForeColor = Color.FromArgb(0, 151, 178);
             btnUser.Image = Properties.Resources.user;
             btnUser.ImageAlign = ContentAlignment.MiddleLeft;
-            btnUser.Location = new Point(0, 70);
-            btnUser.Margin = new Padding(3, 2, 3, 2);
+            btnUser.Location = new Point(0, 93);
             btnUser.Name = "btnUser";
-            btnUser.Padding = new Padding(9, 0, 0, 0);
+            btnUser.Padding = new Padding(10, 0, 0, 0);
             btnUser.RightToLeft = RightToLeft.No;
-            btnUser.Size = new Size(278, 56);
+            btnUser.Size = new Size(318, 75);
             btnUser.TabIndex = 6;
             btnUser.Tag = "Usuario";
             btnUser.Text = "Usuario";
             btnUser.TextAlign = ContentAlignment.MiddleLeft;
             btnUser.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnUser.UseVisualStyleBackColor = true;
+            btnUser.Click += btnUser_Click;
             // 
             // btnSalir
             // 
@@ -153,11 +152,10 @@
             btnSalir.IconColor = Color.FromArgb(0, 151, 178);
             btnSalir.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnSalir.ImageAlign = ContentAlignment.MiddleLeft;
-            btnSalir.Location = new Point(0, 492);
-            btnSalir.Margin = new Padding(3, 2, 3, 2);
+            btnSalir.Location = new Point(0, 656);
             btnSalir.Name = "btnSalir";
-            btnSalir.Padding = new Padding(9, 0, 0, 0);
-            btnSalir.Size = new Size(278, 52);
+            btnSalir.Padding = new Padding(10, 0, 0, 0);
+            btnSalir.Size = new Size(318, 69);
             btnSalir.TabIndex = 5;
             btnSalir.Tag = "Salir";
             btnSalir.Text = "Salir";
@@ -171,9 +169,8 @@
             panelLogo.Controls.Add(btnMenu);
             panelLogo.Dock = DockStyle.Top;
             panelLogo.Location = new Point(0, 0);
-            panelLogo.Margin = new Padding(3, 2, 3, 2);
             panelLogo.Name = "panelLogo";
-            panelLogo.Size = new Size(278, 70);
+            panelLogo.Size = new Size(318, 93);
             panelLogo.TabIndex = 0;
             // 
             // btnMenu
@@ -186,10 +183,9 @@
             btnMenu.Image = Properties.Resources.menu;
             btnMenu.ImageAlign = ContentAlignment.MiddleLeft;
             btnMenu.Location = new Point(0, 0);
-            btnMenu.Margin = new Padding(3, 2, 3, 2);
             btnMenu.Name = "btnMenu";
-            btnMenu.Padding = new Padding(9, 0, 0, 0);
-            btnMenu.Size = new Size(278, 70);
+            btnMenu.Padding = new Padding(10, 0, 0, 0);
+            btnMenu.Size = new Size(318, 93);
             btnMenu.TabIndex = 0;
             btnMenu.Tag = "HackyFox";
             btnMenu.Text = "HackyFox";
@@ -204,19 +200,18 @@
             panelDashboard.Controls.Add(lbDashboard);
             panelDashboard.Dock = DockStyle.Top;
             panelDashboard.Font = new Font("Comfortaa", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            panelDashboard.Location = new Point(278, 0);
-            panelDashboard.Margin = new Padding(3, 2, 3, 2);
+            panelDashboard.Location = new Point(318, 0);
             panelDashboard.Name = "panelDashboard";
-            panelDashboard.Size = new Size(692, 52);
+            panelDashboard.Size = new Size(791, 69);
             panelDashboard.TabIndex = 1;
             // 
             // lbDashboard
             // 
             lbDashboard.AutoSize = true;
             lbDashboard.Font = new Font("Comfortaa", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lbDashboard.Location = new Point(5, 7);
+            lbDashboard.Location = new Point(6, 9);
             lbDashboard.Name = "lbDashboard";
-            lbDashboard.Size = new Size(132, 34);
+            lbDashboard.Size = new Size(165, 44);
             lbDashboard.TabIndex = 0;
             lbDashboard.Tag = "Lecciones";
             lbDashboard.Text = "Lecciones";
@@ -228,10 +223,9 @@
             panel4.Controls.Add(lbTema);
             panel4.Controls.Add(lbLeccion);
             panel4.Dock = DockStyle.Fill;
-            panel4.Location = new Point(278, 52);
-            panel4.Margin = new Padding(3, 2, 3, 2);
+            panel4.Location = new Point(318, 69);
             panel4.Name = "panel4";
-            panel4.Size = new Size(692, 492);
+            panel4.Size = new Size(791, 656);
             panel4.TabIndex = 2;
             // 
             // panelActLeccion
@@ -239,10 +233,9 @@
             panelActLeccion.Controls.Add(btnDinamic);
             panelActLeccion.Controls.Add(btnReto);
             panelActLeccion.Controls.Add(btnInfo);
-            panelActLeccion.Location = new Point(74, 130);
-            panelActLeccion.Margin = new Padding(3, 2, 3, 2);
+            panelActLeccion.Location = new Point(85, 173);
             panelActLeccion.Name = "panelActLeccion";
-            panelActLeccion.Size = new Size(549, 289);
+            panelActLeccion.Size = new Size(627, 385);
             panelActLeccion.TabIndex = 2;
             // 
             // btnDinamic
@@ -254,11 +247,10 @@
             btnDinamic.ForeColor = Color.FromArgb(0, 74, 173);
             btnDinamic.Image = Properties.Resources._lock;
             btnDinamic.ImageAlign = ContentAlignment.MiddleRight;
-            btnDinamic.Location = new Point(0, 124);
-            btnDinamic.Margin = new Padding(3, 2, 3, 2);
+            btnDinamic.Location = new Point(0, 166);
             btnDinamic.Name = "btnDinamic";
-            btnDinamic.Padding = new Padding(9, 0, 0, 0);
-            btnDinamic.Size = new Size(549, 62);
+            btnDinamic.Padding = new Padding(10, 0, 0, 0);
+            btnDinamic.Size = new Size(627, 83);
             btnDinamic.TabIndex = 2;
             btnDinamic.Text = "¡Cuidado!";
             btnDinamic.TextAlign = ContentAlignment.MiddleLeft;
@@ -273,11 +265,10 @@
             btnReto.ForeColor = Color.FromArgb(0, 74, 173);
             btnReto.Image = Properties.Resources._lock;
             btnReto.ImageAlign = ContentAlignment.MiddleRight;
-            btnReto.Location = new Point(0, 62);
-            btnReto.Margin = new Padding(3, 2, 3, 2);
+            btnReto.Location = new Point(0, 83);
             btnReto.Name = "btnReto";
-            btnReto.Padding = new Padding(9, 0, 0, 0);
-            btnReto.Size = new Size(549, 62);
+            btnReto.Padding = new Padding(10, 0, 0, 0);
+            btnReto.Size = new Size(627, 83);
             btnReto.TabIndex = 1;
             btnReto.Text = "¡Reto Relampago!";
             btnReto.TextAlign = ContentAlignment.MiddleLeft;
@@ -293,10 +284,9 @@
             btnInfo.Image = Properties.Resources.flecha;
             btnInfo.ImageAlign = ContentAlignment.MiddleRight;
             btnInfo.Location = new Point(0, 0);
-            btnInfo.Margin = new Padding(3, 2, 3, 2);
             btnInfo.Name = "btnInfo";
-            btnInfo.Padding = new Padding(9, 0, 0, 0);
-            btnInfo.Size = new Size(549, 62);
+            btnInfo.Padding = new Padding(10, 0, 0, 0);
+            btnInfo.Size = new Size(627, 83);
             btnInfo.TabIndex = 0;
             btnInfo.Text = "¿Qué es la ciberseguridad?";
             btnInfo.TextAlign = ContentAlignment.MiddleLeft;
@@ -308,9 +298,9 @@
             lbTema.AutoSize = true;
             lbTema.Font = new Font("Clear Sans", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lbTema.ForeColor = Color.FromArgb(0, 151, 178);
-            lbTema.Location = new Point(98, 72);
+            lbTema.Location = new Point(112, 96);
             lbTema.Name = "lbTema";
-            lbTema.Size = new Size(203, 38);
+            lbTema.Size = new Size(254, 47);
             lbTema.TabIndex = 1;
             lbTema.Text = "Escudo Seguro";
             // 
@@ -319,9 +309,9 @@
             lbLeccion.AutoSize = true;
             lbLeccion.Font = new Font("Clear Sans", 25.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lbLeccion.ForeColor = Color.FromArgb(0, 74, 173);
-            lbLeccion.Location = new Point(74, 29);
+            lbLeccion.Location = new Point(85, 39);
             lbLeccion.Name = "lbLeccion";
-            lbLeccion.Size = new Size(176, 49);
+            lbLeccion.Size = new Size(223, 61);
             lbLeccion.TabIndex = 0;
             lbLeccion.Text = "Lección 1";
             // 
@@ -332,14 +322,13 @@
             // 
             // MenuLecciones
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(970, 544);
+            ClientSize = new Size(1109, 725);
             Controls.Add(panel4);
             Controls.Add(panelDashboard);
             Controls.Add(panelMenu);
-            Margin = new Padding(3, 2, 3, 2);
-            MinimumSize = new Size(833, 460);
+            MinimumSize = new Size(949, 598);
             Name = "MenuLecciones";
             Text = " HackyFox";
             WindowState = FormWindowState.Maximized;
