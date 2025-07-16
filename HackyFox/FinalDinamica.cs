@@ -42,10 +42,13 @@ namespace HackyFox
             // Verificar si existe la lección antes de continuar
             if (LeccionExiste(siguienteLeccion))
             {
-                var leccion = new Leccion(); // O podrías pasar el id si tu Leccion lo soporta
+                Sesion.LeccionActual++;
+
+                var leccion = new Leccion();
                 leccion.StartPosition = FormStartPosition.Manual;
                 leccion.Location = this.Location;
                 leccion.Show();
+                this.Close();
             }
             else
             {

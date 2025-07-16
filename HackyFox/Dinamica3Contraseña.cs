@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HackyFox.Clases;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -16,11 +17,14 @@ namespace HackyFox
         {
             InitializeComponent();
             lbContraseña.Text = contraseñaGenerada;
+            
         }
 
         private void btnNext_Click(object sender, EventArgs e)
         {
-
+            Bien bien = new Bien(Sesion.LeccionActual);
+            bien.Show();
+            this.Close();
         }
     }
 }

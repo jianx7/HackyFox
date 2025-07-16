@@ -19,10 +19,6 @@ namespace HackyFox
 
         private readonly string cadenaConexion = "server=localhost;username=root;password=1234;database=hackyfox";
 
-        /// <summary>
-        /// Id de la siguiente lección según la base de datos.
-        /// </summary>
-
 
         public MenuLecciones()
         {
@@ -110,19 +106,17 @@ namespace HackyFox
             using (var conexion = new MySqlConnection(cadenaConexion))
             {
                 conexion.Open();
-
-                string sql = @"
-                    SELECT l.id_leccion, l.nombre, l.titulo, l.dinamica 
+                string sql = @"SELECT l.id_leccion, l.nombre, l.titulo, l.dinamica 
                       FROM lecciones l
-                     WHERE l.id_leccion > (
-                               SELECT COALESCE(MAX(id_leccion), 0)
-                                 FROM detalle_progreso
-                                WHERE id_progreso_general = @idProg
-                                  AND componente = 'dinamica'
-                                  AND completado = 1
-                           )
-                     ORDER BY l.id_leccion
-                     LIMIT 1;";
+                      WHERE l.id_leccion > (
+                          SELECT COALESCE(MAX(id_leccion), 0)
+                          FROM detalle_progreso
+                          WHERE id_progreso_general = @idProg
+                          AND componente = 'dinamica'
+                          AND completado = 1
+                      )
+                      ORDER BY l.id_leccion
+                      LIMIT 1;";
 
                 using (var cmd = new MySqlCommand(sql, conexion))
                 {

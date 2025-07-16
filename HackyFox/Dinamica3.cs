@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HackyFox.Clases;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -25,7 +26,7 @@ namespace HackyFox
         public Dinamica3(int idLeccionActual)
         {
             InitializeComponent();
-            this.idLeccionActual = idLeccionActual;
+            this.idLeccionActual = Sesion.LeccionActual;
         }
 
         //Redimensionar imagen de botones

@@ -17,10 +17,10 @@ namespace HackyFox
         private int idLeccionActual;
         private int opcionCorrecta;
 
-        public RetoRelampago(int idLeccion)
+        public RetoRelampago(int idLeccionActual)
         {
             InitializeComponent();
-            this.idLeccionActual = idLeccion;
+            this.idLeccionActual = Sesion.LeccionActual;
 
             btnRespuesta1.Click += (s, e) => VerificarRespuesta(1);
             btnRespuesta2.Click += (s, e) => VerificarRespuesta(2);

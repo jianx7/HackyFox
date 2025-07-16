@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -69,6 +70,30 @@ namespace HackyFox
             //Menu
             btnMenu.Image = Properties.Resources.menu;
             btnMenu.Image = new Bitmap(Properties.Resources.menu, new Size(52, 52));
+
+            using (MySqlConnection conexion = new MySqlConnection("server=localhost;username=root;password=1234;database=hackyfox"))
+            {
+                conexion.Open();
+                string query = "SELECT porcentaje FROM tu_tabla WHERE id = @id";
+
+                using (MySqlCommand cmd = new MySqlCommand(query, conexion))
+                {
+                    cmd.Parameters.AddWithValue("@id", 1); // Cambia el ID según necesites
+
+                    using (MySqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            decimal porcentajeDecimal = Convert.ToDecimal(reader["porcentaje"]);
+                            int porcentajeEntero = (int)Math.Round(porcentajeDecimal);
+
+                            ProgresoGeneral.Minimum = 0;
+                            ProgresoGeneral.Maximum = 100;
+                            ProgresoGeneral.Value = Math.Min(100, Math.Max(0, porcentajeEntero));
+                        }
+                    }
+                }
+            }
         }
 
         private void btnLecciones_Click(object sender, EventArgs e)

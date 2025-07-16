@@ -156,7 +156,7 @@ namespace HackyFox
             final.StartPosition = FormStartPosition.Manual;
             final.Location = this.Location;
             final.Show();
-            this.Close();
+            this.Close();  
         }
     }
 }

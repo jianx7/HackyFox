@@ -21,7 +21,7 @@ namespace HackyFox
         public Dinamica6(int idLeccionActual)
         {
             InitializeComponent();
-            this.idLeccionActual = idLeccionActual;
+            this.idLeccionActual = Sesion.LeccionActual;
         }
 
         //Redimensionar imagen de botones

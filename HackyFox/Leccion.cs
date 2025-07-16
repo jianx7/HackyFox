@@ -24,27 +24,16 @@ namespace HackyFox
         {
             try
             {
-                int idAlias = Sesion.UsuarioActual.IdAlias;
-
                 using (MySqlConnection conexion = ConexionBD.ObtenerConexion())
                 {
                     conexion.Open();
-
-                    // Obtener o crear el progreso general
-                    int idProgresoGeneral = ProgresoDB.ObtenerOCrearProgreso(idAlias);
-
-                    // Obtener cuántas lecciones completó
-                    int leccionesCompletadas = ObtenerLeccionesCompletadas(conexion, idProgresoGeneral);
-
-                    int idLeccionActual = leccionesCompletadas + 1;
-
                     string queryLeccion = @"SELECT nombre, titulo, subtitulo, informacion, consejo, imagen 
-                                            FROM lecciones 
-                                            WHERE id_leccion = @idLeccion";
+                                   FROM lecciones 
+                                   WHERE id_leccion = @idLeccion";
 
                     using (MySqlCommand cmd = new MySqlCommand(queryLeccion, conexion))
                     {
-                        cmd.Parameters.AddWithValue("@idLeccion", idLeccionActual);
+                        cmd.Parameters.AddWithValue("@idLeccion", Sesion.LeccionActual); // Usa la sesión
 
                         using (MySqlDataReader reader = cmd.ExecuteReader())
                         {

@@ -17,7 +17,7 @@ namespace HackyFox
         public Dinamica2(int idLeccionActual)
         {
             InitializeComponent();
-            this.idLeccionActual = idLeccionActual;
+            this.idLeccionActual = Sesion.LeccionActual;
         }
 
 

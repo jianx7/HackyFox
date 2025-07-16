@@ -16,10 +16,10 @@ namespace HackyFox
     {
         private readonly int idLeccionActual;
 
-        public Dinamica1(int idLeccion)
+        public Dinamica1(int idLeccionActual)
         {
             InitializeComponent();
-            this.idLeccionActual = idLeccion;
+            this.idLeccionActual = Sesion.LeccionActual;
         }
 
         //Redimensionar imagen de botones
