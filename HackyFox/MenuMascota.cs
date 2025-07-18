@@ -83,6 +83,12 @@ namespace HackyFox
             menuLecciones.Show();
             this.Close(); // Cierra el formulario actual
         }
+        private void btnUser_Click(object sender, EventArgs e)
+        {
+            MenuProgreso menuProgreso = new MenuProgreso();
+            menuProgreso.Show();
+            this.Close(); // Cierra el formulario actual
+        }
 
         //Redimensionar tomaño de los botones del menu
         private void MenuMascota_Load(object sender, EventArgs e)
@@ -97,12 +103,7 @@ namespace HackyFox
             btnMenu.Image = new Bitmap(Properties.Resources.menu, new Size(52, 52));
         }
 
-        private void btnUser_Click(object sender, EventArgs e)
-        {
-            MenuProgreso menuProgreso = new MenuProgreso();
-            menuProgreso.Show();
-            this.Close(); // Cierra el formulario actual
-        }
+       
 
         private void btnMascota_Click(object sender, EventArgs e)
         {

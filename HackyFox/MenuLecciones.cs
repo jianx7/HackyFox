@@ -36,13 +36,14 @@ namespace HackyFox
             }
 
             // Ícono hamburguesa
+            btnMenu.Image = Properties.Resources.menu;
             btnMenu.Image = new Bitmap(Properties.Resources.menu, new Size(52, 52));
 
             // Cargar la siguiente lección
             RefrescarSiguienteLeccion();
         }
 
-        private void btnMenu_Click_1(object sender, EventArgs e)
+        private void btnMenu_Click(object sender, EventArgs e)
         {
             //Colapsar el menu llamando al método colapseMenu
             colapseMenu();
@@ -102,6 +103,25 @@ namespace HackyFox
             this.Close();
         }
 
+        private void btnLecciones_Click(object sender, EventArgs e)
+        {
+
+        }
+        // Eventos para ir a los menus
+        private void btnMascota_Click(object sender, EventArgs e)
+        {
+            MenuMascota menuMascota = new MenuMascota();
+            menuMascota.Show();
+            this.Close();
+        }
+
+        private void btnUser_Click(object sender, EventArgs e)
+        {
+            MenuProgreso menuProgreso = new MenuProgreso();
+            menuProgreso.Show();
+            this.Close();
+        }
+
         //Consulta la bd para obtener la siguiente lección y actualizar los labels
         public void RefrescarSiguienteLeccion()
         {
@@ -149,23 +169,5 @@ namespace HackyFox
             }
         }
 
-        private void btnLecciones_Click(object sender, EventArgs e)
-        {
-
-        }
-        // Eventos para ir a los menus
-        private void btnMascota_Click(object sender, EventArgs e)
-        {
-            MenuMascota menuMascota = new MenuMascota();
-            menuMascota.Show();
-            this.Close();
-        }
-
-        private void btnUser_Click(object sender, EventArgs e)
-        {
-            MenuProgreso menuProgreso = new MenuProgreso();
-            menuProgreso.Show();
-            this.Close();
-        }
     }
 }
