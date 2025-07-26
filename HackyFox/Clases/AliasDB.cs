@@ -26,7 +26,7 @@ namespace HackyFox.Clases
         }
 
         //Crea un nuevo alias con su fecha de nacimiento
-        public static int RegistrarAlias(string alias, DateTime fechaNacimiento)
+        public static int RegistrarAlias(string alias, int edad)
         {
             using (MySqlConnection conexion = new MySqlConnection(cadenaConexion))
             {
@@ -34,10 +34,10 @@ namespace HackyFox.Clases
 
                 string fechaActual = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
 
-                string insertQuery = @"INSERT INTO alias (fecha_nacimiento, alias, created_at, updated_at) 
-                                       VALUES (@fechaNacimiento, @alias, @createdAt, @updatedAt)";
+                string insertQuery = @"INSERT INTO alias (edad, alias, created_at, updated_at) 
+                               VALUES (@edad, @alias, @createdAt, @updatedAt)";
                 MySqlCommand insertCmd = new MySqlCommand(insertQuery, conexion);
-                insertCmd.Parameters.AddWithValue("@fechaNacimiento", fechaNacimiento.ToString("yyyy-MM-dd"));
+                insertCmd.Parameters.AddWithValue("@edad", edad);
                 insertCmd.Parameters.AddWithValue("@alias", alias);
                 insertCmd.Parameters.AddWithValue("@createdAt", fechaActual);
                 insertCmd.Parameters.AddWithValue("@updatedAt", fechaActual);
