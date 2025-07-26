@@ -193,7 +193,7 @@
             btnMenu.TextAlign = ContentAlignment.MiddleLeft;
             btnMenu.TextImageRelation = TextImageRelation.TextBeforeImage;
             btnMenu.UseVisualStyleBackColor = true;
-            
+            btnMenu.Click += btnMenu_Click;
             // 
             // panelDashboard
             // 

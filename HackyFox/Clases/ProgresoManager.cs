@@ -82,7 +82,7 @@ namespace HackyFox.Clases
             if (existe == 0)
             {
                 // Insertar el nuevo componente
-                double porcentaje = 100.0 / 18; 
+                double porcentaje = 100.0 / 3   ; 
 
                 const string sqlInsert = @"
                     INSERT INTO detalle_progreso
