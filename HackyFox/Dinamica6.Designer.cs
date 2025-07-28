@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Dinamica6));
             panelMenu = new Panel();
             btnSalir = new FontAwesome.Sharp.IconButton();
             btnMascota = new Button();
@@ -377,6 +378,7 @@
             ClientSize = new Size(1109, 725);
             Controls.Add(panelDinamica);
             Controls.Add(panelMenu);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "Dinamica6";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Dinamica6";

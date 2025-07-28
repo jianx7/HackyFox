@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MenuMascota));
             panelMenu = new Panel();
             btnSalir = new FontAwesome.Sharp.IconButton();
             btnMascota = new Button();
@@ -301,6 +302,7 @@
             ClientSize = new Size(1109, 725);
             Controls.Add(panelMascota);
             Controls.Add(panelMenu);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "MenuMascota";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "MenuMascota";

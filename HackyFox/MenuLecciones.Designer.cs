@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MenuLecciones));
             panelMenu = new Panel();
             btnMascota = new Button();
             btnLecciones = new Button();
@@ -329,6 +330,7 @@
             Controls.Add(panel4);
             Controls.Add(panelDashboard);
             Controls.Add(panelMenu);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             MinimumSize = new Size(949, 598);
             Name = "MenuLecciones";
             StartPosition = FormStartPosition.CenterScreen;

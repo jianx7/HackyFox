@@ -306,6 +306,7 @@
             ClientSize = new Size(1109, 725);
             Controls.Add(panelDinamica);
             Controls.Add(panelMenu);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "Dinamica1";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Dinamica1";

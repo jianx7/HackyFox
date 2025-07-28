@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Dinamica2));
             panelMenu = new Panel();
             btnSalir = new FontAwesome.Sharp.IconButton();
             btnMascota = new Button();
@@ -292,6 +293,7 @@
             Controls.Add(panelDashboard);
             Controls.Add(panelMenu);
             Controls.Add(pictureBox1);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             MinimumSize = new Size(950, 600);
             Name = "Dinamica2";
             StartPosition = FormStartPosition.CenterScreen;
