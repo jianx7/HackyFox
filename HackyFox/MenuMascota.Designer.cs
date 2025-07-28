@@ -40,7 +40,7 @@
             label3 = new Label();
             label2 = new Label();
             pictureBox2 = new PictureBox();
-            label1 = new Label();
+            lbAlias = new Label();
             panelDashboard = new Panel();
             lbDashboard = new Label();
             pictureBox1 = new PictureBox();
@@ -198,7 +198,7 @@
             panelMascota.Controls.Add(label3);
             panelMascota.Controls.Add(label2);
             panelMascota.Controls.Add(pictureBox2);
-            panelMascota.Controls.Add(label1);
+            panelMascota.Controls.Add(lbAlias);
             panelMascota.Controls.Add(panelDashboard);
             panelMascota.Controls.Add(pictureBox1);
             panelMascota.Dock = DockStyle.Fill;
@@ -251,17 +251,16 @@
             pictureBox2.TabIndex = 3;
             pictureBox2.TabStop = false;
             // 
-            // label1
+            // lbAlias
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Clear Sans", 22.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.ForeColor = Color.FromArgb(0, 151, 178);
-            label1.Image = Properties.Resources.rectanguloMorado;
-            label1.Location = new Point(41, 156);
-            label1.Name = "label1";
-            label1.Size = new Size(122, 52);
-            label1.TabIndex = 1;
-            label1.Text = "Locky";
+            lbAlias.AutoSize = true;
+            lbAlias.Font = new Font("Clear Sans", 22.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lbAlias.ForeColor = Color.FromArgb(0, 151, 178);
+            lbAlias.Image = Properties.Resources.rectanguloMorado;
+            lbAlias.Location = new Point(41, 156);
+            lbAlias.Name = "lbAlias";
+            lbAlias.Size = new Size(0, 52);
+            lbAlias.TabIndex = 1;
             // 
             // panelDashboard
             // 
@@ -330,11 +329,11 @@
         private Button btnLecciones;
         private Button btnMascota;
         private FontAwesome.Sharp.IconButton btnSalir;
-        private Label label1;
         private PictureBox pictureBox1;
         private PictureBox pictureBox3;
         private Label label3;
         private Label label2;
         private PictureBox pictureBox2;
+        private Label lbAlias;
     }
 }

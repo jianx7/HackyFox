@@ -1,4 +1,6 @@
-﻿using System;
+﻿using HackyFox.Clases;
+using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -16,7 +18,48 @@ namespace HackyFox
         public MenuMascota()
         {
             InitializeComponent();
-        } 
+            
+        }
+
+        //Cargas desde la bd la informcacion del usuario
+        private void CargarAlias()
+        {
+            try
+            {
+                using (MySqlConnection conexion = ConexionBD.ObtenerConexion())
+                {
+                    conexion.Open();
+                    string queryLeccion = @"SELECT alias FROM alias WHERE id_alias = @idAlias";
+
+                    using (MySqlCommand cmd = new MySqlCommand(queryLeccion, conexion))
+                    {
+                        // 👇 Aquí usamos el ID que está dentro del objeto Usuario
+                        cmd.Parameters.AddWithValue("@idAlias", Sesion.UsuarioActual.IdAlias);
+
+                        using (MySqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                lbAlias.Text = reader["alias"].ToString();
+                            }
+                            else
+                            {
+                                lbAlias.Text = "";
+                                MessageBox.Show("Alias no encontrado para id_alias = " + Sesion.UsuarioActual.IdAlias);
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                lbAlias.Text = "";
+                MessageBox.Show("Error al cargar el alias: " + ex.Message);
+            }
+        }
+
+
+
 
         private void btnMenu_Click_1(object sender, EventArgs e)
         {
@@ -93,6 +136,7 @@ namespace HackyFox
         //Redimensionar tomaño de los botones del menu
         private void MenuMascota_Load(object sender, EventArgs e)
         {
+            CargarAlias();
             //Panel de menú
             foreach (Button menuButton in panelMenu.Controls.OfType<Button>())
             {

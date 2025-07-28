@@ -37,7 +37,7 @@
             panel1 = new Panel();
             btnMenu = new Button();
             panelProgreso = new Panel();
-            label1 = new Label();
+            lbAlias = new Label();
             pictureBox1 = new PictureBox();
             panel2 = new Panel();
             ProgresoGeneral = new HackyFox.Controls.RJProgressBar();
@@ -192,7 +192,7 @@
             // 
             // panelProgreso
             // 
-            panelProgreso.Controls.Add(label1);
+            panelProgreso.Controls.Add(lbAlias);
             panelProgreso.Controls.Add(pictureBox1);
             panelProgreso.Controls.Add(panel2);
             panelProgreso.Controls.Add(panelDashboard);
@@ -202,15 +202,15 @@
             panelProgreso.Size = new Size(791, 725);
             panelProgreso.TabIndex = 2;
             // 
-            // label1
+            // lbAlias
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Comfortaa", 17.9999981F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(356, 351);
-            label1.Name = "label1";
-            label1.Size = new Size(110, 47);
-            label1.TabIndex = 4;
-            label1.Text = "Locky";
+            lbAlias.AutoSize = true;
+            lbAlias.Font = new Font("Comfortaa", 17.9999981F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lbAlias.Location = new Point(356, 351);
+            lbAlias.Name = "lbAlias";
+            lbAlias.Size = new Size(110, 47);
+            lbAlias.TabIndex = 4;
+            lbAlias.Text = "Locky";
             // 
             // pictureBox1
             // 
@@ -326,6 +326,6 @@
         private Panel panel2;
         private PictureBox PicProgress;
         private PictureBox pictureBox1;
-        private Label label1;
+        private Label lbAlias;
     }
 }

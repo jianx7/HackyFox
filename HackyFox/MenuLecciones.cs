@@ -26,7 +26,10 @@ namespace HackyFox
         {
             InitializeComponent();
             RefrescarSiguienteLeccion();
+            
         }
+
+        
 
         private void MenuLecciones_Load(object sender, EventArgs e)
         {

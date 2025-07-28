@@ -26,6 +26,42 @@ namespace HackyFox
             colapseMenu();
         }
 
+        //Cargas desde la bd la informcacion de la leccion actual
+        private void CargarAlias()
+        {
+            try
+            {
+                using (MySqlConnection conexion = ConexionBD.ObtenerConexion())
+                {
+                    conexion.Open();
+                    string queryLeccion = @"SELECT alias FROM alias WHERE id_alias = @idAlias";
+
+                    using (MySqlCommand cmd = new MySqlCommand(queryLeccion, conexion))
+                    {
+                        // 👇 Aquí usamos el ID que está dentro del objeto Usuario
+                        cmd.Parameters.AddWithValue("@idAlias", Sesion.UsuarioActual.IdAlias);
+
+                        using (MySqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                lbAlias.Text = reader["alias"].ToString();
+                            }
+                            else
+                            {
+                                lbAlias.Text = "";
+                                MessageBox.Show("Alias no encontrado para id_alias = " + Sesion.UsuarioActual.IdAlias);
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                lbAlias.Text = "";
+                MessageBox.Show("Error al cargar el alias: " + ex.Message);
+            }
+        }
         private void colapseMenu()
         {
             //Cambiar el ancho del panel si es mayor a 300px
@@ -75,7 +111,7 @@ namespace HackyFox
 
             // Cargar progreso del usuario actual
             CargarProgresoUsuario();
-
+            CargarAlias();
         }
 
         private void btnLecciones_Click(object sender, EventArgs e)
