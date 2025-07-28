@@ -221,12 +221,12 @@ namespace HackyFox
         {
 
             DialogResult resultado = MessageBox.Show
-        (
+            (
             "¿Estás seguro que quieres salir del juego?",
             "Salir",
             MessageBoxButtons.YesNo,
             MessageBoxIcon.Question
-        );
+            );
 
             if (resultado == DialogResult.Yes)
             {

@@ -32,6 +32,12 @@ namespace HackyFox
         private void RetoRelampago_Load(object sender, EventArgs e)
         {
             CargarRetoDesdeBD();
+
+            //Panel de menú
+            foreach (Button menuButton in panelMenu.Controls.OfType<Button>())
+            {
+                menuButton.Image = new Bitmap(menuButton.Image, new Size(52, 52));
+            }
         }
 
         private void CargarRetoDesdeBD()
@@ -163,36 +169,60 @@ namespace HackyFox
             }
         }
 
-        //Método para cambiar de pantalla
-        private void SalirYMostrarFormulario(Form formularioDestino)
+        
+        //Llamar al método para cada boton
+        private void btnUser_Click(object sender, EventArgs e)
         {
-            DialogResult resultado = MessageBox.Show(
-                "¿Estás seguro que quieres salir del juego?",
-                "Salir",
-                MessageBoxButtons.YesNo,
-                MessageBoxIcon.Question
+            DialogResult resultado = MessageBox.Show
+            (
+            "¿Estás seguro que quieres salir del juego?",
+            "Salir",
+            MessageBoxButtons.YesNo,
+            MessageBoxIcon.Question
             );
 
             if (resultado == DialogResult.Yes)
             {
-                formularioDestino.Show();
+                MenuProgreso menuProgreso = new MenuProgreso();
+                menuProgreso.Show();
                 this.Close();
             }
-        }
-        //Llamar al método para cada boton
-        private void btnUser_Click(object sender, EventArgs e)
-        {
-            SalirYMostrarFormulario(new MenuProgreso());
         }
 
         private void btnLecciones_Click(object sender, EventArgs e)
         {
-            SalirYMostrarFormulario(new MenuProgreso());
+            DialogResult resultado = MessageBox.Show
+            (
+            "¿Estás seguro que quieres salir del juego?",
+            "Salir",
+            MessageBoxButtons.YesNo,
+            MessageBoxIcon.Question
+            );
+
+            if (resultado == DialogResult.Yes)
+            {
+                MenuLecciones menuLecciones = new MenuLecciones();
+                menuLecciones.Show();
+                this.Close();
+            }
         }
 
         private void btnMascota_Click(object sender, EventArgs e)
         {
-            SalirYMostrarFormulario(new MenuProgreso());
+            DialogResult resultado = MessageBox.Show
+           (
+           "¿Estás seguro que quieres salir del juego?",
+           "Salir",
+           MessageBoxButtons.YesNo,
+           MessageBoxIcon.Question
+           );
+
+            if (resultado == DialogResult.Yes)
+            {
+                MenuMascota menuMascota = new MenuMascota();
+                menuMascota.Show();
+                this.Close();
+            }
         }
 
         private void btnSalir_Click(object sender, EventArgs e)

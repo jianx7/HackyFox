@@ -86,36 +86,58 @@ namespace HackyFox
 
 
         //Método para cambiar de pantalla
-        private void SalirYMostrarFormulario(Form formularioDestino)
+        private void btnUser_Click(object sender, EventArgs e)
         {
-            DialogResult resultado = MessageBox.Show(
-                "¿Estás seguro que quieres salir del juego?",
-                "Salir",
-                MessageBoxButtons.YesNo,
-                MessageBoxIcon.Question
+            DialogResult resultado = MessageBox.Show
+            (
+            "¿Estás seguro que quieres salir del juego?",
+            "Salir",
+            MessageBoxButtons.YesNo,
+            MessageBoxIcon.Question
             );
 
             if (resultado == DialogResult.Yes)
             {
-                formularioDestino.Show();
+                MenuProgreso menuProgreso = new MenuProgreso();
+                menuProgreso.Show();
                 this.Close();
             }
-        }
-        //Llamar al método para cada boton
-        private void btnUser_Click(object sender, EventArgs e)
-        {
-            SalirYMostrarFormulario(new MenuProgreso());
-            this.Close();
         }
 
         private void btnLecciones_Click(object sender, EventArgs e)
         {
-            SalirYMostrarFormulario(new MenuLecciones());
+            DialogResult resultado = MessageBox.Show
+            (
+            "¿Estás seguro que quieres salir del juego?",
+            "Salir",
+            MessageBoxButtons.YesNo,
+            MessageBoxIcon.Question
+            );
+
+            if (resultado == DialogResult.Yes)
+            {
+                MenuLecciones menuLecciones = new MenuLecciones();
+                menuLecciones.Show();
+                this.Close();
+            }
         }
 
         private void btnMascota_Click(object sender, EventArgs e)
         {
-            SalirYMostrarFormulario(new MenuMascota());
+            DialogResult resultado = MessageBox.Show
+           (
+           "¿Estás seguro que quieres salir del juego?",
+           "Salir",
+           MessageBoxButtons.YesNo,
+           MessageBoxIcon.Question
+           );
+
+            if (resultado == DialogResult.Yes)
+            {
+                MenuMascota menuMascota = new MenuMascota();
+                menuMascota.Show();
+                this.Close();
+            }
         }
         private void btnSalir_Click(object sender, EventArgs e)
         {

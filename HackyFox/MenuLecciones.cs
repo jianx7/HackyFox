@@ -15,8 +15,9 @@ namespace HackyFox
 
     public partial class MenuLecciones : Form
     {
+
         //Indicar la siguiente lección
-        public int LeccionSiguienteId { get; private set; } = 1;
+        public int LeccionSiguienteId;
         // Cadena de conexión a la base de datos
         private readonly string cadenaConexion = "server=localhost;username=root;password=1234;database=hackyfox";
 
@@ -97,6 +98,7 @@ namespace HackyFox
 
         private void btnInfo_Click(object sender, EventArgs e)
         {
+            Sesion.LeccionActual = LeccionSiguienteId;
             // Abre la pantalla de información de lección
             var ventanaLeccion = new Leccion();
             ventanaLeccion.Show();
@@ -170,4 +172,4 @@ namespace HackyFox
         }
 
     }
-}
+}   
