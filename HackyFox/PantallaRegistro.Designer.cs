@@ -38,10 +38,11 @@
             btnRegistroAlias = new Btn_personalizado();
             pbPastelRegistro = new PictureBox();
             btnRegistroRegresar = new Btn_personalizado();
-            dTPNacimiento = new DateTimePicker();
+            nUDNacimiento = new NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)pbFondoRegistro).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pbLogoRegistro).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pbPastelRegistro).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)nUDNacimiento).BeginInit();
             SuspendLayout();
             // 
             // pbFondoRegistro
@@ -71,9 +72,9 @@
             lbNacimiento.ForeColor = Color.FromArgb(0, 151, 178);
             lbNacimiento.Location = new Point(400, 196);
             lbNacimiento.Name = "lbNacimiento";
-            lbNacimiento.Size = new Size(293, 49);
+            lbNacimiento.Size = new Size(323, 51);
             lbNacimiento.TabIndex = 2;
-            lbNacimiento.Text = "¿Cuándo naciste?";
+            lbNacimiento.Text = "Selecciona tu edad:";
             // 
             // lbAliasRegistro
             // 
@@ -95,7 +96,7 @@
             lbAdvertenciaRegistro.ForeColor = Color.FromArgb(97, 54, 37);
             lbAdvertenciaRegistro.Location = new Point(411, 425);
             lbAdvertenciaRegistro.Name = "lbAdvertenciaRegistro";
-            lbAdvertenciaRegistro.Size = new Size(258, 29);
+            lbAdvertenciaRegistro.Size = new Size(281, 29);
             lbAdvertenciaRegistro.TabIndex = 5;
             lbAdvertenciaRegistro.Text = "(No uses tu nombre real)";
             // 
@@ -130,7 +131,7 @@
             // 
             pbPastelRegistro.BackColor = Color.FromArgb(242, 242, 242);
             pbPastelRegistro.Image = (Image)resources.GetObject("pbPastelRegistro.Image");
-            pbPastelRegistro.Location = new Point(719, 250);
+            pbPastelRegistro.Location = new Point(624, 250);
             pbPastelRegistro.Name = "pbPastelRegistro";
             pbPastelRegistro.Size = new Size(55, 59);
             pbPastelRegistro.SizeMode = PictureBoxSizeMode.Zoom;
@@ -152,15 +153,13 @@
             btnRegistroRegresar.UseVisualStyleBackColor = false;
             btnRegistroRegresar.Click += btnRegistroRegresar_Click;
             // 
-            // dTPNacimiento
+            // nUDNacimiento
             // 
-            dTPNacimiento.CalendarForeColor = Color.FromArgb(97, 54, 37);
-            dTPNacimiento.Font = new Font("Comfortaa", 8.999999F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dTPNacimiento.Location = new Point(417, 264);
-            dTPNacimiento.Margin = new Padding(3, 2, 3, 2);
-            dTPNacimiento.Name = "dTPNacimiento";
-            dTPNacimiento.Size = new Size(219, 24);
-            dTPNacimiento.TabIndex = 9;
+            nUDNacimiento.Location = new Point(468, 265);
+            nUDNacimiento.Name = "nUDNacimiento";
+            nUDNacimiento.Size = new Size(150, 27);
+            nUDNacimiento.TabIndex = 11;
+            nUDNacimiento.ValueChanged += nUDNacimiento_ValueChanged;
             // 
             // PantallaRegistro
             // 
@@ -168,7 +167,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(255, 241, 62);
             ClientSize = new Size(1109, 725);
-            Controls.Add(dTPNacimiento);
+            Controls.Add(nUDNacimiento);
             Controls.Add(btnRegistroRegresar);
             Controls.Add(pbPastelRegistro);
             Controls.Add(btnRegistroAlias);
@@ -187,6 +186,7 @@
             ((System.ComponentModel.ISupportInitialize)pbFondoRegistro).EndInit();
             ((System.ComponentModel.ISupportInitialize)pbLogoRegistro).EndInit();
             ((System.ComponentModel.ISupportInitialize)pbPastelRegistro).EndInit();
+            ((System.ComponentModel.ISupportInitialize)nUDNacimiento).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -202,6 +202,6 @@
         private Btn_personalizado btnRegistroAlias;
         private PictureBox pbPastelRegistro;
         private Btn_personalizado btnRegistroRegresar;
-        private DateTimePicker dTPNacimiento;
+        private NumericUpDown nUDNacimiento;
     }
 }

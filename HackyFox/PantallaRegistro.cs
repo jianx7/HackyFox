@@ -20,7 +20,6 @@ namespace HackyFox
         Size tamañoFormularioOriginal;
         float fuenteOriginal;
 
-        //Constructor
         public PantallaRegistro()
         {
             InitializeComponent();
@@ -29,10 +28,9 @@ namespace HackyFox
 
         private void PantallaRegistro_Load(object sender, EventArgs e)
         {
-            // Guardamos el tamaño actual del formulario y el tamaño de fuente base
             tamañoFormularioOriginal = this.ClientSize;
-            fuenteOriginal = lbNacimiento.Font.Size; 
-            //Guardar ubicacion u tamaño de cada control
+            fuenteOriginal = lbNacimiento.Font.Size;
+
             controlesOriginales[pbLogoRegistro] = pbLogoRegistro.Bounds;
             controlesOriginales[lbNacimiento] = lbNacimiento.Bounds;
             controlesOriginales[pbPastelRegistro] = pbPastelRegistro.Bounds;
@@ -42,11 +40,15 @@ namespace HackyFox
             controlesOriginales[btnRegistroAlias] = btnRegistroAlias.Bounds;
             controlesOriginales[pbFondoRegistro] = pbFondoRegistro.Bounds;
             controlesOriginales[btnRegistroRegresar] = btnRegistroRegresar.Bounds;
-            controlesOriginales[dTPNacimiento] = dTPNacimiento.Bounds;
+            controlesOriginales[nUDNacimiento] = nUDNacimiento.Bounds;
 
+            // Configuración NumericUpDown para edad
+            nUDNacimiento.Minimum = 7;
+            nUDNacimiento.Maximum = 12;
+            nUDNacimiento.Value = 7;
+            nUDNacimiento.Increment = 1;
         }
 
-        //Evento de redimensionamiento del formulario
         private void PantallaRegistro_Resize(object? sender, EventArgs e)
         {
             float escalaX = (float)this.ClientSize.Width / tamañoFormularioOriginal.Width;
@@ -69,46 +71,33 @@ namespace HackyFox
             }
         }
 
-        // Evento para el botón de registro
         private void btnRegistroAlias_Click(object sender, EventArgs e)
         {
-            //Se obtiene el alias y la fecha de nacimiento ingresados
             string aliasIngresado = tbAliasRegistro.Text.Trim();
-            DateTime fechaNacimiento = dTPNacimiento.Value;
-            //Valida si esta vacio
+            int edadIngresada = (int)nUDNacimiento.Value;
+
             if (string.IsNullOrEmpty(aliasIngresado))
             {
                 MessageBox.Show("Por favor, escribe un alias.");
                 return;
             }
-            //vlida que la fecha de nacimiento no sea en el futuro
-            if (fechaNacimiento > DateTime.Now)
-            {
-                MessageBox.Show("La fecha de nacimiento no puede ser en el futuro.");
-                return;
-            }
 
             try
             {
-                // Verificar si el alias ya existe
                 if (AliasDB.ExisteAlias(aliasIngresado))
                 {
                     MessageBox.Show("¡Ups! Ese nombre ya está ocupado. Elige uno único para ti.");
                     return;
                 }
 
-                // Registrar el alias y obtener el ID
-                int idAlias = AliasDB.RegistrarAlias(aliasIngresado, fechaNacimiento);
+                int idAlias = AliasDB.RegistrarAlias(aliasIngresado, edadIngresada);
 
-                // Crear u obtener progreso
                 int idProgreso = ProgresoDB.ObtenerOCrearProgreso(idAlias);
 
-                // Guardar en sesión 
                 Sesion.IniciarSesion(idAlias, idProgreso);
 
                 MessageBox.Show("¡Buen trabajo! ¡Tu nombre quedó registrado con éxito!");
 
-                // Redirigir al menú de lecciones
                 MenuLecciones menu = new MenuLecciones();
                 menu.StartPosition = FormStartPosition.Manual;
                 menu.Location = this.Location;
@@ -120,7 +109,7 @@ namespace HackyFox
                 MessageBox.Show("¡Uy! Algo salió mal al guardar. Inténtalo otra vez.\n" + ex.Message);
             }
         }
-        // Evento para el botón de regresar
+
         private void btnRegistroRegresar_Click(object sender, EventArgs e)
         {
             PantallaBienvenida volver = new PantallaBienvenida();
@@ -128,6 +117,11 @@ namespace HackyFox
             volver.Location = this.Location;
             volver.Show();
             this.Close();
+        }
+
+        private void nUDNacimiento_ValueChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
